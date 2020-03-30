@@ -1,0 +1,224 @@
+body {
+	color: #666666;	
+	background: rgba(255,255,255,0.9);
+
+	background-image: url(https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80);
+	position: absolute;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;*/
+	}
+
+.headerFont h1 {
+	font-weight: 100;
+	font-size: 2.2rem;
+	font-family: 'Montserrat', sans-serif;;
+	text-transform: uppercase;
+	letter-spacing: 15px;
+	word-spacing: 5px;
+}
+
+.contentFont {
+	font-weight: 100;
+	font-size: 1.5rem;
+	font-family: 'EB Garamond', serif, 'Dancing Script', cursive;
+	letter-spacing: 1px;
+}
+
+/*‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾*\
+|               MENU               ︳
+\*________________________________*/
+
+#menu {
+	z-index: 0;
+	color: black;
+	padding: 0px;
+	margin-top: 170px;
+	margin-left: 50px;
+	justify-content: start;
+	position: absolute;
+}
+
+#menu a {
+	padding-top: 10px;
+	padding-bottom: 10;
+	color: black;
+	font-weight: 500;
+	font-size: 1.2rem;
+	font-family: 'EB Garamond', serif, 'Dancing Script', cursive;
+}
+
+.nav-item {
+	text-shadow: 0.5px 3px 3px rgba(0,0,0,0.2),
+                 1px 6px 13px rgba(0,0,0,0.1),
+                 3px 12px 23px rgba(0,0,0,0.1);
+}
+
+/*‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾*\
+|               HOME               ︳
+\*________________________________*/
+
+#home {
+	min-height: 780px;
+	width: 100%;
+}
+
+#weddingTitle {
+	margin-top: 96px;
+}
+
+/*‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾*\
+|              STORY               ︳
+\*________________________________*/
+
+#story {
+	width: 100%;
+	/*background-color: #ffe9e9;*/
+	background-color: rgba(255, 233, 233, 0.95);
+}
+
+.image {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    height: 570px;
+    background-size: cover;
+    background-position: center;
+}
+
+.genericPic1 
+{
+	background-image: url(https://images.unsplash.com/photo-1544078751-58fee2d8a03b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80);
+	/*background-image: url(https://scontent.fyvr3-1.fna.fbcdn.net/v/t1.0-9/61168712_10156630838463640_2905463934574133248_o.jpg?_nc_cat=109&_nc_sid=7aed08&_nc_ohc=Jb3y6BzQDqQAX9M1nbR&_nc_ht=scontent.fyvr3-1.fna&oh=dbbcb92c58bbcc00212763fc7ebf74f6&oe=5EA4F0D3);*/
+}
+
+/*‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾*\
+|             DETAILS              ︳
+\*________________________________*/
+
+#details {
+	/*background-color: #fff7f7;*/
+	background-color: rgba(255, 247, 247, 0.95);
+}
+
+.detailContent h1 {
+	color: #E3C5C1;
+	font-size: 1.5rem;
+	letter-spacing: 0.2rem;
+}
+
+.detailContent p {
+	font-size: 1.5rem;
+	letter-spacing: 0.2rem;
+	margin-bottom: 4px;
+}
+
+.detailContent a {
+	color: #666666;
+	text-decoration: underline;
+}
+
+/*‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾*\
+|               RSVP               ︳
+\*________________________________*/
+
+#rsvp {
+	width: 100%;
+	/*background-color: #ffe9e9;*/
+	background-color: rgba(255, 233, 233, 0.95);
+}
+
+#rsvpButton {
+	width: 174px;
+	height: 50px;
+	color: #666666;
+}
+
+.genericPic2 {
+	background-image: url(https://images.unsplash.com/photo-1511795409834-ef04bbd61622?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80);
+	/*background-image: url(https://scontent.fyvr3-1.fna.fbcdn.net/v/t1.0-9/68969587_120595789293356_2494535443811401728_o.jpg?_nc_cat=109&_nc_sid=e007fa&_nc_ohc=66tKl4Q6gsoAX9eUZbq&_nc_ht=scontent.fyvr3-1.fna&oh=c34cb74ff3fbe49b57324582a2a59bd3&oe=5EA5A232);*/
+}
+
+/*‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾*\
+|             REGISTRY             ︳
+\*________________________________*/
+
+#registry {
+	width: 100%;
+	/*background-color: #fff7f7;*/
+	background-color: rgba(255, 247, 247, 0.95);
+}
+
+
+
+/*‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾*\
+|             CONTACT              ︳
+\*________________________________*/
+
+
+#contact {
+	width: 100%;
+	/*background-color: #ffe9e9;*/
+	background-color: rgba(255, 233, 233, 0.95);
+}
+
+.jollibee {
+	display: block;
+    margin-left: auto;
+    margin-right: auto;
+    height: 200px;
+    width: 200px;
+    background-size: cover;
+    background-position: center;
+	background-image: url(https://1000logos.net/wp-content/uploads/2019/03/Jollibee-symbol.jpg);
+}
+
+#emailContact {
+	color: #666666;
+}
+
+
+/*‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾*\
+|              MOBILE              ︳
+\*________________________________*/
+
+/*medium*/
+@media (max-width: 768px){
+	.headerStyle {
+		margin-top: 48px !important;
+		padding-top: 15px !important;
+	}
+	#storyContent {
+		margin-top: 0px !important;
+		margin-bottom: 0px !important;
+	}
+	#storyContent2 p {
+		margin-bottom: 53px !important;
+		margin-top: 48px !important;
+	}
+	#detailTitle {
+		padding-top: 0px !important;
+		padding-left: 15px !important;
+		margin-top: 0px !important;
+		margin-left: 0px !important;
+	}
+	.detailContent {
+		padding-bottom: 0px !important;
+	}
+	.detailContent2 {
+		padding-top: 15px !important;
+		padding-bottom: 0px !important;
+	}
+	#rsvpContent {
+		margin-top: 0px !important;
+		margin-bottom: 0px !important;
+	}
+	#registryContent {
+		margin-top: 0px !important;
+		margin-bottom: 0px !important;
+	}
+	#registryContent2 p {
+		margin-bottom: 53px !important;
+		margin-top: 48px !important;
+	}
+}
