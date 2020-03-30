@@ -1,7 +1,5 @@
 body {
 	color: #666666;	
-	background: rgba(255,255,255,0.9);
-
 	background-image: url(https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80);
 	position: absolute;
     background-size: cover;
@@ -79,13 +77,15 @@ body {
 #story {
 	width: 100%;
 	/*background-color: #ffe9e9;*/
-	background-color: rgba(255, 233, 233, 0.95);
+	background-color: rgba(255, 233, 233, 0.93);
 }
 
 .image {
     display: block;
-    margin-left: auto;
-    margin-right: auto;
+    margin-left: 0px;
+    margin-right: 0px;
+    padding-left: 0px;
+    padding-right: 0px;
     height: 570px;
     background-size: cover;
     background-position: center;
@@ -103,7 +103,7 @@ body {
 
 #details {
 	/*background-color: #fff7f7;*/
-	background-color: rgba(255, 247, 247, 0.95);
+	background-color: rgba(255, 247, 247, 0.93);
 }
 
 .detailContent h1 {
@@ -130,7 +130,7 @@ body {
 #rsvp {
 	width: 100%;
 	/*background-color: #ffe9e9;*/
-	background-color: rgba(255, 233, 233, 0.95);
+	background-color: rgba(255, 233, 233, 0.93);
 }
 
 #rsvpButton {
@@ -151,7 +151,7 @@ body {
 #registry {
 	width: 100%;
 	/*background-color: #fff7f7;*/
-	background-color: rgba(255, 247, 247, 0.95);
+	background-color: rgba(255, 247, 247, 0.93);
 }
 
 
@@ -164,7 +164,7 @@ body {
 #contact {
 	width: 100%;
 	/*background-color: #ffe9e9;*/
-	background-color: rgba(255, 233, 233, 0.95);
+	background-color: rgba(255, 233, 233, 0.93);
 }
 
 .jollibee {
