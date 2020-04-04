@@ -1,5 +1,5 @@
 body {
-	color: #666666;	
+	color: #666666;
 	background-image: url(https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80);
 	position: absolute;
     background-size: cover;
@@ -15,7 +15,7 @@ body {
 .headerFont h1 {
 	font-weight: 100;
 	font-size: 2.2rem;
-	font-family: 'Montserrat', sans-serif;;
+	font-family: 'Montserrat', sans-serif;
 	text-transform: uppercase;
 	letter-spacing: 15px;
 	word-spacing: 5px;
@@ -80,7 +80,7 @@ body {
 	background-color: rgba(255, 233, 233, 0.93);
 }
 
-.image {
+.imageContainer1 {
     display: block;
     margin-left: 0px;
     margin-right: 0px;
@@ -88,13 +88,18 @@ body {
     padding-right: 0px;
     height: 570px;
     background-size: cover;
+    background-repeat: no-repeat;
     background-position: center;
 }
 
-.genericPic1 
-{
-	background-image: url(https://images.unsplash.com/photo-1544078751-58fee2d8a03b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80);
-	/*background-image: url(https://scontent.fyvr3-1.fna.fbcdn.net/v/t1.0-9/61168712_10156630838463640_2905463934574133248_o.jpg?_nc_cat=109&_nc_sid=7aed08&_nc_ohc=Jb3y6BzQDqQAX9M1nbR&_nc_ht=scontent.fyvr3-1.fna&oh=dbbcb92c58bbcc00212763fc7ebf74f6&oe=5EA4F0D3);*/
+.imageContainer1 img {
+    height: 570px;
+    width: 100%;
+    object-fit: cover;
+}
+
+#photoAlbum {
+
 }
 
 /*‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾*\
@@ -139,6 +144,18 @@ body {
 	color: #666666;
 }
 
+.imageContainer2 {
+    display: block;
+    margin-left: 0px;
+    margin-right: 0px;
+    padding-left: 0px;
+    padding-right: 0px;
+    height: 570px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
 .genericPic2 {
 	background-image: url(https://images.unsplash.com/photo-1511795409834-ef04bbd61622?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80);
 	/*background-image: url(https://scontent.fyvr3-1.fna.fbcdn.net/v/t1.0-9/68969587_120595789293356_2494535443811401728_o.jpg?_nc_cat=109&_nc_sid=e007fa&_nc_ohc=66tKl4Q6gsoAX9eUZbq&_nc_ht=scontent.fyvr3-1.fna&oh=c34cb74ff3fbe49b57324582a2a59bd3&oe=5EA5A232);*/
@@ -154,12 +171,9 @@ body {
 	background-color: rgba(255, 247, 247, 0.93);
 }
 
-
-
 /*‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾*\
 |             CONTACT              ︳
 \*________________________________*/
-
 
 #contact {
 	width: 100%;
@@ -181,7 +195,6 @@ body {
 #emailContact {
 	color: #666666;
 }
-
 
 /*‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾*\
 |              MOBILE              ︳
