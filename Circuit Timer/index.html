@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Font Awesome -->
+	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css"></script>
+	
+	<!-- Google Font -->
+	<link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+
+	<!-- Stylesheet -->
+	<link rel="stylesheet" type="text/css" href="assets/css/styles.css">
+	
+	<title>Workout</title>
+
+</head>
+<body>
+
+    <div id="display">
+
+    	<div>
+    		<div id="navbar">
+    			<button id="save">Save</button>
+    			<button id="load">Load</button>
+    			<button id="sound">Sound: <span><i class="fas fa-volume-up"></i></span></button>
+    		</div>
+    	</div>
+
+        <div class="row">
+            <!-- Main Area -->
+            <div id="display1" class="column1">
+                <div>
+                    <div id="timerWrapper" class="display1Wrapper">
+			            <h1 id="timerTitle">Time</h1>
+			            <h1 id="timerCount"><span id="timer">00:00</span></h1>
+       				</div>
+                    <div id="exerciseWrapper" class="display1Wrapper">
+			            <h1 id="exerciseTitle">Flappy Addy Flapons</h1>
+       				</div>
+                    <div id="roundWrapper" class="display1Wrapper">
+			            <h1 id="round">Round <span>10</span></h1>
+       				</div>
+
+       				<div class="row">
+       					<div id="">
+       					</div>
+       					<div id="">
+       					</div>
+       				</div>
+                </div>
+            </div>
+            <!-- Workout List -->
+            <div id="display2" class="column2">
+            	<div>
+					<div class="display2Wrapper">
+						<div>
+							<h1 id="settingsTitle" class="settings">Create your routine</h1>
+							<ul id="settingsContent">
+								<li><div class="settingTitle">
+										Prepare
+									</div> 
+									<div class="timerInput">
+										<div class="timerHighlight">
+											<input type="number" value="00" class="minInput timeStyle"></input>
+											<span class="timeStyle">:</span>
+											<input type="number" value="00" class="secInput timeStyle"></input>
+										</div>
+									</div>
+									<div class="settingButtons">
+										<i class="fas fa-plus-circle"></i>
+									</div>								
+									<div class="settingButtons">
+										<i class="fas fa-minus-circle"></i>
+									</div>
+								</li>
+								<li><div class="settingTitle">
+										Set
+									</div> 
+									<div class="timerInput">
+										<div class="timerHighlight">
+											<input type="number" value="00" class="minInput timeStyle"></input>
+											<span class="timeStyle">:</span>
+											<input type="number" value="00" class="secInput timeStyle"></input>
+										</div>
+									</div>
+									<div class="settingButtons">
+										<i class="fas fa-plus-circle"></i>
+									</div>								
+									<div class="settingButtons">
+										<i class="fas fa-minus-circle"></i>
+									</div>
+								</li>
+								<li><div class="settingTitle">
+										Rest
+									</div> 
+									<div class="timerInput">
+										<div class="timerHighlight">
+											<input type="number" value="00" class="minInput timeStyle"></input>
+											<span class="timeStyle">:</span>
+											<input type="number" value="00" class="secInput timeStyle"></input>
+										</div>
+									</div>
+									<div class="settingButtons">
+										<i class="fas fa-plus-circle"></i>
+									</div>								
+									<div class="settingButtons">
+										<i class="fas fa-minus-circle"></i>
+									</div>
+								</li>
+								<li><div class="settingTitle">
+										Rounds
+									</div> 
+									<div class="timerInput">
+										<div class="timerHighlight">
+											<input type="number" value="00" class="minInput timeStyle"></input>
+											<span class="timeStyle">:</span>
+											<input type="number" value="00" class="secInput timeStyle"></input>
+										</div>
+									</div>
+									<div class="settingButtons">
+										<i class="fas fa-plus-circle"></i>
+									</div>								
+									<div class="settingButtons">
+										<i class="fas fa-minus-circle"></i>
+									</div>
+								</li>
+							</ul>
+						</div>
+						<div>
+							<h1 id="routineTitle" class="settings">Exercise Set <i class="fas fa-plus"></i></h1>
+							<input id="routineInput" type="text" placeholder="Add exercise">
+							<ul id="routineContent">
+								<li><span><i class="far fa-trash-alt"></i></span>Push Ups</li>
+								<li><span><i class="far fa-trash-alt"></i></span>Chin Ups</li>
+								<li><span><i class="far fa-trash-alt"></i></span>Sit Ups</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+            </div>
+        </div>
+    </div>
+	
+	
+</body>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/js/bootstrap.min.js"></script> -->
+
+<script type="text/javascript" src="assets/js/tabata.js"></script>
+
+</html>
