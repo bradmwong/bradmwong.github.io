@@ -31,7 +31,7 @@
     	</div>
 
         <div class="row">
-            <!-- Main Area -->
+            <!-- Main Display Area -->
             <div id="display1" class="column1">
                 <div>
                     <div id="timerWrapper" class="display1Wrapper">
@@ -39,18 +39,19 @@
 			            <h1 id="timerCount"><span id="timer">00:00</span></h1>
        				</div>
                     <div id="exerciseWrapper" class="display1Wrapper">
-			            <h1 id="exerciseTitle">Flappy Addy Flapons</h1>
+			            <h1 id="exerciseTitle">Squats</h1>
        				</div>
-                    <div id="roundWrapper" class="display1Wrapper">
-			            <h1 id="round">Round <span>10</span></h1>
+       				<div class="row">
+	                    <div id="roundWrapper" class="display1Wrapper">
+				            <h1 id="roundCount"><span id="round">99</span></h1>
+				            <h1 id="roundTitle">Round</h1>
+	       				</div>
+	       				<div id="progressWrapper" class="display1Wrapper">
+	       					<h1 id="progressCount">100%</h1>
+	       					<h1 id="progressTitle">Progress</h1>
+	       				</div>
        				</div>
 
-       				<div class="row">
-       					<div id="">
-       					</div>
-       					<div id="">
-       					</div>
-       				</div>
                 </div>
             </div>
             <!-- Workout List -->
@@ -116,9 +117,7 @@
 									</div> 
 									<div class="timerInput">
 										<div class="timerHighlight">
-											<input type="number" value="00" class="minInput timeStyle"></input>
-											<span class="timeStyle">:</span>
-											<input type="number" value="00" class="secInput timeStyle"></input>
+											<input type="number" value="00" class="roundInput timeStyle"></input>
 										</div>
 									</div>
 									<div class="settingButtons">
@@ -139,6 +138,9 @@
 								<li><span><i class="far fa-trash-alt"></i></span>Sit Ups</li>
 							</ul>
 						</div>
+						<div id="startWrapper">
+							<div id="startButton">Start</div>
+						</div>
 					</div>
 				</div>
             </div>
@@ -152,6 +154,6 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/js/bootstrap.min.js"></script> -->
 
-<script type="text/javascript" src="assets/js/tabata.js"></script>
+<script type="text/javascript" src="assets/js/Circuit Timer.js"></script>
 
 </html>
