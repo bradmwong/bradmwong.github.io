@@ -1,8 +1,8 @@
 var sound= true;
+var isRunning = false;
+var isPaused = false;
 
-$("#sound").click(function(){
-	// Save input settings
-});
+
 
 // Toggle sound button/status
 $("#sound").click(function(){
@@ -10,81 +10,166 @@ $("#sound").click(function(){
 	sound = !sound;
 });
 
-// Check Off Specific Todos By Clicking
-$("#routineContent").on("click", "li", function(){
-	$(this).toggleClass("completed");
+
+
+
+// Click setting button
+$(".settingButtons").click(function(){
+	// Settings increment button animation
+	var $this = $(this);
+	$(this).addClass("clickDefaultSetting");
+	setTimeout(function(){
+		$this.removeClass("clickDefaultSetting");
+	}, 200);
+})
+
+
+/*‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾*\
+|          ROUTINE INPUT           ︳
+\*________________________________*/
+
+// If Enter is pressed
+$("input[type='text']").keypress(function(event){
+	if(event.which === 13) {
+		addRoutine()
+	}
+});
+
+// If add sign is clicked
+$(".fa-plus").click(function(){
+	addRoutine();
 });
 
 // Click on trashcan to delete exercise
-$("#routineContent").on("click", "span", function(event){
+$("#routineContent").on("click", "span:first-child", function(event){
 	$(this).parent().fadeOut(250, function(){
 		$(this).remove();
 	});
 	event.stopPropagation();
 });
 
-// If Enter is pressed
-$("input[type='text']").keypress(function(event){
-	if(event.which === 13){
-		// Grab new exercise text from input
-		var exerciseText = $(this).val();
-		$("#routineContent").append("<li><span><i class='far fa-trash-alt'></i></span>" + exerciseText + "</li>");
-		$("#routineInput").val("");
+// Check off exercise to exclude
+$("#routineContent").on("click", "li", function(){
+	if (!isRunning) {
+		$(this).toggleClass("ignored");
 	}
 });
 
-// Fade add button when clicked
-$(".fa-plus").click(function(){
-	$("input[type='text']").fadeToggle();
+
+/*‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾*\
+|        START/RESET BUTTON        ︳
+\*________________________________*/
+
+// Click start button
+$("#startButton").click(function(){
+
+	// Start workout
+	isRunning = !isRunning;
+
+	// Start button animation
+	var $this = $(this);
+	$(this).addClass("clickDefault");
+	setTimeout(function(){
+		$this.removeClass("clickDefault");
+
+		// Change Start/Reset button
+		if (isRunning) {
+			$this.html("Reset");
+		} else {
+			$this.html("Start");
+		}
+
+		// Reset pause button
+		isPaused = false;
+		$("#pauseButton").html("Pause");
+
+	}, 200);
+
+	// hide unused fields and show "pause button"
+	if (isRunning) {
+		$("#settingSetup").animate({ height: 0, opacity: 0 }, 'slow');
+		$("#routineInputWrapper").animate({ height: 0, opacity: 0 }, 'slow');
+		$("#routineContent span:first-child").hide();
+		$("#pauseButton").animate({ height: 53.591, opacity: 1, marginTop: "25.8px" }, 'slow');
+	} else {
+		$("#settingSetup").animate({ height: 208.364, opacity: 1 }, 'slow');
+		$("#routineInputWrapper").animate({ height: 52.800, opacity: 1 }, 'slow');
+		$("#routineContent span:first-child").show();
+		$("#pauseButton").animate({ height: 0, opacity: 0, marginTop: "0" }, 'slow');
+	}
+	$(".fa-plus").fadeToggle();
+});
+
+/*‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾*\
+|        PAUSE/RESUME BUTTON       ︳
+\*________________________________*/
+
+// Click pause button
+$("#pauseButton").click(function(){
+
+	// Start/Stop workout
+	isPaused = !isPaused;
+
+	// Click button animation
+	var $this = $(this);
+	$(this).addClass("clickDefault");
+	setTimeout(function(){
+		$this.removeClass("clickDefault");
+		if (isPaused) {
+			$this.html("Resume");
+		} else {
+			$this.html("Pause");
+	}
+	}, 200);
 });
 
 
 
-
-
-
-
-
-timer();
-
-// TIMER
-function beginTimer() {
-    if (!isClicked) {
-        timer();
-        isClicked = !isClicked;
-    }
+function addRoutine(){
+	if($("#routineInput").val() !== ""){
+		// Add new exercise text from input
+		var exerciseText = $("#routineInput").val();
+		$("#routineContent").append("<li><span><i class='far fa-trash-alt'></i></span><span>" + exerciseText + "</span></li>");
+		$("#routineInput").val("");
+	}
 }
 
-function timer() {
-    window.markDate = new Date();
-    $(document).ready(function() {
-        $("div.absent").toggleClass("present");
-    });
-    updateClock();
+
+
+
+
+
+
+init();
+
+// Initialization
+function init() {
+	// $("#pauseButton").hide();
+	$("#pauseButton").css({ height: 0, opacity: 0, marginTop: "0" });
 }
 
-function updateClock() {  
-    var currDate = new Date();
-    var diff = currDate - markDate;
-    document.getElementById("timer").innerHTML = format(diff/1000);
-    setTimeout(function() {updateClock()}, 1000);
+
+
+
+function countTimer(duration, display) {
+    var timer = duration, minutes, seconds;
+    setInterval(function () {
+        minutes = parseInt(timer / 60, 10)
+        seconds = parseInt(timer % 60, 10);
+
+        minutes = minutes < 10 ? "0" + minutes : minutes;
+        seconds = seconds < 10 ? "0" + seconds : seconds;
+
+        display.text(minutes + ":" + seconds);
+
+        if (--timer < 0) {
+            timer = duration;
+        }
+    }, 1000);
 }
 
-function format(seconds)
-{
-var numhours = parseInt(Math.floor(((seconds % 31536000) % 86400) / 3600),10);
-var numminutes = parseInt(Math.floor((((seconds % 31536000) % 86400) % 3600) / 60),10);
-var numseconds = parseInt((((seconds % 31536000) % 86400) % 3600) % 60,10);
-    return ((numminutes<10) ? "0" + numminutes : numminutes)
-    + ":" + ((numseconds<10) ? "0" + numseconds : numseconds);
-}
-
-// function format(seconds)
-// {
-// var numhours = parseInt(Math.floor(((seconds % 31536000) % 86400) / 3600),10);
-// var numminutes = parseInt(Math.floor((((seconds % 31536000) % 86400) % 3600) / 60),10);
-// var numseconds = parseInt((((seconds % 31536000) % 86400) % 3600) % 60,10);
-//     return ((numhours<10) ? "0" + numhours : numhours)
-//     + ":" + ((numminutes<10) ? "0" + numminutes : numminutes)
-//     + ":" + ((numseconds<10) ? "0" + numseconds : numseconds);
-// }
+jQuery(function ($) {
+    var oneMinute = 60* 1 ;
+        display = $('#timer');
+    countTimer(oneMinute, display);
+});
