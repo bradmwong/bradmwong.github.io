@@ -175,8 +175,25 @@ button:hover {
 
 #display2 {
 	min-height: 539px;
-	background-color: #2980b9;
+	background-color: #666666;
 	border-radius: 0 0 10px 0;
+}
+
+ul {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+li {
+	background-color: white;
+	height: 40px;
+	line-height: 40px;
+	color: #060606;
+}
+
+li:nth-child(2n) {
+	background-color: #f7f7f7;
 }
 
 /*‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾*\
@@ -184,7 +201,7 @@ button:hover {
 \*________________________________*/
 
 .settings {
-	background-color: #2980b9;
+	background-color: #666666;
 	color: white;
 	margin: 0;
 	padding: 10px 20px;
@@ -195,6 +212,7 @@ button:hover {
 
 #settingsContent li {
 	display: flex;
+	padding-left: 20px;
 }
 
 #settingsContent li .timerInput {
@@ -211,36 +229,33 @@ button:hover {
 #settingsContent li .settingButtons {
 	width: 0;
 	background-color: #d0d0d0;
+	color: #808080;
 	height: 40px;
 	text-align: center;
-	color: white;
 	width: 0;
 	display: inline-block;
 	opacity: 0;
 	transition: 0.1s linear;
 }
 
-#settingsContent li .settingButtons i {
-	color: grey;
+li:nth-child(2n) .timerInput .timerHighlight input {
+	background-color: #f7f7f7;
 }
 
-#settingsContent li:hover .settingButtons  {
+#settingsContent li:hover .settingButtons {
 	width: 40px;
 	opacity: 1.0;
 }
 
+.timerHighlight:hover  {
+	border: 1px solid #2980b9;
+	outline: none;
+}
 
-
-
-
-
-
-
-/*temp*/
-/*#settingsContent li {
-	border: red 1px solid;
-}*/
-
+#settingsContent li .clickDefaultSetting {
+	background-color: black;
+	color: #e7e7e7;
+}
 
 #settingsContent .timerHighlight {
 	height: 38px;
@@ -298,19 +313,14 @@ input::-webkit-inner-spin-button {
 	outline: none;
 }
 
-.timerHighlight:hover {
-	background: white;
-	border: 1px solid #2980b9;
-	outline: none;
-}
-
 #routineTitle .fa-plus {
 	float: right;
 }
 
 #routineInput {
 	font-size: 18px;
-	color: #2980b9;
+	/*color: #2980b9;*/
+	color: #e32222;
 	background-color: #f7f7f7;
 	width: 100%;
 	padding: 13px 13px 13px 20px;
@@ -320,40 +330,18 @@ input::-webkit-inner-spin-button {
 
 #routineInput:focus {
 	background: white;
-	border: 3px solid #2980b9;
+	border: 3px solid #619eff;
 	outline: none;
 }
 
-ul {
-	list-style: none;
-	margin: 0;
-	padding: 0;
-}
-
-li {
-	background-color: white;
-	height: 40px;
-	line-height: 40px;
-	color: #060606;
-}
-
-#settingsContent li {
-	padding-left: 20px;
-}
-
-#settingsContent li:nth-child(2n) {
-	background-color: #f7f7f7;
-}
-
-#routineContent li:hover span {
+#routineContent li:hover span:first-child {
 	width: 40px;
 	opacity: 1.0;
 }
 
-#routineContent span {
+#routineContent span:first-child {
 	background-color: #e74c3c;
 	height: 40px;
-	margin-right: 20px;
 	text-align: center;
 	color: white;
 	width: 0;
@@ -362,19 +350,18 @@ li {
 	transition: 0.1s linear;
 }
 
-.completed {
+#routineContent span:nth-child(2) {
+	margin-left: 20px;
+}
+
+.ignored {
 	color: grey;
 	text-decoration: line-through;
 }
 
-#startWrapper {
-	border-radius: 0 0 10px 0;
-	margin: 0;
-	padding: 0;
-}
-
-#startWrapper #startButton {
+.buttonStyle {
 	background: #ffffff;
+	color: #333333;
 	font-size: 24px;
 	text-transform: uppercase;
 	width: 80%;
@@ -384,4 +371,17 @@ li {
 	text-align: center;
 	border-radius: 10px;
 	line-height: 53.6px;
+}
+
+/* Default click*/
+.clickDefault {
+	background-color: black;
+	color: white;
+    border: 1px solid black;
+    border-radius: 9px;
+        -webkit-border-radius: 9px;
+        -moz-border-radius: 9px;
+	box-shadow: 0px 0px 20px #c9c9c9;
+        -webkit-box-shadow: 0px 0px 20px #c9c9c9;
+        -moz-box-shadow: 0px 0px 20px #c9c9c9;
 }
