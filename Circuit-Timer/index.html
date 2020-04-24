@@ -1,5 +1,5 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang="en">
 <head>
 
     <!-- Required meta tags -->
@@ -58,18 +58,19 @@
             <div id="display2" class="column2">
             	<div>
 					<div class="display2Wrapper">
-						<div>
+						<div id="settingSetup">
 							<h1 id="settingsTitle" class="settings">Create your routine</h1>
 							<ul id="settingsContent">
-								<li><div class="settingTitle">
+								<li>
+									<div class="settingTitle">
 										Prepare
 									</div> 
 									<div class="timerInput">
-										<div class="timerHighlight">
-											<input type="number" value="00" class="minInput timeStyle"></input>
+										<form class="timerHighlight">
+											<input type="text" maxlength="2" size="2" value="00" class="minInput timeStyle"></input>
 											<span class="timeStyle">:</span>
-											<input type="number" value="00" class="secInput timeStyle"></input>
-										</div>
+											<input type="number" maxlength="2" size="2" value="00" class="secInput timeStyle"></input>
+										</form>
 									</div>
 									<div class="settingButtons">
 										<i class="fas fa-plus-circle"></i>
@@ -78,15 +79,16 @@
 										<i class="fas fa-minus-circle"></i>
 									</div>
 								</li>
-								<li><div class="settingTitle">
+								<li>
+									<div class="settingTitle">
 										Set
 									</div> 
 									<div class="timerInput">
-										<div class="timerHighlight">
+										<form class="timerHighlight">
 											<input type="number" value="00" class="minInput timeStyle"></input>
 											<span class="timeStyle">:</span>
 											<input type="number" value="00" class="secInput timeStyle"></input>
-										</div>
+										</form>
 									</div>
 									<div class="settingButtons">
 										<i class="fas fa-plus-circle"></i>
@@ -95,15 +97,16 @@
 										<i class="fas fa-minus-circle"></i>
 									</div>
 								</li>
-								<li><div class="settingTitle">
+								<li>
+									<div class="settingTitle">
 										Rest
-									</div> 
+									</div>
 									<div class="timerInput">
-										<div class="timerHighlight">
+										<form class="timerHighlight">
 											<input type="number" value="00" class="minInput timeStyle"></input>
 											<span class="timeStyle">:</span>
 											<input type="number" value="00" class="secInput timeStyle"></input>
-										</div>
+										</form>
 									</div>
 									<div class="settingButtons">
 										<i class="fas fa-plus-circle"></i>
@@ -112,17 +115,18 @@
 										<i class="fas fa-minus-circle"></i>
 									</div>
 								</li>
-								<li><div class="settingTitle">
+								<li>
+									<div class="settingTitle">
 										Rounds
 									</div> 
 									<div class="timerInput">
-										<div class="timerHighlight">
+										<form class="timerHighlight">
 											<input type="number" value="00" class="roundInput timeStyle"></input>
-										</div>
+										</form>
 									</div>
 									<div class="settingButtons">
 										<i class="fas fa-plus-circle"></i>
-									</div>								
+									</div>
 									<div class="settingButtons">
 										<i class="fas fa-minus-circle"></i>
 									</div>
@@ -131,15 +135,21 @@
 						</div>
 						<div>
 							<h1 id="routineTitle" class="settings">Exercise Set <i class="fas fa-plus"></i></h1>
-							<input id="routineInput" type="text" placeholder="Add exercise">
+							<div id="routineInputWrapper">
+								<input id="routineInput" type="text" placeholder="Add exercise">
+							</div>
 							<ul id="routineContent">
-								<li><span><i class="far fa-trash-alt"></i></span>Push Ups</li>
-								<li><span><i class="far fa-trash-alt"></i></span>Chin Ups</li>
-								<li><span><i class="far fa-trash-alt"></i></span>Sit Ups</li>
+								<li><span><i class="far fa-trash-alt"></i></span><span>Push Ups</span></li>
+								<li><span><i class="far fa-trash-alt"></i></span><span>Chin Ups</span></li>
+								<li><span><i class="far fa-trash-alt"></i></span><span>Sit Ups</span></li>
 							</ul>
 						</div>
-						<div id="startWrapper">
-							<div id="startButton">Start</div>
+
+						<div>
+							<div id="pauseButton" class="buttonStyle">Pause</div>
+						</div>
+						<div>
+							<div id="startButton" class="buttonStyle">Start</div>
 						</div>
 					</div>
 				</div>
@@ -152,7 +162,6 @@
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/js/bootstrap.min.js"></script> -->
 
 <script type="text/javascript" src="assets/js/Circuit Timer.js"></script>
 
