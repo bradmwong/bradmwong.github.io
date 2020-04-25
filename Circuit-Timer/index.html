@@ -61,7 +61,7 @@
 						<div id="settingSetup">
 							<h1 id="settingsTitle" class="settings">Create your routine</h1>
 							<ul id="settingsContent">
-								<li>
+								<li id="prepareSetting">
 									<div class="settingTitle">
 										Prepare
 									</div> 
@@ -69,65 +69,65 @@
 										<form class="timerHighlight">
 											<input type="text" maxlength="2" size="2" value="00" class="minInput timeStyle"></input>
 											<span class="timeStyle">:</span>
-											<input type="number" maxlength="2" size="2" value="00" class="secInput timeStyle"></input>
+											<input type="text" maxlength="2" size="2" value="00" class="secInput timeStyle"></input>
 										</form>
 									</div>
-									<div class="settingButtons">
+									<div class="addTime settingButtons">
 										<i class="fas fa-plus-circle"></i>
-									</div>								
-									<div class="settingButtons">
+									</div>
+									<div class="minusTime settingButtons">
 										<i class="fas fa-minus-circle"></i>
 									</div>
 								</li>
-								<li>
+								<li id="setSetting">
 									<div class="settingTitle">
 										Set
 									</div> 
 									<div class="timerInput">
 										<form class="timerHighlight">
-											<input type="number" value="00" class="minInput timeStyle"></input>
+											<input type="text" maxlength="2" size="2" value="00" class="minInput timeStyle"></input>
 											<span class="timeStyle">:</span>
-											<input type="number" value="00" class="secInput timeStyle"></input>
+											<input type="text" maxlength="2" size="2" value="00" class="secInput timeStyle"></input>
 										</form>
 									</div>
-									<div class="settingButtons">
+									<div class="addTime settingButtons">
 										<i class="fas fa-plus-circle"></i>
-									</div>								
-									<div class="settingButtons">
+									</div>
+									<div class="minusTime settingButtons">
 										<i class="fas fa-minus-circle"></i>
 									</div>
 								</li>
-								<li>
+								<li id="restSetting">
 									<div class="settingTitle">
 										Rest
 									</div>
 									<div class="timerInput">
 										<form class="timerHighlight">
-											<input type="number" value="00" class="minInput timeStyle"></input>
+											<input type="text" maxlength="2" size="2" value="00" class="minInput timeStyle"></input>
 											<span class="timeStyle">:</span>
-											<input type="number" value="00" class="secInput timeStyle"></input>
+											<input type="text" maxlength="2" size="2" value="00" class="secInput timeStyle"></input>
 										</form>
 									</div>
-									<div class="settingButtons">
+									<div class="addTime settingButtons">
 										<i class="fas fa-plus-circle"></i>
-									</div>								
-									<div class="settingButtons">
+									</div>
+									<div class="minusTime settingButtons">
 										<i class="fas fa-minus-circle"></i>
 									</div>
 								</li>
-								<li>
+								<li id="roundSetting">
 									<div class="settingTitle">
 										Rounds
 									</div> 
 									<div class="timerInput">
 										<form class="timerHighlight">
-											<input type="number" value="00" class="roundInput timeStyle"></input>
+											<input type="text" maxlength="2" size="2" value="00" class="roundInput secInput timeStyle"></input>
 										</form>
 									</div>
-									<div class="settingButtons">
+									<div class="addTime settingButtons">
 										<i class="fas fa-plus-circle"></i>
 									</div>
-									<div class="settingButtons">
+									<div class="minusTime settingButtons">
 										<i class="fas fa-minus-circle"></i>
 									</div>
 								</li>
@@ -161,7 +161,7 @@
 </body>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script> -->
 
 <script type="text/javascript" src="assets/js/Circuit Timer.js"></script>
 
