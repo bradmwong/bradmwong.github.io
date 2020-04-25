@@ -12,6 +12,66 @@ $("#sound").click(function(){
 
 
 
+/*‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾*\
+|          SETTING INPUT           ︳
+\*________________________________*/
+
+$(".timeStyle").keypress(function(event){
+	if(event.which != 8 && isNaN(String.fromCharCode(event.which))) {
+		event.preventDefault();
+	}
+	// console.log('Caret at: ', event.target.selectionStart)
+});
+
+$(".addTime").click(function(){
+	var parentId = ($(this).closest('li').attr('id'));
+	var selector =  "#" + parentId + " .timerInput .secInput";
+	var timeSetting = parseInt($(selector).val());
+	
+	if (timeSetting === 99) {
+		timeSetting = 0;
+	} else {
+		timeSetting++;
+	}
+
+	timeSetting = timerFormat(timeSetting, 2);
+	console.log(timeSetting)
+	$(selector).val(timeSetting);
+});
+
+
+$(".minusTime").click(function(){
+	var parentId = ($(this).closest('li').attr('id'));
+	var selector =  "#" + parentId + " .timerInput .secInput";
+	var timeSetting = parseInt($(selector).val());
+	
+	if (timeSetting === 0) {
+		timeSetting = 99;
+	} else {
+		timeSetting--;
+	}
+
+	timeSetting = timerFormat(timeSetting, 2);
+	console.log(timeSetting)
+	$(selector).val(timeSetting);
+});
+
+
+
+
+
+
+function timerFormat(num, size) {
+    var x = num + "";
+    while (x.length < size) x = "0" + x;
+    return x;
+}
+
+
+
+
+
+
 
 // Click setting button
 $(".settingButtons").click(function(){
@@ -21,7 +81,7 @@ $(".settingButtons").click(function(){
 	setTimeout(function(){
 		$this.removeClass("clickDefaultSetting");
 	}, 200);
-})
+});
 
 
 /*‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾*\
@@ -100,6 +160,7 @@ $("#startButton").click(function(){
 	$(".fa-plus").fadeToggle();
 });
 
+
 /*‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾*\
 |        PAUSE/RESUME BUTTON       ︳
 \*________________________________*/
@@ -132,7 +193,7 @@ function addRoutine(){
 		$("#routineContent").append("<li><span><i class='far fa-trash-alt'></i></span><span>" + exerciseText + "</span></li>");
 		$("#routineInput").val("");
 	}
-}
+};
 
 
 
@@ -146,7 +207,7 @@ init();
 function init() {
 	// $("#pauseButton").hide();
 	$("#pauseButton").css({ height: 0, opacity: 0, marginTop: "0" });
-}
+};
 
 
 
@@ -166,7 +227,7 @@ function countTimer(duration, display) {
             timer = duration;
         }
     }, 1000);
-}
+};
 
 jQuery(function ($) {
     var oneMinute = 60* 1 ;
