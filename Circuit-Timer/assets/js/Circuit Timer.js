@@ -11,7 +11,6 @@ $("#sound").click(function(){
 });
 
 
-
 /*‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾*\
 |          SETTING INPUT           ︳
 \*________________________________*/
@@ -43,18 +42,23 @@ $(".settingButtons").click(function(){
 		var rdSelector = "#" + parentId + " .timerInput .roundInput";
 		var round = parseInt($(rdSelector).val());
 
-		// Increase/decrease round number
-		if (round > 99) {
-			round = 99;
+		// Default value to 0 if number is not entered
+		if (isNaN(round)) {
+			round = 0;
 		} else {
-			// Add/subract based on button clicked
-			if (parentClass.indexOf("addTime") >= 0) {
-				round >= 99 ? round = 99 : round++;
-			} else if (parentClass.indexOf("minusTime") >= 0) {
-				round <= 0 ? round = 0 : round--;
-			}	
+			// Increase/decrease round number
+			if (round > 99) {
+				round = 99;
+			} else {
+				// Add/subract based on button clicked
+				if (parentClass.indexOf("addTime") >= 0) {
+					round >= 99 ? round = 99 : round++;
+				} else if (parentClass.indexOf("minusTime") >= 0) {
+					round <= 0 ? round = 0 : round--;
+				}
+			}
 		}
-
+		// Update round value
 		$(rdSelector).val(round);
 
 	} else {
@@ -65,15 +69,20 @@ $(".settingButtons").click(function(){
 		var minutes = parseInt($(minSelector).val());
 		var time = minutes * 60 + seconds;
 
-		// Increase/decrease time interval
-		if (time > 60 * 60) {
-			time = 60 * 60;
+		// Default value to 0 if number is not entered
+		if (isNaN(time)) {
+			time = 0;
 		} else {
-			// Add/subract based on button clicked
-			if (parentClass.indexOf("addTime") >= 0) {
-				time >= 60 * 60 ? time = 60 * 60 : time++;
-			} else if (parentClass.indexOf("minusTime") >= 0) {
-				time <= 0 ? time = 0 : time--;
+			// Increase/decrease time interval
+			if (time > 60 * 60) {
+				time = 60 * 60;
+			} else {
+				// Add/subract based on button clicked
+				if (parentClass.indexOf("addTime") >= 0) {
+					time >= 60 * 60 ? time = 60 * 60 : time++;
+				} else if (parentClass.indexOf("minusTime") >= 0) {
+					time <= 0 ? time = 0 : time--;
+				}
 			}
 		}
 
@@ -83,11 +92,83 @@ $(".settingButtons").click(function(){
 	    // Format number to 2 digit text format
 	    minutes = minutes < 10 ? "0" + minutes : minutes;
 	    seconds = seconds < 10 ? "0" + seconds : seconds;
+	    // Update time values
 	    $(minSelector).val(minutes);
 	    $(secSelector).val(seconds);
 	}
 });
 
+// Update main display if anything is clicked
+$("body").click(function(){
+	if (!isRunning) {
+		// Set main timer display
+		globalTime();
+	}
+
+})
+
+function globalTime() {
+
+	var display;
+	var total = 0;
+	var hours = 0;
+	var minutes = 0;
+	var seconds;
+
+	// Add prep time at start
+	total += totalSeconds("prepareSetting");
+	// Add total set time
+	total += totalSeconds("setSetting") * totalRounds("roundSetting");
+	// Add total rest time
+	total += totalSeconds("restSetting") * totalRounds("roundSetting");
+
+	// Separate minutes and seconds
+    hours = parseInt(total / (60 * 60), 10);
+    minutes = parseInt((total % (60 * 60)) / 60, 10);
+    seconds = parseInt(total % 60, 10);
+
+    // Format number to 2 digit text format
+    minutes = minutes < 10 ? "0" + minutes : minutes;
+    seconds = seconds < 10 ? "0" + seconds : seconds;
+    total >= 60 * 60 ? display = hours + ":" + minutes + ":" + seconds : display = minutes + ":" + seconds;
+
+    // Update main display
+	$('#timer').text(display);
+}
+
+// Total time in seconds
+function totalSeconds(parentId) {
+
+	var seconds = 0;
+	var s1 = $("#" + parentId + " .minInput");
+	var s2 = $("#" + parentId + " .secInput");
+
+	(isNaN(s1.val()) || s1.val() <= 0) ? s1.val("00") : seconds += parseInt(s1.val() * 60); 
+	(isNaN(s2.val()) || s2.val() <= 0) ? s2.val("00") : seconds += parseInt(s2.val());
+
+	if (seconds > 60 * 60) {
+		seconds = 60 * 60;
+		s1.val("60");
+		s2.val("00");
+	} else {
+		var m = parseInt(s1.val());
+		var s = parseInt(s2.val());
+		s1.val(	m < 10 ? "0" + m : m ); 
+		s2.val(	s < 10 ? "0" + s : s ); 
+	}
+
+	return seconds;
+}
+
+// Total time in rounds
+function totalRounds(parentId) {
+	var rounds = 0;
+	var r = $("#" + parentId + " .roundInput");
+
+	(isNaN(r.val()) || r.val() <= 0) ? r.val("0") : rounds += parseInt(r.val()); 
+
+	return rounds;
+}
 
 /*‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾*\
 |          ROUTINE INPUT           ︳
@@ -120,6 +201,15 @@ $("#routineContent").on("click", "li", function(){
 	}
 });
 
+function addRoutine() {
+	if($("#routineInput").val() !== ""){
+		// Add new exercise text from input
+		var exerciseText = $("#routineInput").val();
+		$("#routineContent").append("<li><span><i class='far fa-trash-alt'></i></span><span>" + exerciseText + "</span></li>");
+		$("#routineInput").val("");
+	}
+};
+
 
 /*‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾*\
 |        START/RESET BUTTON        ︳
@@ -127,6 +217,9 @@ $("#routineContent").on("click", "li", function(){
 
 // Click start button
 $("#startButton").click(function(){
+
+	// Check that inputs are correct
+	globalTime();
 
 	// Start workout
 	isRunning = !isRunning;
@@ -191,25 +284,21 @@ $("#pauseButton").click(function(){
 
 
 
-function addRoutine(){
-	if($("#routineInput").val() !== ""){
-		// Add new exercise text from input
-		var exerciseText = $("#routineInput").val();
-		$("#routineContent").append("<li><span><i class='far fa-trash-alt'></i></span><span>" + exerciseText + "</span></li>");
-		$("#routineInput").val("");
-	}
-};
 
 
 
 
 
 
-
+// Initialization
 init();
 
 // Initialization
 function init() {
+
+	// Set display time
+	globalTime();
+
 	// $("#pauseButton").hide();
 	$("#pauseButton").css({ height: 0, opacity: 0, marginTop: "0" });
 };
@@ -234,8 +323,11 @@ function countTimer(duration, display) {
     }, 1000);
 };
 
-jQuery(function ($) {
+if (false) {
+	jQuery(function ($) {
     var oneMinute = 60* 1 ;
         display = $('#timer');
     countTimer(oneMinute, display);
-});
+	});
+}
+
