@@ -16,6 +16,7 @@ $("#sound").click(function(){
 |          SETTING INPUT           ︳
 \*________________________________*/
 
+// Prevent non-number inputs
 $(".timeStyle").keypress(function(event){
 	if(event.which != 8 && isNaN(String.fromCharCode(event.which))) {
 		event.preventDefault();
@@ -23,64 +24,68 @@ $(".timeStyle").keypress(function(event){
 	// console.log('Caret at: ', event.target.selectionStart)
 });
 
-$(".addTime").click(function(){
-	var parentId = ($(this).closest('li').attr('id'));
-	var selector =  "#" + parentId + " .timerInput .secInput";
-	var timeSetting = parseInt($(selector).val());
-	
-	if (timeSetting === 99) {
-		timeSetting = 0;
-	} else {
-		timeSetting++;
-	}
-
-	timeSetting = timerFormat(timeSetting, 2);
-	console.log(timeSetting)
-	$(selector).val(timeSetting);
-});
-
-
-$(".minusTime").click(function(){
-	var parentId = ($(this).closest('li').attr('id'));
-	var selector =  "#" + parentId + " .timerInput .secInput";
-	var timeSetting = parseInt($(selector).val());
-	
-	if (timeSetting === 0) {
-		timeSetting = 99;
-	} else {
-		timeSetting--;
-	}
-
-	timeSetting = timerFormat(timeSetting, 2);
-	console.log(timeSetting)
-	$(selector).val(timeSetting);
-});
-
-
-
-
-
-
-function timerFormat(num, size) {
-    var x = num + "";
-    while (x.length < size) x = "0" + x;
-    return x;
-}
-
-
-
-
-
-
-
-// Click setting button
+// Click setting increment buttons
 $(".settingButtons").click(function(){
-	// Settings increment button animation
+
 	var $this = $(this);
+	var parentClass = $(this).closest("div").attr("class");
+	var parentId = $(this).closest("li").attr("id");
+
+	// Button animation
 	$(this).addClass("clickDefaultSetting");
 	setTimeout(function(){
 		$this.removeClass("clickDefaultSetting");
 	}, 200);
+
+	// If input is a number or time value
+	if (parentId === "roundSetting") {
+
+		var rdSelector = "#" + parentId + " .timerInput .roundInput";
+		var round = parseInt($(rdSelector).val());
+
+		// Increase/decrease round number
+		if (round > 99) {
+			round = 99;
+		} else {
+			// Add/subract based on button clicked
+			if (parentClass.indexOf("addTime") >= 0) {
+				round >= 99 ? round = 99 : round++;
+			} else if (parentClass.indexOf("minusTime") >= 0) {
+				round <= 0 ? round = 0 : round--;
+			}	
+		}
+
+		$(rdSelector).val(round);
+
+	} else {
+
+		var secSelector = "#" + parentId + " .timerInput .secInput";
+		var seconds = parseInt($(secSelector).val());
+		var minSelector = "#" + parentId + " .timerInput .minInput";
+		var minutes = parseInt($(minSelector).val());
+		var time = minutes * 60 + seconds;
+
+		// Increase/decrease time interval
+		if (time > 60 * 60) {
+			time = 60 * 60;
+		} else {
+			// Add/subract based on button clicked
+			if (parentClass.indexOf("addTime") >= 0) {
+				time >= 60 * 60 ? time = 60 * 60 : time++;
+			} else if (parentClass.indexOf("minusTime") >= 0) {
+				time <= 0 ? time = 0 : time--;
+			}
+		}
+
+		// Separate minutes and seconds
+	    minutes = parseInt(time / 60, 10);
+	    seconds = parseInt(time % 60, 10);
+	    // Format number to 2 digit text format
+	    minutes = minutes < 10 ? "0" + minutes : minutes;
+	    seconds = seconds < 10 ? "0" + seconds : seconds;
+	    $(minSelector).val(minutes);
+	    $(secSelector).val(seconds);
+	}
 });
 
 
