@@ -3,6 +3,40 @@ var isRunning = false;
 var isPaused = false;
 
 
+var routineList = [];
+var ignoredList = [];
+
+// Convert routine list to array
+routineList = $("#routineContent li").map(function(){ return $(this).text(); });
+
+// $("body").click(function(){
+// 	routineList = $("#routineContent li").map(function(){ return $(this).text(); });
+// 	ignoredList = $("#routineContent li").map(function(){ return !$(this).hasClass("ignored"); });
+
+
+// 	console.log(routineList.length);
+// 	console.log(ignoredList);
+
+
+// })
+
+
+/*‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾*\
+|          INITALIZATION           ︳
+\*________________________________*/
+
+// Initialization
+init();
+
+// Initialization
+function init() {
+
+	// Set display time
+	globalTime();
+
+	// $("#pauseButton").hide();
+	$("#pauseButton").css({ height: 0, opacity: 0, marginTop: "0" });
+};
 
 // Toggle sound button/status
 $("#sound").click(function(){
@@ -104,7 +138,6 @@ $("body").click(function(){
 		// Set main timer display
 		globalTime();
 	}
-
 })
 
 function globalTime() {
@@ -114,13 +147,27 @@ function globalTime() {
 	var hours = 0;
 	var minutes = 0;
 	var seconds;
+	var exerciseQtyTotal;
+	
+	// Array of all routine exercises
+	routineList = $('#routineContent li').map(function(){ return $(this).text(); }).toArray();
+	exerciseQtyTotal = routineList.length;
 
+	// Array of active exercises
+	ignoredList = $("#routineContent li").map(function(){ return !$(this).hasClass("ignored") }).toArray();
+	exerciseQtyActive = exerciseQtyTotal - occurancesInArray(ignoredList, false);
+
+	// Calculate total workout time in seconds
 	// Add prep time at start
 	total += totalSeconds("prepareSetting");
 	// Add total set time
-	total += totalSeconds("setSetting") * totalRounds("roundSetting");
+	total += totalSeconds("setSetting") * totalRounds("roundSetting") * exerciseQtyActive;
 	// Add total rest time
-	total += totalSeconds("restSetting") * totalRounds("roundSetting");
+	total += totalSeconds("restSetting") * totalRounds("roundSetting") * exerciseQtyActive;
+	// Subtract the last rest time
+	if (totalRounds("roundSetting") > 0 && exerciseQtyActive > 0) {
+		total -= totalSeconds("restSetting");
+	}
 
 	// Separate minutes and seconds
     hours = parseInt(total / (60 * 60), 10);
@@ -134,7 +181,18 @@ function globalTime() {
 
     // Update main display
 	$('#timer').text(display);
+
+	// Return total value in seconds
+	return total;
 }
+
+// Count how many time value occurs in array
+function occurancesInArray(array, value) {
+    return array.filter((v) => (v === value)).length;
+}
+
+
+
 
 // Total time in seconds
 function totalSeconds(parentId) {
@@ -143,18 +201,20 @@ function totalSeconds(parentId) {
 	var s1 = $("#" + parentId + " .minInput");
 	var s2 = $("#" + parentId + " .secInput");
 
-	(isNaN(s1.val()) || s1.val() <= 0) ? s1.val("00") : seconds += parseInt(s1.val() * 60); 
+	// Default value to 0 if invalid or negative value entered
+	(isNaN(s1.val()) || s1.val() <= 0) ? s1.val("00") : seconds += parseInt(s1.val() * 60);
 	(isNaN(s2.val()) || s2.val() <= 0) ? s2.val("00") : seconds += parseInt(s2.val());
 
+	// If value is greater than upper limit
 	if (seconds > 60 * 60) {
 		seconds = 60 * 60;
 		s1.val("60");
 		s2.val("00");
 	} else {
-		var m = parseInt(s1.val());
-		var s = parseInt(s2.val());
-		s1.val(	m < 10 ? "0" + m : m ); 
-		s2.val(	s < 10 ? "0" + s : s ); 
+	    var m = parseInt(seconds / 60, 10);
+	    var s = parseInt(seconds % 60, 10);
+		s1.val(	m < 10 ? "0" + m : m );
+		s2.val(	s < 10 ? "0" + s : s );
 	}
 
 	return seconds;
@@ -165,7 +225,7 @@ function totalRounds(parentId) {
 	var rounds = 0;
 	var r = $("#" + parentId + " .roundInput");
 
-	(isNaN(r.val()) || r.val() <= 0) ? r.val("0") : rounds += parseInt(r.val()); 
+	(isNaN(r.val()) || r.val() <= 0) ? r.val("0") : rounds += parseInt(r.val());
 
 	return rounds;
 }
@@ -177,19 +237,22 @@ function totalRounds(parentId) {
 // If Enter is pressed
 $("input[type='text']").keypress(function(event){
 	if(event.which === 13) {
-		addRoutine()
+		addRoutine();
+		globalTime();
 	}
 });
 
 // If add sign is clicked
 $(".fa-plus").click(function(){
 	addRoutine();
+	globalTime();
 });
 
 // Click on trashcan to delete exercise
 $("#routineContent").on("click", "span:first-child", function(event){
 	$(this).parent().fadeOut(250, function(){
 		$(this).remove();
+		globalTime();
 	});
 	event.stopPropagation();
 });
@@ -198,6 +261,7 @@ $("#routineContent").on("click", "span:first-child", function(event){
 $("#routineContent").on("click", "li", function(){
 	if (!isRunning) {
 		$(this).toggleClass("ignored");
+		globalTime();
 	}
 });
 
@@ -290,18 +354,7 @@ $("#pauseButton").click(function(){
 
 
 
-// Initialization
-init();
 
-// Initialization
-function init() {
-
-	// Set display time
-	globalTime();
-
-	// $("#pauseButton").hide();
-	$("#pauseButton").css({ height: 0, opacity: 0, marginTop: "0" });
-};
 
 
 
