@@ -2,23 +2,109 @@ var sound= true;
 var isRunning = false;
 var isPaused = false;
 
+var prepTime;
+var setTime;
+var restTime;
+var rounds;
 
-var routineList = [];
+// Per round
+var exerciseList = [];
 var ignoredList = [];
+var exerciseQtyTotal = 0;
+var exerciseQtyActive = 0;
 
-// Convert routine list to array
-routineList = $("#routineContent li").map(function(){ return $(this).text(); });
-
-// $("body").click(function(){
-// 	routineList = $("#routineContent li").map(function(){ return $(this).text(); });
-// 	ignoredList = $("#routineContent li").map(function(){ return !$(this).hasClass("ignored"); });
+// Overall exercise routine
+var maxIndex = 0;
 
 
-// 	console.log(routineList.length);
-// 	console.log(ignoredList);
+
+// Timer variables
+var timeElapsed = 0;
+var intervalTracker;
+var display = $('#timer');
+
+// Workout
+var workout = {
+	exercise: [],
+	duration: [],
+	ignored: []
+};
+
+function startTimer() {
+
+	prepTime = totalSeconds("prepareSetting");
+	setTime = totalSeconds("setSetting");
+	restTime = totalSeconds("restSetting");
+	rounds = totalRounds("roundSetting");
+
+	globalTime();
+
+	defineWorkout();
+}
+
+function defineWorkout() {
+
+	var isIgnored;
+
+	// Reset workout
+	workout = {
+		exercise: [],
+		duration: [],
+		ignored: []
+	};
+
+	// Set Prep Intervals
+	workout.exercise[0] = "prepare";
+	workout.duration[0] = prepTime;
+	prepTime > 0 ? isIgnored = false : isIgnored = true;
+	workout.ignored[0] = isIgnored;
+
+	// Set Exercise/Rest Intervals
+	if (rounds > 0 && exerciseQtyActive > 0) {
+		maxIndex = exerciseQtyTotal * 2 * rounds - 1;
+		console.log(maxIndex);
+
+		// Loops through rounds
+		var index = 0;
+		for (var r = 0; r < rounds; r++) {
+			
+			// Loops through exercises
+			var subIndex = 0;
+			for (var i = 1; i <= exerciseQtyTotal; i++) {
+
+				// Define Exercise Intervals
+				index++;
+				workout.exercise[index] = exerciseList[subIndex];
+				workout.duration[index] = setTime;
+				(setTime > 0 && !ignoredList[subIndex]) ? isIgnored = false : isIgnored = true;
+				workout.ignored[index] = isIgnored;
+
+				// Define Rest Intervals
+				index++;
+				if (index < maxIndex) {
+					workout.exercise[index] = "Rest";
+					workout.duration[index] = restTime;
+					restTime > 0 ? isIgnored = false : isIgnored = true;
+					workout.ignored[index] = isIgnored;
+				} else {
+					break;
+				}
+				
+				subIndex === (exerciseQtyTotal - 1) ? subIndex = 0 : subIndex++;
+			}
+		}		
+	}
 
 
-// })
+
+	console.log("exercise: " + workout.exercise);
+	// console.log("exercise length: " + workout.exercise.length);
+	console.log("duration: " + workout.duration);
+	// console.log("duration length: " + workout.duration.length);
+	console.log("ignored: " + workout.ignored);
+	// console.log("ignored length: " + workout.ignored.length);
+
+}
 
 
 /*‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾*\
@@ -142,20 +228,19 @@ $("body").click(function(){
 
 function globalTime() {
 
-	var display;
+	var displayTime;
 	var total = 0;
 	var hours = 0;
 	var minutes = 0;
 	var seconds;
-	var exerciseQtyTotal;
 	
 	// Array of all routine exercises
-	routineList = $('#routineContent li').map(function(){ return $(this).text(); }).toArray();
-	exerciseQtyTotal = routineList.length;
+	exerciseList = routineArray();
+	exerciseQtyTotal = exerciseList.length;
 
 	// Array of active exercises
-	ignoredList = $("#routineContent li").map(function(){ return !$(this).hasClass("ignored") }).toArray();
-	exerciseQtyActive = exerciseQtyTotal - occurancesInArray(ignoredList, false);
+	ignoredList = ignoredArray();
+	exerciseQtyActive = exerciseQtyTotal - occurancesInArray(ignoredList, true);
 
 	// Calculate total workout time in seconds
 	// Add prep time at start
@@ -177,58 +262,20 @@ function globalTime() {
     // Format number to 2 digit text format
     minutes = minutes < 10 ? "0" + minutes : minutes;
     seconds = seconds < 10 ? "0" + seconds : seconds;
-    total >= 60 * 60 ? display = hours + ":" + minutes + ":" + seconds : display = minutes + ":" + seconds;
+    total >= 60 * 60 ? displayTime = hours + ":" + minutes + ":" + seconds : displayTime = minutes + ":" + seconds;
 
     // Update main display
-	$('#timer').text(display);
+	$('#timer').text(displayTime);
 
 	// Return total value in seconds
 	return total;
 }
 
-// Count how many time value occurs in array
-function occurancesInArray(array, value) {
-    return array.filter((v) => (v === value)).length;
-}
 
 
 
 
-// Total time in seconds
-function totalSeconds(parentId) {
 
-	var seconds = 0;
-	var s1 = $("#" + parentId + " .minInput");
-	var s2 = $("#" + parentId + " .secInput");
-
-	// Default value to 0 if invalid or negative value entered
-	(isNaN(s1.val()) || s1.val() <= 0) ? s1.val("00") : seconds += parseInt(s1.val() * 60);
-	(isNaN(s2.val()) || s2.val() <= 0) ? s2.val("00") : seconds += parseInt(s2.val());
-
-	// If value is greater than upper limit
-	if (seconds > 60 * 60) {
-		seconds = 60 * 60;
-		s1.val("60");
-		s2.val("00");
-	} else {
-	    var m = parseInt(seconds / 60, 10);
-	    var s = parseInt(seconds % 60, 10);
-		s1.val(	m < 10 ? "0" + m : m );
-		s2.val(	s < 10 ? "0" + s : s );
-	}
-
-	return seconds;
-}
-
-// Total time in rounds
-function totalRounds(parentId) {
-	var rounds = 0;
-	var r = $("#" + parentId + " .roundInput");
-
-	(isNaN(r.val()) || r.val() <= 0) ? r.val("0") : rounds += parseInt(r.val());
-
-	return rounds;
-}
 
 /*‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾*\
 |          ROUTINE INPUT           ︳
@@ -310,17 +357,90 @@ $("#startButton").click(function(){
 	// hide unused fields and show "pause button"
 	if (isRunning) {
 		$("#settingSetup").animate({ height: 0, opacity: 0 }, 'slow');
+		$(".fa-plus").fadeToggle();
 		$("#routineInputWrapper").animate({ height: 0, opacity: 0 }, 'slow');
 		$("#routineContent span:first-child").hide();
 		$("#pauseButton").animate({ height: 53.591, opacity: 1, marginTop: "25.8px" }, 'slow');
 	} else {
 		$("#settingSetup").animate({ height: 208.364, opacity: 1 }, 'slow');
+		$(".fa-plus").fadeToggle();
 		$("#routineInputWrapper").animate({ height: 52.800, opacity: 1 }, 'slow');
 		$("#routineContent span:first-child").show();
 		$("#pauseButton").animate({ height: 0, opacity: 0, marginTop: "0" }, 'slow');
 	}
-	$(".fa-plus").fadeToggle();
+
+
+	if (isRunning) {
+		startTimer();
+	} else {
+		stopCurrentInterval();
+		globalTime();
+	}
+
+
 });
+
+
+
+
+
+
+
+
+
+
+// function startTimer() {
+
+// 	intervalTracker = countTimer(prepTime);
+
+// }
+
+
+
+function countTimer(duration) {
+    var timer = duration, minutes, seconds;
+    var stop = setInterval(function () {
+        minutes = parseInt(timer / 60, 10);
+        seconds = parseInt(timer % 60, 10);
+
+        minutes = minutes < 10 ? "0" + minutes : minutes;
+        seconds = seconds < 10 ? "0" + seconds : seconds;
+
+        display.text(minutes + ":" + seconds);
+
+        if (--timer < 0) {
+            // Timer ends
+            clearInterval(stop);
+            
+            // timer = duration;
+        }
+
+        timeElapsed++;
+        console.log(timeElapsed);
+    }, 1000);
+
+    return stop;
+};
+
+if (false) {
+	jQuery(function ($) {
+    var oneMinute = 60* 1;
+        display = $('#timer');
+    countTimer(oneMinute, display);
+	});
+}
+
+
+
+
+
+function stopCurrentInterval() {
+	clearInterval(intervalTracker);
+}
+
+
+
+
 
 
 /*‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾*\
@@ -359,28 +479,64 @@ $("#pauseButton").click(function(){
 
 
 
-function countTimer(duration, display) {
-    var timer = duration, minutes, seconds;
-    setInterval(function () {
-        minutes = parseInt(timer / 60, 10)
-        seconds = parseInt(timer % 60, 10);
 
-        minutes = minutes < 10 ? "0" + minutes : minutes;
-        seconds = seconds < 10 ? "0" + seconds : seconds;
 
-        display.text(minutes + ":" + seconds);
+/*‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾*\
+|         GLOBAL FUNCTIONS         ︳
+\*________________________________*/
 
-        if (--timer < 0) {
-            timer = duration;
-        }
-    }, 1000);
-};
+// Total time in seconds
+function totalSeconds(parentId) {
 
-if (false) {
-	jQuery(function ($) {
-    var oneMinute = 60* 1 ;
-        display = $('#timer');
-    countTimer(oneMinute, display);
-	});
+	var seconds = 0;
+	var s1 = $("#" + parentId + " .minInput");
+	var s2 = $("#" + parentId + " .secInput");
+
+	// Default value to 0 if invalid or negative value entered
+	(isNaN(s1.val()) || s1.val() <= 0) ? s1.val("00") : seconds += parseInt(s1.val() * 60);
+	(isNaN(s2.val()) || s2.val() <= 0) ? s2.val("00") : seconds += parseInt(s2.val());
+
+	// If value is greater than upper limit
+	if (seconds > 60 * 60) {
+		seconds = 60 * 60;
+		s1.val("60");
+		s2.val("00");
+	} else {
+	    var m = parseInt(seconds / 60, 10);
+	    var s = parseInt(seconds % 60, 10);
+		s1.val(	m < 10 ? "0" + m : m );
+		s2.val(	s < 10 ? "0" + s : s );
+	}
+
+	return seconds;
+}
+
+// Total time in rounds
+function totalRounds(parentId) {
+	var rds = 0;
+	var r = $("#" + parentId + " .roundInput");
+
+	(isNaN(r.val()) || r.val() <= 0) ? r.val("0") : rds += parseInt(r.val());
+
+	return rds;
+}
+
+// List of all exercises
+function routineArray() {
+	var arr = [];
+	arr = $('#routineContent li').map(function(){ return $(this).text(); }).toArray();
+	return arr;
+}
+
+// True if exercise is valid / False if exercise is ignored
+function ignoredArray() {
+	var arr = [];
+	arr = $("#routineContent li").map(function(){ return $(this).hasClass("ignored") }).toArray();
+	return arr;
+}
+
+// Count how many time value occurs in array
+function occurancesInArray(array, value) {
+    return array.filter((v) => (v === value)).length;
 }
 
