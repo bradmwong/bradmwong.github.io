@@ -7,104 +7,47 @@ var setTime;
 var restTime;
 var rounds;
 
-// Per round
-var exerciseList = [];
-var ignoredList = [];
-var exerciseQtyTotal = 0;
-var exerciseQtyActive = 0;
-
-// Overall exercise routine
-var maxIndex = 0;
-
-
-
 // Timer variables
+var totalTime = 0;
 var timeElapsed = 0;
 var intervalTracker;
-var display = $('#timer');
+
+// mainDisplay
+var mainDisplay = {
+	timer: $("#timerCount"),
+	exercise: $("#exerciseTitle"),
+	round: $("#roundCount"),
+	progress: $("#progressCount")
+}
+
+// Per round
+var roundData = {
+	exerciseList: [],
+	ignoredList: [],
+	exerciseQtyTotal: 0,
+	exerciseQtyActive: 0
+}
 
 // Workout
-var workout = {
+var workoutData = {
 	exercise: [],
 	duration: [],
 	ignored: []
 };
 
-function startTimer() {
+// Overall exercise routine
+var maxIndex = 0;
 
-	prepTime = totalSeconds("prepareSetting");
-	setTime = totalSeconds("setSetting");
-	restTime = totalSeconds("restSetting");
-	rounds = totalRounds("roundSetting");
-
-	globalTime();
-
-	defineWorkout();
-}
-
-function defineWorkout() {
-
-	var isIgnored;
-
-	// Reset workout
-	workout = {
-		exercise: [],
-		duration: [],
-		ignored: []
-	};
-
-	// Set Prep Intervals
-	workout.exercise[0] = "prepare";
-	workout.duration[0] = prepTime;
-	prepTime > 0 ? isIgnored = false : isIgnored = true;
-	workout.ignored[0] = isIgnored;
-
-	// Set Exercise/Rest Intervals
-	if (rounds > 0 && exerciseQtyActive > 0) {
-		maxIndex = exerciseQtyTotal * 2 * rounds - 1;
-		console.log(maxIndex);
-
-		// Loops through rounds
-		var index = 0;
-		for (var r = 0; r < rounds; r++) {
-			
-			// Loops through exercises
-			var subIndex = 0;
-			for (var i = 1; i <= exerciseQtyTotal; i++) {
-
-				// Define Exercise Intervals
-				index++;
-				workout.exercise[index] = exerciseList[subIndex];
-				workout.duration[index] = setTime;
-				(setTime > 0 && !ignoredList[subIndex]) ? isIgnored = false : isIgnored = true;
-				workout.ignored[index] = isIgnored;
-
-				// Define Rest Intervals
-				index++;
-				if (index < maxIndex) {
-					workout.exercise[index] = "Rest";
-					workout.duration[index] = restTime;
-					restTime > 0 ? isIgnored = false : isIgnored = true;
-					workout.ignored[index] = isIgnored;
-				} else {
-					break;
-				}
-				
-				subIndex === (exerciseQtyTotal - 1) ? subIndex = 0 : subIndex++;
-			}
-		}		
-	}
+// mainDisplay.exercise.text("this is the exercise");
+// mainDisplay.round.text("90");
+// mainDisplay.progress.text("110%");
 
 
 
-	console.log("exercise: " + workout.exercise);
-	// console.log("exercise length: " + workout.exercise.length);
-	console.log("duration: " + workout.duration);
-	// console.log("duration length: " + workout.duration.length);
-	console.log("ignored: " + workout.ignored);
-	// console.log("ignored length: " + workout.ignored.length);
 
-}
+
+
+
 
 
 /*‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾*\
@@ -119,6 +62,9 @@ function init() {
 
 	// Set display time
 	globalTime();
+
+	// Display initial values
+	resetDisplay();
 
 	// $("#pauseButton").hide();
 	$("#pauseButton").css({ height: 0, opacity: 0, marginTop: "0" });
@@ -194,12 +140,12 @@ $(".settingButtons").click(function(){
 			time = 0;
 		} else {
 			// Increase/decrease time interval
-			if (time > 60 * 60) {
-				time = 60 * 60;
+			if (time > 3600) {
+				time = 3600;
 			} else {
 				// Add/subract based on button clicked
 				if (parentClass.indexOf("addTime") >= 0) {
-					time >= 60 * 60 ? time = 60 * 60 : time++;
+					time >= 3600 ? time = 3600 : time++;
 				} else if (parentClass.indexOf("minusTime") >= 0) {
 					time <= 0 ? time = 0 : time--;
 				}
@@ -232,46 +178,49 @@ function globalTime() {
 	var total = 0;
 	var hours = 0;
 	var minutes = 0;
-	var seconds;
+	var seconds = 0;
 	
 	// Array of all routine exercises
-	exerciseList = routineArray();
-	exerciseQtyTotal = exerciseList.length;
+	roundData.exerciseList = routineArray();
+	roundData.exerciseQtyTotal = roundData.exerciseList.length;
 
 	// Array of active exercises
-	ignoredList = ignoredArray();
-	exerciseQtyActive = exerciseQtyTotal - occurancesInArray(ignoredList, true);
+	roundData.ignoredList = ignoredArray();
+	roundData.exerciseQtyActive = roundData.exerciseQtyTotal - occurancesInArray(roundData.ignoredList, true);
 
 	// Calculate total workout time in seconds
 	// Add prep time at start
 	total += totalSeconds("prepareSetting");
 	// Add total set time
-	total += totalSeconds("setSetting") * totalRounds("roundSetting") * exerciseQtyActive;
+	total += totalSeconds("setSetting") * totalRounds("roundSetting") * roundData.exerciseQtyActive;
 	// Add total rest time
-	total += totalSeconds("restSetting") * totalRounds("roundSetting") * exerciseQtyActive;
+	total += totalSeconds("restSetting") * totalRounds("roundSetting") * roundData.exerciseQtyActive;
 	// Subtract the last rest time
-	if (totalRounds("roundSetting") > 0 && exerciseQtyActive > 0) {
+	if (totalRounds("roundSetting") > 0 && roundData.exerciseQtyActive > 0) {
 		total -= totalSeconds("restSetting");
 	}
 
 	// Separate minutes and seconds
-    hours = parseInt(total / (60 * 60), 10);
-    minutes = parseInt((total % (60 * 60)) / 60, 10);
+    hours = parseInt(total / (3600), 10);
+    minutes = parseInt((total % 3600) / 60, 10);
     seconds = parseInt(total % 60, 10);
 
     // Format number to 2 digit text format
     minutes = minutes < 10 ? "0" + minutes : minutes;
     seconds = seconds < 10 ? "0" + seconds : seconds;
-    total >= 60 * 60 ? displayTime = hours + ":" + minutes + ":" + seconds : displayTime = minutes + ":" + seconds;
+    total >= 3600 ? displayTime = hours + ":" + minutes + ":" + seconds : displayTime = minutes + ":" + seconds;
+
+    // Update time variables
+    totalTime = total;
+	prepTime = totalSeconds("prepareSetting");
+	setTime = totalSeconds("setSetting");
+	restTime = totalSeconds("restSetting");
+	rounds = totalRounds("roundSetting");
 
     // Update main display
-	$('#timer').text(displayTime);
-
-	// Return total value in seconds
-	return total;
+	mainDisplay.timer.text(displayTime);
+	mainDisplay.round.text(rounds);
 }
-
-
 
 
 
@@ -369,64 +318,175 @@ $("#startButton").click(function(){
 		$("#pauseButton").animate({ height: 0, opacity: 0, marginTop: "0" }, 'slow');
 	}
 
-
 	if (isRunning) {
 		startTimer();
 	} else {
 		stopCurrentInterval();
 		globalTime();
+		resetDisplay();
 	}
-
-
 });
 
+function resetDisplay() {
+	// Display default values
+	mainDisplay.exercise.text("Your Custom Workout");
+	mainDisplay.round.text(rounds = totalRounds("roundSetting"));
+	mainDisplay.progress.text("100" + "%");
+}
 
 
+function startTimer() {
 
+	prepTime = totalSeconds("prepareSetting");
+	setTime = totalSeconds("setSetting");
+	restTime = totalSeconds("restSetting");
+	rounds = totalRounds("roundSetting");
 
+	globalTime();
 
+	defineWorkout();
 
+	// Reset time and run timer
+	timeElapsed = 0;
+	countTimer(0, maxIndex);
+}
 
+function defineWorkout() {
 
+	var isIgnored;
 
-// function startTimer() {
+	// Reset workout
+	workoutData = {
+		exercise: [],
+		duration: [],
+		ignored: []
+	};
 
-// 	intervalTracker = countTimer(prepTime);
+	// Set Prep Intervals
+	workoutData.exercise[0] = "PREPARE";
+	workoutData.duration[0] = prepTime;
+	prepTime > 0 ? isIgnored = false : isIgnored = true;
+	workoutData.ignored[0] = isIgnored;
 
-// }
+	// Set Exercise/Rest Intervals
+	if (rounds > 0 && roundData.exerciseQtyActive > 0) {
+		maxIndex = roundData.exerciseQtyTotal * 2 * rounds - 1;
+		console.log(maxIndex);
 
+		// Loops through rounds
+		var index = 0;
+		for (var r = 0; r < rounds; r++) {
+			
+			// Loops through exercises
+			var subIndex = 0;
+			for (var i = 1; i <= roundData.exerciseQtyTotal; i++) {
 
+				// Define Exercise Intervals
+				index++;
+				workoutData.exercise[index] = roundData.exerciseList[subIndex].toUpperCase();
+				workoutData.duration[index] = setTime;
+				(setTime > 0 && !roundData.ignoredList[subIndex]) ? isIgnored = false : isIgnored = true;
+				workoutData.ignored[index] = isIgnored;
 
-function countTimer(duration) {
-    var timer = duration, minutes, seconds;
-    var stop = setInterval(function () {
-        minutes = parseInt(timer / 60, 10);
-        seconds = parseInt(timer % 60, 10);
+				// Define Rest Intervals
+				index++;
+				if (index < maxIndex) {
+					workoutData.exercise[index] = "REST";
+					workoutData.duration[index] = restTime;
+					restTime > 0 && !(workoutData.ignored[index - 1]) ? isIgnored = false : isIgnored = true;
+					workoutData.ignored[index] = isIgnored;
+				} else {
+					break;
+				}
+				
+				subIndex === (roundData.exerciseQtyTotal - 1) ? subIndex = 0 : subIndex++;
+			}
+		}		
+	}
+}
 
-        minutes = minutes < 10 ? "0" + minutes : minutes;
-        seconds = seconds < 10 ? "0" + seconds : seconds;
+function countTimer(startIndex, endIndex) {
 
-        display.text(minutes + ":" + seconds);
+    var index = startIndex;
 
-        if (--timer < 0) {
-            // Timer ends
-            clearInterval(stop);
-            
-            // timer = duration;
-        }
+    // Check if segment should be run or not
+ 	if (!workoutData.ignored[index]) {
 
-        timeElapsed++;
-        console.log(timeElapsed);
-    }, 1000);
+	    var timer = workoutData.duration[index];
 
-    return stop;
+	    // Update display at start
+	    updateDisplay();
+
+	    // Update display after each second
+	    intervalTracker = setInterval(function () {
+
+	    	timer--;
+	    	timeElapsed++;
+
+	        // if timer reaches the end
+	        if (timer === 0) {
+	        	// Clear the interval
+	            clearInterval(intervalTracker);
+
+	            // Check if entire workout is complete
+	            if (timeElapsed === totalTime && index === endIndex) {
+	            	updateDisplay();
+
+			    	// Display end message
+			    	mainDisplay.exercise.text("COMPLETE!");
+	        		
+	        	} else {
+	        		index++;
+	        		// Run the next interval
+		            countTimer(index, maxIndex);
+	        	}
+	        } else {
+		    	updateDisplay();
+	        }
+	    }, 1000);
+
+ 	} else {
+ 		index++;
+ 		countTimer(index, maxIndex);
+ 	}
+
+ 	// Function to update main display
+	function updateDisplay() {
+	    // Update exercise display
+		mainDisplay.exercise.text(workoutData.exercise[index]);
+		
+		// Update round display
+		mainDisplay.round.text(Math.ceil( index / ((endIndex + 1) / rounds)) );
+
+		// Update time display
+		var minutes = parseInt(timer / 60, 10);
+		var seconds = parseInt(timer % 60, 10);
+	    minutes = minutes < 10 ? "0" + minutes : minutes;
+	    seconds = seconds < 10 ? "0" + seconds : seconds;
+	    mainDisplay.timer.text(minutes + ":" + seconds);
+
+	    // Update progress display
+	   	var progressPercent;
+	    progressPercent = Math.round((timeElapsed / totalTime) * 100);
+	    mainDisplay.progress.text(progressPercent + "%");
+	}
 };
+
+
+
+
+
+
+
+
+
+
 
 if (false) {
 	jQuery(function ($) {
     var oneMinute = 60* 1;
-        display = $('#timer');
-    countTimer(oneMinute, display);
+        // display = $('#timerCount');
+    countTimer(oneMinute, mainDisplay.timer);
 	});
 }
 
@@ -497,8 +557,8 @@ function totalSeconds(parentId) {
 	(isNaN(s2.val()) || s2.val() <= 0) ? s2.val("00") : seconds += parseInt(s2.val());
 
 	// If value is greater than upper limit
-	if (seconds > 60 * 60) {
-		seconds = 60 * 60;
+	if (seconds > 3600) {
+		seconds = 3600;
 		s1.val("60");
 		s2.val("00");
 	} else {
