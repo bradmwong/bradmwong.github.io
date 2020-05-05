@@ -10,7 +10,12 @@ var rounds;
 // Timer variables
 var totalTime = 0;
 var timeElapsed = 0;
-var intervalTracker;
+
+var tracker = {
+	intervalTracker: 0,
+	indexTracker: 0,
+	timeTracker: 0
+}
 
 // mainDisplay
 var mainDisplay = {
@@ -37,17 +42,6 @@ var workoutData = {
 
 // Overall exercise routine
 var maxIndex = 0;
-
-// mainDisplay.exercise.text("this is the exercise");
-// mainDisplay.round.text("90");
-// mainDisplay.progress.text("110%");
-
-
-
-
-
-
-
 
 
 /*‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾*\
@@ -221,9 +215,6 @@ function globalTime() {
 	mainDisplay.timer.text(displayTime);
 	mainDisplay.round.text(rounds);
 }
-
-
-
 
 
 /*‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾*\
@@ -407,18 +398,18 @@ function defineWorkout() {
 
 function countTimer(startIndex, endIndex) {
 
-    var index = startIndex;
+    tracker.indexTracker = startIndex;
 
     // Check if segment should be run or not
- 	if (!workoutData.ignored[index]) {
+ 	if (!workoutData.ignored[tracker.indexTracker]) {
 
-	    var timer = workoutData.duration[index];
+	    var timer = workoutData.duration[tracker.indexTracker];
 
 	    // Update display at start
 	    updateDisplay();
 
 	    // Update display after each second
-	    intervalTracker = setInterval(function () {
+	    tracker.intervalTracker = setInterval(function () {
 
 	    	timer--;
 	    	timeElapsed++;
@@ -426,19 +417,19 @@ function countTimer(startIndex, endIndex) {
 	        // if timer reaches the end
 	        if (timer === 0) {
 	        	// Clear the interval
-	            clearInterval(intervalTracker);
+	            clearInterval(tracker.intervalTracker);
 
 	            // Check if entire workout is complete
-	            if (timeElapsed === totalTime && index === endIndex) {
+	            if (timeElapsed === totalTime && tracker.indexTracker === endIndex) {
 	            	updateDisplay();
 
 			    	// Display end message
 			    	mainDisplay.exercise.text("COMPLETE!");
 	        		
 	        	} else {
-	        		index++;
+	        		tracker.indexTracker++;
 	        		// Run the next interval
-		            countTimer(index, maxIndex);
+		            countTimer(tracker.indexTracker, maxIndex);
 	        	}
 	        } else {
 		    	updateDisplay();
@@ -446,17 +437,17 @@ function countTimer(startIndex, endIndex) {
 	    }, 1000);
 
  	} else {
- 		index++;
- 		countTimer(index, maxIndex);
+ 		tracker.indexTracker++;
+ 		countTimer(tracker.indexTracker, maxIndex);
  	}
 
  	// Function to update main display
 	function updateDisplay() {
 	    // Update exercise display
-		mainDisplay.exercise.text(workoutData.exercise[index]);
+		mainDisplay.exercise.text(workoutData.exercise[tracker.indexTracker]);
 		
 		// Update round display
-		mainDisplay.round.text(Math.ceil( index / ((endIndex + 1) / rounds)) );
+		mainDisplay.round.text(Math.ceil( tracker.indexTracker / ((endIndex + 1) / rounds)) );
 
 		// Update time display
 		var minutes = parseInt(timer / 60, 10);
@@ -472,30 +463,8 @@ function countTimer(startIndex, endIndex) {
 	}
 };
 
-
-
-
-
-
-
-
-
-
-
-if (false) {
-	jQuery(function ($) {
-    var oneMinute = 60* 1;
-        // display = $('#timerCount');
-    countTimer(oneMinute, mainDisplay.timer);
-	});
-}
-
-
-
-
-
 function stopCurrentInterval() {
-	clearInterval(intervalTracker);
+	clearInterval(tracker.intervalTracker);
 }
 
 
@@ -524,6 +493,22 @@ $("#pauseButton").click(function(){
 			$this.html("Pause");
 	}
 	}, 200);
+
+
+
+	if (isPaused) {
+		// Save index
+
+		// Save current time
+		// Stop all intervals
+		stopCurrentInterval();
+		countTimer();
+	} else {
+		// Start running again
+	}
+
+
+
 });
 
 
