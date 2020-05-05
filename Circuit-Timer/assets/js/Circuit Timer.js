@@ -1,6 +1,7 @@
 var sound= true;
 var isRunning = false;
 var isPaused = false;
+var isComplete = false;
 
 var prepTime;
 var setTime;
@@ -11,13 +12,15 @@ var rounds;
 var totalTime = 0;
 var timeElapsed = 0;
 
+// Current time tracker
 var tracker = {
 	intervalTracker: 0,
 	indexTracker: 0,
-	timeTracker: 0
+	timeTracker: 0,
+	maxIndex: 0
 }
 
-// mainDisplay
+// Main Display
 var mainDisplay = {
 	timer: $("#timerCount"),
 	exercise: $("#exerciseTitle"),
@@ -39,9 +42,6 @@ var workoutData = {
 	duration: [],
 	ignored: []
 };
-
-// Overall exercise routine
-var maxIndex = 0;
 
 
 /*‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾*\
@@ -274,6 +274,7 @@ $("#startButton").click(function(){
 
 	// Start workout
 	isRunning = !isRunning;
+	isComplete = false;
 
 	// Start button animation
 	var $this = $(this);
@@ -294,18 +295,30 @@ $("#startButton").click(function(){
 
 	}, 200);
 
-	// hide unused fields and show "pause button"
+	// Hide unused fields and show "pause button"
 	if (isRunning) {
-		$("#settingSetup").animate({ height: 0, opacity: 0 }, 'slow');
+		// Hide workout settings
+		$("#settingSetup").animate({ height: 0, opacity: 0 }, 'slow', function(){
+			$(this).hide();
+		});
+		// Hide exercise settings
 		$(".fa-plus").fadeToggle();
-		$("#routineInputWrapper").animate({ height: 0, opacity: 0 }, 'slow');
+		$("#routineInputWrapper").animate({ height: 0, opacity: 0 }, 'slow', function(){
+			$(this).hide();
+		});
 		$("#routineContent span:first-child").hide();
+		// Show pause button
 		$("#pauseButton").animate({ height: 53.591, opacity: 1, marginTop: "25.8px" }, 'slow');
 	} else {
+		// Show workout settings
+		$("#settingSetup").show();
 		$("#settingSetup").animate({ height: 208.364, opacity: 1 }, 'slow');
+		// Show exercise setting
 		$(".fa-plus").fadeToggle();
+		$("#routineInputWrapper").show();
 		$("#routineInputWrapper").animate({ height: 52.800, opacity: 1 }, 'slow');
 		$("#routineContent span:first-child").show();
+		// Hide pause button
 		$("#pauseButton").animate({ height: 0, opacity: 0, marginTop: "0" }, 'slow');
 	}
 
@@ -339,7 +352,7 @@ function startTimer() {
 
 	// Reset time and run timer
 	timeElapsed = 0;
-	countTimer(0, maxIndex);
+	countTimer(0, tracker.maxIndex);
 }
 
 function defineWorkout() {
@@ -361,8 +374,7 @@ function defineWorkout() {
 
 	// Set Exercise/Rest Intervals
 	if (rounds > 0 && roundData.exerciseQtyActive > 0) {
-		maxIndex = roundData.exerciseQtyTotal * 2 * rounds - 1;
-		console.log(maxIndex);
+		tracker.maxIndex = roundData.exerciseQtyTotal * 2 * rounds - 1;
 
 		// Loops through rounds
 		var index = 0;
@@ -381,7 +393,7 @@ function defineWorkout() {
 
 				// Define Rest Intervals
 				index++;
-				if (index < maxIndex) {
+				if (index < tracker.maxIndex) {
 					workoutData.exercise[index] = "REST";
 					workoutData.duration[index] = restTime;
 					restTime > 0 && !(workoutData.ignored[index - 1]) ? isIgnored = false : isIgnored = true;
@@ -393,83 +405,11 @@ function defineWorkout() {
 				subIndex === (roundData.exerciseQtyTotal - 1) ? subIndex = 0 : subIndex++;
 			}
 		}		
+	} else {
+		// If only prep time
+		tracker.maxIndex = 0;
 	}
 }
-
-function countTimer(startIndex, endIndex) {
-
-    tracker.indexTracker = startIndex;
-
-    // Check if segment should be run or not
- 	if (!workoutData.ignored[tracker.indexTracker]) {
-
-	    var timer = workoutData.duration[tracker.indexTracker];
-
-	    // Update display at start
-	    updateDisplay();
-
-	    // Update display after each second
-	    tracker.intervalTracker = setInterval(function () {
-
-	    	timer--;
-	    	timeElapsed++;
-
-	        // if timer reaches the end
-	        if (timer === 0) {
-	        	// Clear the interval
-	            clearInterval(tracker.intervalTracker);
-
-	            // Check if entire workout is complete
-	            if (timeElapsed === totalTime && tracker.indexTracker === endIndex) {
-	            	updateDisplay();
-
-			    	// Display end message
-			    	mainDisplay.exercise.text("COMPLETE!");
-	        		
-	        	} else {
-	        		tracker.indexTracker++;
-	        		// Run the next interval
-		            countTimer(tracker.indexTracker, maxIndex);
-	        	}
-	        } else {
-		    	updateDisplay();
-	        }
-	    }, 1000);
-
- 	} else {
- 		tracker.indexTracker++;
- 		countTimer(tracker.indexTracker, maxIndex);
- 	}
-
- 	// Function to update main display
-	function updateDisplay() {
-	    // Update exercise display
-		mainDisplay.exercise.text(workoutData.exercise[tracker.indexTracker]);
-		
-		// Update round display
-		mainDisplay.round.text(Math.ceil( tracker.indexTracker / ((endIndex + 1) / rounds)) );
-
-		// Update time display
-		var minutes = parseInt(timer / 60, 10);
-		var seconds = parseInt(timer % 60, 10);
-	    minutes = minutes < 10 ? "0" + minutes : minutes;
-	    seconds = seconds < 10 ? "0" + seconds : seconds;
-	    mainDisplay.timer.text(minutes + ":" + seconds);
-
-	    // Update progress display
-	   	var progressPercent;
-	    progressPercent = Math.round((timeElapsed / totalTime) * 100);
-	    mainDisplay.progress.text(progressPercent + "%");
-	}
-};
-
-function stopCurrentInterval() {
-	clearInterval(tracker.intervalTracker);
-}
-
-
-
-
 
 
 /*‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾*\
@@ -494,36 +434,17 @@ $("#pauseButton").click(function(){
 	}
 	}, 200);
 
-
-
-	if (isPaused) {
-		// Save index
-
-		// Save current time
-		// Stop all intervals
-		stopCurrentInterval();
-		countTimer();
-	} else {
-		// Start running again
+	if (!isComplete) {
+		// If status is paused, stop interval otherwise reload interval
+		if (isPaused) {
+			// Stop current interval
+			stopCurrentInterval();
+		} else {
+			// Start running again
+			countTimer(tracker.indexTracker, tracker.maxIndex, tracker.timeTracker);
+		}		
 	}
-
-
-
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 /*‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾*\
@@ -585,3 +506,81 @@ function occurancesInArray(array, value) {
     return array.filter((v) => (v === value)).length;
 }
 
+function countTimer(startIndex, endIndex, setTime) {
+
+    tracker.indexTracker = startIndex;
+
+    // Check if segment should be run or not
+ 	if (!workoutData.ignored[tracker.indexTracker]) {
+
+ 		// Time pulled from index if not defined
+	    var timer =	(typeof setTime !== 'undefined') ? setTime : workoutData.duration[tracker.indexTracker];
+	    // var timer =	workoutData.duration[tracker.indexTracker];
+
+	    // Update display at start
+	    updateDisplay();
+
+	    // Update display after each second
+	    tracker.intervalTracker = setInterval(function () {
+
+	    	timer--;
+	    	timeElapsed++;
+
+	        // if timer reaches the end
+	        if (timer <= 0) {
+	        	// Clear the interval
+	            clearInterval(tracker.intervalTracker);
+
+	            // Check if entire workout is complete
+	            if (timeElapsed >= totalTime && tracker.indexTracker === endIndex) {
+	            	
+	            	updateDisplay();
+	            	isComplete = true;
+
+			    	// Display end message
+			    	mainDisplay.exercise.text("COMPLETE!");
+
+	        		
+	        	} else {
+	        		tracker.indexTracker++;
+	        		// Run the next interval
+		            countTimer(tracker.indexTracker, tracker.maxIndex);
+	        	}
+	        } else {
+		    	updateDisplay();
+	        }
+	    }, 1000);
+
+ 	} else {
+ 		tracker.indexTracker++;
+ 		countTimer(tracker.indexTracker, tracker.maxIndex);
+ 	}
+
+ 	// Function to update main display
+	function updateDisplay() {
+	    // Update exercise display
+		mainDisplay.exercise.text(workoutData.exercise[tracker.indexTracker]);
+		
+		// Update round display
+		mainDisplay.round.text(Math.ceil(tracker.indexTracker / ((endIndex + 1) / rounds)));
+
+		// Update time display
+		var minutes = parseInt(timer / 60, 10);
+		var seconds = parseInt(timer % 60, 10);
+	    minutes = minutes < 10 ? "0" + minutes : minutes;
+	    seconds = seconds < 10 ? "0" + seconds : seconds;
+	    mainDisplay.timer.text(minutes + ":" + seconds);
+
+	    // Update progress display
+	   	var progressPercent;
+	    progressPercent = Math.round((timeElapsed / totalTime) * 100);
+	    mainDisplay.progress.text(progressPercent + "%");
+
+	    // Save value to tracker
+	    tracker.timeTracker = timer;
+	}
+};
+
+function stopCurrentInterval() {
+	clearInterval(tracker.intervalTracker);
+}
