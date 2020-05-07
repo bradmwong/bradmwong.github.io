@@ -30,7 +30,8 @@ var workoutData = {
 	duration: [],
 	ignored: [],
 	maxIndex: 0,
-	totalTime: 0
+	totalTime: 0,
+	firstRun: true
 }
 
 // Trackers to save running workout values
@@ -41,6 +42,25 @@ var tracker = {
 	timeElapsed: 0
 }
 
+var voiceMessage = new SpeechSynthesisUtterance();
+
+var voiceOption = [];
+var voiceDefault;
+var voiceOptionIndex = 3;
+var voiceRate = 1.1;
+var voicePitch = 1;
+
+var voices;
+
+
+
+
+
+
+
+
+
+
 /*‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾*\
 |          INITALIZATION           ︳
 \*________________________________*/
@@ -50,6 +70,9 @@ init();
 
 // Initialization
 function init() {
+
+	//Define current voice
+	setVoiceArray();
 
 	// Set display time
 	globalTime();
@@ -66,6 +89,9 @@ function init() {
 $("#sound").click(function(){
 	$("#sound span i").toggleClass("fa-volume-up").toggleClass("fa-volume-mute");
 	sound = !sound;
+	if (sound) {
+		speak("sound on");
+	}
 });
 
 
@@ -326,6 +352,12 @@ $("#startButton").click(function(){
 	}
 
 	if (isRunning) {
+		speak("start");
+	} else {
+		speak("reset");
+	}
+
+	if (isRunning) {
 		startTimer();
 	} else {
 		stopCurrentInterval();
@@ -355,6 +387,7 @@ function startTimer() {
 
 	// Reset time and run timer
 	tracker.timeElapsed = 0;
+	firstRun = true;
 	countTimer(0, workoutData.maxIndex);
 }
 
@@ -423,8 +456,16 @@ function countTimer(startIndex, endIndex, setTime) {
 	    var timer =	(typeof setTime !== 'undefined') ? setTime : workoutData.duration[tracker.indexTracker];
 	    // var timer =	workoutData.duration[tracker.indexTracker];
 
+
 	    // Update display at start
 	    updateDisplay();
+
+	    // Voice command
+	    if (firstRun === true) {
+	    	firstRun = false;
+	    } else {
+	    	speak(workoutData.exercise[tracker.indexTracker]);
+	    }
 
 	    // Update display after each second
 	    tracker.intervalTracker = setInterval(function () {
@@ -446,6 +487,8 @@ function countTimer(startIndex, endIndex, setTime) {
 			    	// Display end message
 			    	mainDisplay.exercise.text("COMPLETE!");
 
+			    	// Voice command
+			    	speak("your workout is complete");
 	        		
 	        	} else {
 	        		tracker.indexTracker++;
@@ -464,6 +507,7 @@ function countTimer(startIndex, endIndex, setTime) {
 
  	// Function to update main display
 	function updateDisplay() {
+
 	    // Update exercise display
 		mainDisplay.exercise.text(workoutData.exercise[tracker.indexTracker]);
 		
@@ -484,6 +528,11 @@ function countTimer(startIndex, endIndex, setTime) {
 
 	    // Save value to tracker
 	    tracker.timeTracker = timer;
+
+	    // Voice command for the last 3 seconds
+	    if (timer <= 3) {
+	    	speak(timer);
+	    }
 	}
 };
 
@@ -513,6 +562,13 @@ $("#pauseButton").click(function(){
 			$this.html("Pause");
 	}
 	}, 200);
+
+	// Voice Command
+	if (isPaused) {
+		speak("pause");
+	} else {
+		speak("resume");
+	}
 
 	if (!isComplete) {
 		// If status is paused, stop interval otherwise reload interval
@@ -584,4 +640,80 @@ function ignoredArray() {
 // Count how many time value occurs in array
 function occurancesInArray(array, value) {
     return array.filter((v) => (v === value)).length;
+}
+
+
+
+/*‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾*\
+|          VOICE FUNCTIONS         ︳
+\*________________________________*/
+
+function speak(dialogue) {
+	// Stop any running voice
+	speechSynthesis.cancel();
+	// If sound is on, play new voices
+	if (sound) {
+		// Set voice
+		name = voiceOption[voiceOptionIndex];
+		voiceMessage.voice = voices.find(voice => voice.name === name);
+		// voiceMessage.voice = voices[11];
+		voiceMessage.voiceURI = "native";
+		voiceMessage.rate = voiceRate;
+		voiceMessage.pitch = voicePitch;
+
+		// Set speech text
+		voiceMessage.text = dialogue;
+		speechSynthesis.speak(voiceMessage);
+	}
+}
+
+function setVoiceArray() {
+
+	var prom1 = setSpeech();
+	prom1.then((voices) => voiceOption = voicesArray());
+
+	function setSpeech() {
+	    return new Promise(function (resolve, reject) {
+            let synth = window.speechSynthesis;
+            let id;
+
+            id = setInterval(() => {
+                if (synth.getVoices().length !== 0) {
+                    resolve(synth.getVoices());
+                    clearInterval(id);
+                }
+            }, 10);
+        })
+	}
+
+	var prom2 = setDefaultVoice();
+	prom2.then((voiceOption) => voiceDefault = voiceOption[voiceOptionIndex]);
+	prom2.then((voiceOption) => voiceMessage.voice = voices[voiceOptionIndex]);
+
+	function setDefaultVoice() {
+		return new Promise(function (resolve, reject) {
+			let id;
+			id = setInterval(() => {
+				if (voiceOption.length !== 0) {
+					resolve(voiceOption);
+					clearInterval(id);
+				}
+			}, 10);
+		})
+	}
+}
+
+// List of all exercises in English
+function voicesArray() {
+ 	var arr = [];
+
+	voices = speechSynthesis.getVoices();
+
+	for(var i = 0; i < voices.length; i++) {
+		if (voices[i].lang.includes('en')) {
+			arr.push(voices[i].name);
+		}
+	}
+
+	return arr;
 }
