@@ -1,3 +1,4 @@
+
 var sound= true;
 var isRunning = false;
 var isPaused = false;
@@ -43,14 +44,15 @@ var tracker = {
 }
 
 var voiceMessage = new SpeechSynthesisUtterance();
+var voices;
 
 var voiceOption = [];
 var voiceDefault;
-var voiceOptionIndex = 3;
+var voiceOptionIndex = 1;
 var voiceRate = 1.1;
 var voicePitch = 1;
 
-var voices;
+
 
 
 
@@ -214,8 +216,8 @@ function globalTime() {
 	total += totalSeconds("setSetting") * totalRounds("roundSetting") * roundData.exerciseQtyActive;
 	// Add total rest time
 	total += totalSeconds("restSetting") * totalRounds("roundSetting") * roundData.exerciseQtyActive;
-	// Subtract the last rest time
-	if (totalRounds("roundSetting") > 0 && roundData.exerciseQtyActive > 0) {
+	// Subtract a rest if there is no prep time
+	if (totalSeconds("prepareSetting") <= 0) {
 		total -= totalSeconds("restSetting");
 	}
 
@@ -394,6 +396,8 @@ function startTimer() {
 function defineWorkout() {
 
 	var isIgnored;
+	var firstIndex = true;
+	var firstRest = true;
 
 	// Reset workout
 	workoutData.exercise = [];
@@ -412,30 +416,36 @@ function defineWorkout() {
 
 		// Loops through rounds
 		var index = 0;
-		for (var r = 0; r < rounds; r++) {
+		for (var r = 1; r <= rounds; r++) {
 			
 			// Loops through exercises
 			var subIndex = 0;
 			for (var i = 1; i <= roundData.exerciseQtyTotal; i++) {
+
+				var ignoreAll = setTime <= 0 || roundData.ignoredList[subIndex] ? true : false;
+
+				// Define Rest Intervals
+				index++;
+				workoutData.exercise[index] = "REST";
+				workoutData.duration[index] = restTime;
+				restTime > 0 ? isIgnored = false : isIgnored = true;
+				// Check for prep time
+				if (firstIndex) {
+					// Check if prep time is ignored
+					isIgnored = workoutData.ignored[index - 1] ? true : false;
+					firstIndex = false;
+				}
+				isIgnored = ignoreAll ? true : isIgnored;
+				workoutData.ignored[index] = isIgnored;
 
 				// Define Exercise Intervals
 				index++;
 				workoutData.exercise[index] = roundData.exerciseList[subIndex].toUpperCase();
 				workoutData.duration[index] = setTime;
 				(setTime > 0 && !roundData.ignoredList[subIndex]) ? isIgnored = false : isIgnored = true;
+				isIgnored = ignoreAll ? true : isIgnored;
 				workoutData.ignored[index] = isIgnored;
 
-				// Define Rest Intervals
-				index++;
-				if (index < workoutData.maxIndex) {
-					workoutData.exercise[index] = "REST";
-					workoutData.duration[index] = restTime;
-					restTime > 0 && !(workoutData.ignored[index - 1]) ? isIgnored = false : isIgnored = true;
-					workoutData.ignored[index] = isIgnored;
-				} else {
-					break;
-				}
-				
 				subIndex === (roundData.exerciseQtyTotal - 1) ? subIndex = 0 : subIndex++;
 			}
 		}		
@@ -443,19 +453,25 @@ function defineWorkout() {
 		// If only prep time
 		workoutData.maxIndex = 0;
 	}
+
+	console.log(workoutData.exercise);
+	console.log(workoutData.duration);
+	console.log(workoutData.ignored);
 }
 
 function countTimer(startIndex, endIndex, setTime) {
 
+	var timer = 0;
     tracker.indexTracker = startIndex;
+
+    console.log("index " + tracker.indexTracker);
+    console.log("Ending: " + endIndex);
 
     // Check if segment should be run or not
  	if (!workoutData.ignored[tracker.indexTracker]) {
 
  		// Time pulled from index if not defined
-	    var timer =	(typeof setTime !== 'undefined') ? setTime : workoutData.duration[tracker.indexTracker];
-	    // var timer =	workoutData.duration[tracker.indexTracker];
-
+	    timer =	(typeof setTime !== 'undefined') ? setTime : workoutData.duration[tracker.indexTracker];
 
 	    // Update display at start
 	    updateDisplay();
@@ -472,24 +488,15 @@ function countTimer(startIndex, endIndex, setTime) {
 
 	    	timer--;
 	    	tracker.timeElapsed++;
-
+	    	console.log("time elapsed " + tracker.timeElapsed);
 	        // if timer reaches the end
 	        if (timer <= 0) {
 	        	// Clear the interval
 	            clearInterval(tracker.intervalTracker);
 
-	            // Check if entire workout is complete
-	            if (tracker.timeElapsed >= workoutData.totalTime && tracker.indexTracker === endIndex) {
-	            	
-	            	updateDisplay();
-	            	isComplete = true;
-
-			    	// Display end message
-			    	mainDisplay.exercise.text("COMPLETE!");
-
-			    	// Voice command
-			    	speak("your workout is complete");
-	        		
+	            // Check if workout is complete
+	            if (tracker.timeElapsed >= workoutData.totalTime && tracker.indexTracker >= endIndex) {
+	            	workoutComplete();	        		
 	        	} else {
 	        		tracker.indexTracker++;
 	        		// Run the next interval
@@ -501,8 +508,15 @@ function countTimer(startIndex, endIndex, setTime) {
 	    }, 1000);
 
  	} else {
- 		tracker.indexTracker++;
- 		countTimer(tracker.indexTracker, workoutData.maxIndex);
+
+ 		// Check if workout is complete
+ 		if (tracker.timeElapsed >= workoutData.totalTime && tracker.indexTracker >= endIndex) {
+ 			workoutComplete();
+
+ 		} else {
+ 			tracker.indexTracker++;
+ 			countTimer(tracker.indexTracker, workoutData.maxIndex);
+ 		} 		
  	}
 
  	// Function to update main display
@@ -534,6 +548,18 @@ function countTimer(startIndex, endIndex, setTime) {
 	    	speak(timer);
 	    }
 	}
+
+	 function workoutComplete() {
+
+    	updateDisplay();
+    	isComplete = true;
+
+    	// Display end message
+    	mainDisplay.exercise.text("COMPLETE!");
+
+    	// Voice command
+    	speak("your workout is complete");
+ 	}
 };
 
 function stopCurrentInterval() {
@@ -566,8 +592,6 @@ $("#pauseButton").click(function(){
 	// Voice Command
 	if (isPaused) {
 		speak("pause");
-	} else {
-		speak("resume");
 	}
 
 	if (!isComplete) {
@@ -656,12 +680,14 @@ function speak(dialogue) {
 		// Set voice
 		name = voiceOption[voiceOptionIndex];
 		voiceMessage.voice = voices.find(voice => voice.name === name);
-		// voiceMessage.voice = voices[11];
 		voiceMessage.voiceURI = "native";
 		voiceMessage.rate = voiceRate;
 		voiceMessage.pitch = voicePitch;
 
 		// Set speech text
+		if (typeof dialogue === "string") {
+			dialogue = dialogue.toLowerCase();
+		}
 		voiceMessage.text = dialogue;
 		speechSynthesis.speak(voiceMessage);
 	}
