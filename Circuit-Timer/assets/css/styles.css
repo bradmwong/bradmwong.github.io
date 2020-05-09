@@ -12,11 +12,14 @@ body {
 	margin-left: auto;
 	padding: 0px;
 	margin-top: 25px;
-	border-radius: 15px 15px 10px 10px;
+	border-radius: 11px 11px 10px 10px;
 	background-color: #4a4a4a;
+    box-shadow: 1px 3px 5px rgba(0,0,0,0.5),
+        2px 5px 11px rgba(0,0,0,0.2),
+        3px 7px 19px rgba(0,0,0,0.1);
 }
 
-div #navbar {
+#navbar {
 	background-color: #d0d0d0;
 	border-radius: 10px 10px 0px 0px;
 	height: 40px;
@@ -24,7 +27,7 @@ div #navbar {
 	text-align: center;
 }
 
-button {
+#navbar button {
 	height: 100%;
 	margin: auto;
 	padding-top: 0;
@@ -42,25 +45,25 @@ button {
 	border: none;
 }
 
-button:hover {
+#navbar button:hover {
 	color: grey;
 	background-color: white;
 	padding-top: 0;
 	padding-bottom: 0;
 }
 
-#save {
+#navbar #save {
 	float: left;
 	margin-left: 8px;
 	margin-right: 6px;
 }
 
-#load {
+#navbar #load {
 	float: left;
 	margin-right: 8px;
 }
 
-#sound {
+#navbar #sound {
 	float: right;
 	margin-right: 8px;
 }
@@ -358,7 +361,7 @@ input::-webkit-inner-spin-button {
 	text-decoration: line-through;
 }
 
-.buttonStyle {
+.display2Wrapper .buttonStyle {
 	background: #ffffff;
 	color: #333333;
 	font-size: 24px;
@@ -373,7 +376,7 @@ input::-webkit-inner-spin-button {
 }
 
 /* Default click*/
-.clickDefault {
+.display2Wrapper .clickDefault {
 	background-color: black;
 	color: white;
     border: 1px solid black;
@@ -383,4 +386,74 @@ input::-webkit-inner-spin-button {
 	box-shadow: 0px 0px 20px #c9c9c9;
         -webkit-box-shadow: 0px 0px 20px #c9c9c9;
         -moz-box-shadow: 0px 0px 20px #c9c9c9;
+}
+
+.display2Wrapper #pauseButton {
+	margin-bottom: 0;
+}
+
+
+
+
+/* The Modal (background) */
+.modal {
+  z-index: 1;
+  display: none;
+  position: fixed;
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+#saveModalContent {
+	background-color: #fefefe;
+	margin: auto;
+	height: 450px;
+	width: 300px;
+	border-radius: 36px;
+    box-shadow: 1px 3px 5px rgba(0,0,0,0.5),
+        2px 5px 11px rgba(0,0,0,0.2),
+        3px 7px 19px rgba(0,0,0,0.1);
+}
+
+#saveModalContent div {
+	margin: auto;
+	height: 350px;
+	text-align: center;
+}
+
+#saveModalContent div div {
+	border-radius: 35px 35px 0 0 ;
+	padding: 100px 0;
+	height: 150px;
+	font-family: 'Pacifico', cursive;
+	color: #3BC1AC;
+	background-color: #ffc600;
+}
+
+/* The Close Button */
+.closeButton {
+	color: white;
+	background-color: #e74c3c;
+	font-size: 72px;
+	font-weight: bold;
+	height: 100px;
+	width: 100%;
+	bottom: 0;
+	border: none;
+	outline: none;
+	border-radius: 0 0 35px 35px;
+}
+
+.closeButton:hover,
+.closeButton:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
 }
