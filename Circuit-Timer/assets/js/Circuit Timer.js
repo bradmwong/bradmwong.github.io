@@ -1,4 +1,3 @@
-
 var sound= true;
 var isRunning = false;
 var isPaused = false;
@@ -86,6 +85,49 @@ function init() {
 	$("#pauseButton").css({ height: 0, opacity: 0, marginTop: "0" });
 	$("#pauseButton").hide();
 };
+
+/*‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾*\
+|           SAVE BUTTON            ︳
+\*________________________________*/
+
+$("#save").click(function(){
+
+	console.log("save pressed");
+	
+});
+
+
+$("#save").click(function(){
+  	$("#saveModal").show();
+})
+
+
+$(".closeButton").click(function() {
+  	$("#saveModal").hide();
+})
+
+// If Esc is pressed
+$("body").keydown(function(event){
+	if(event.which === 27) {
+  		$("#saveModal").hide();
+	}
+});
+
+
+
+/*‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾*\
+|            LOAD BUTTON           ︳
+\*________________________________*/
+
+$("#load").click(function(){
+	console.log("load pressed");
+
+});
+
+
+/*‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾*\
+|           SOUND BUTTON           ︳
+\*________________________________*/
 
 // Toggle sound button/status
 $("#sound").click(function(){
@@ -448,24 +490,21 @@ function defineWorkout() {
 
 				subIndex === (roundData.exerciseQtyTotal - 1) ? subIndex = 0 : subIndex++;
 			}
-		}		
+		}
 	} else {
 		// If only prep time
 		workoutData.maxIndex = 0;
 	}
 
-	console.log(workoutData.exercise);
-	console.log(workoutData.duration);
-	console.log(workoutData.ignored);
+	// console.log(workoutData.exercise);
+	// console.log(workoutData.duration);
+	// console.log(workoutData.ignored);
 }
 
 function countTimer(startIndex, endIndex, setTime) {
 
 	var timer = 0;
     tracker.indexTracker = startIndex;
-
-    console.log("index " + tracker.indexTracker);
-    console.log("Ending: " + endIndex);
 
     // Check if segment should be run or not
  	if (!workoutData.ignored[tracker.indexTracker]) {
@@ -488,7 +527,7 @@ function countTimer(startIndex, endIndex, setTime) {
 
 	    	timer--;
 	    	tracker.timeElapsed++;
-	    	console.log("time elapsed " + tracker.timeElapsed);
+
 	        // if timer reaches the end
 	        if (timer <= 0) {
 	        	// Clear the interval
@@ -496,7 +535,7 @@ function countTimer(startIndex, endIndex, setTime) {
 
 	            // Check if workout is complete
 	            if (tracker.timeElapsed >= workoutData.totalTime && tracker.indexTracker >= endIndex) {
-	            	workoutComplete();	        		
+	            	workoutComplete();
 	        	} else {
 	        		tracker.indexTracker++;
 	        		// Run the next interval
@@ -516,7 +555,7 @@ function countTimer(startIndex, endIndex, setTime) {
  		} else {
  			tracker.indexTracker++;
  			countTimer(tracker.indexTracker, workoutData.maxIndex);
- 		} 		
+ 		}
  	}
 
  	// Function to update main display
