@@ -91,13 +91,6 @@ function init() {
 \*________________________________*/
 
 $("#save").click(function(){
-
-	console.log("save pressed");
-	
-});
-
-
-$("#save").click(function(){
   	$("#saveModal").show();
 })
 
@@ -120,8 +113,19 @@ $("body").keydown(function(event){
 \*________________________________*/
 
 $("#load").click(function(){
-	console.log("load pressed");
+	$("#loadModal").show();
+});
 
+
+$(".closeButton").click(function() {
+  	$("#loadModal").hide();
+})
+
+// If Esc is pressed
+$("body").keydown(function(event){
+	if(event.which === 27) {
+  		$("#loadModal").hide();
+	}
 });
 
 
