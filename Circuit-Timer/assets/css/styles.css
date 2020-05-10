@@ -28,6 +28,7 @@ body {
 }
 
 #navbar button {
+	cursor: pointer;
 	height: 100%;
 	margin: auto;
 	padding-top: 0;
@@ -229,6 +230,7 @@ li:nth-child(2n) {
 }
 
 #settingsContent li .settingButtons {
+	cursor: pointer;
 	width: 0;
 	background-color: #d0d0d0;
 	color: #808080;
@@ -316,6 +318,7 @@ input::-webkit-inner-spin-button {
 }
 
 #routineTitle .fa-plus {
+	cursor: pointer;
 	float: right;
 }
 
@@ -337,6 +340,7 @@ input::-webkit-inner-spin-button {
 }
 
 #routineContent li:hover span:first-child {
+	cursor: pointer;
 	width: 40px;
 	opacity: 1.0;
 }
@@ -361,7 +365,12 @@ input::-webkit-inner-spin-button {
 	text-decoration: line-through;
 }
 
+/*‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾*\
+|           START/PAUSE            ︳
+\*________________________________*/
+
 .display2Wrapper .buttonStyle {
+	cursor: pointer;
 	background: #ffffff;
 	color: #333333;
 	font-size: 24px;
@@ -393,7 +402,9 @@ input::-webkit-inner-spin-button {
 }
 
 
-
+/*‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾*\
+|              MODAL               ︳
+\*________________________________*/
 
 /* The Modal (background) */
 .modal {
@@ -411,49 +422,65 @@ input::-webkit-inner-spin-button {
 }
 
 /* Modal Content */
-#saveModalContent {
+.modal div {
 	background-color: #fefefe;
 	margin: auto;
 	height: 450px;
 	width: 300px;
-	border-radius: 36px;
+	border-radius: 16px;
     box-shadow: 1px 3px 5px rgba(0,0,0,0.5),
         2px 5px 11px rgba(0,0,0,0.2),
         3px 7px 19px rgba(0,0,0,0.1);
 }
 
-#saveModalContent div {
+/* Text wrapper */
+.modal div div {
 	margin: auto;
-	height: 350px;
+	height: 390px;
 	text-align: center;
 }
 
-#saveModalContent div div {
-	border-radius: 35px 35px 0 0 ;
+/* Text content */
+.modal div div div {
+	border-radius: 15px 15px 0 0 ;
 	padding: 100px 0;
-	height: 150px;
+	height: 190px;
 	font-family: 'Pacifico', cursive;
 	color: #3BC1AC;
 	background-color: #ffc600;
 }
 
+.modal div button span {
+	font-size: 24px;
+}
+
 /* The Close Button */
 .closeButton {
+	cursor: pointer;
 	color: white;
+	display: inline-block;
 	background-color: #e74c3c;
-	font-size: 72px;
+	font-family: 'Lato';
 	font-weight: bold;
-	height: 100px;
+	text-transform: uppercase;
+	height: 60px;
 	width: 100%;
+	position: relative;
 	bottom: 0;
 	border: none;
 	outline: none;
-	border-radius: 0 0 35px 35px;
+	border-radius: 0 0 15px 15px;
+	    -webkit-transition: all 0.3s;
+	    -moz-transition: all 0.3s;
+	    transition: all 0.3s;*/
 }
 
 .closeButton:hover,
 .closeButton:focus {
-  color: #000;
+  background: #c0392b;
   text-decoration: none;
   cursor: pointer;
+}
+.closeButton:hover,
+.closeButton:focus .modal div button span {
 }
