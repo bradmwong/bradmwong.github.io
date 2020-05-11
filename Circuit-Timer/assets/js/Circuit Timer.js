@@ -1,4 +1,4 @@
-var sound= true;
+var isSound= true;
 var isRunning = false;
 var isPaused = false;
 var isComplete = false;
@@ -7,6 +7,12 @@ var prepTime;
 var setTime;
 var restTime;
 var rounds;
+
+
+
+
+
+
 
 // Main Display
 var mainDisplay = {
@@ -42,6 +48,29 @@ var tracker = {
 	timeElapsed: 0
 }
 
+// Sound variables
+var soundData = {
+	beep: {
+		sound: new Howl({
+			src: ["assets/sounds/beep.wav"],
+			volume: 0.5
+		})
+	},
+	delete: {
+		sound: new Howl({
+			src: ["assets/sounds/delete.wav"],
+			volume: 0.4
+		})
+	},
+	ignore: {
+		sound: new Howl({
+			src: ["assets/sounds/ignore.wav"],
+			volume: 1.0
+		})
+	}
+};
+
+// Voice variables
 var voiceMessage = new SpeechSynthesisUtterance();
 var voices;
 
@@ -136,8 +165,8 @@ $("body").keydown(function(event){
 // Toggle sound button/status
 $("#sound").click(function(){
 	$("#sound span i").toggleClass("fa-volume-up").toggleClass("fa-volume-mute");
-	sound = !sound;
-	if (sound) {
+	isSound = !isSound;
+	if (isSound) {
 		speak("sound on");
 	}
 });
@@ -167,6 +196,9 @@ $(".settingButtons").click(function(){
 	setTimeout(function(){
 		$this.removeClass("clickDefaultSetting");
 	}, 200);
+
+	// Play sound
+	playSound("beep");
 
 	// If input is a number or time value
 	if (parentId === "roundSetting") {
@@ -310,19 +342,29 @@ $(".fa-plus").click(function(){
 
 // Click on trashcan to delete exercise
 $("#routineContent").on("click", "span:first-child", function(event){
+	
+	// Delete animation
 	$(this).parent().fadeOut(250, function(){
 		$(this).remove();
 		globalTime();
 	});
 	event.stopPropagation();
+
+	// Play sound
+	playSound("delete");
 });
 
 // Check off exercise to exclude
 $("#routineContent").on("click", "li", function(){
+	
+	// Strike-through animation
 	if (!isRunning) {
 		$(this).toggleClass("ignored");
 		globalTime();
 	}
+ 
+	// Play sound
+	playSound("ignore");
 });
 
 function addRoutine() {
@@ -710,6 +752,16 @@ function occurancesInArray(array, value) {
 }
 
 
+/*‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾*\
+|          SOUND FUNCTIONS         ︳
+\*________________________________*/
+
+function playSound(soundId) {
+	if (isSound) {
+		soundData[soundId].sound.play();
+	}
+}
+
 
 /*‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾*\
 |          VOICE FUNCTIONS         ︳
@@ -719,7 +771,7 @@ function speak(dialogue) {
 	// Stop any running voice
 	speechSynthesis.cancel();
 	// If sound is on, play new voices
-	if (sound) {
+	if (isSound) {
 		// Set voice
 		name = voiceOption[voiceOptionIndex];
 		voiceMessage.voice = voices.find(voice => voice.name === name);
@@ -786,3 +838,4 @@ function voicesArray() {
 
 	return arr;
 }
+
