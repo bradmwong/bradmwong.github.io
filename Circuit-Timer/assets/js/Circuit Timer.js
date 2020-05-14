@@ -8,12 +8,6 @@ var setTime;
 var restTime;
 var rounds;
 
-
-
-
-
-
-
 // Main Display
 var mainDisplay = {
 	timer: $("#timerCount"),
@@ -76,7 +70,7 @@ var voices;
 
 var voiceOption = [];
 var voiceDefault;
-var voiceOptionIndex = 1;
+var voiceOptionIndex = 2;
 var voiceRate = 1.1;
 var voicePitch = 1;
 
@@ -622,7 +616,7 @@ function countTimer(startIndex, endIndex, setTime) {
 
 	    // Update progress display
 	   	var progressPercent;
-	    progressPercent = Math.round((tracker.timeElapsed / workoutData.totalTime) * 100);
+	    progressPercent = Math.floor((tracker.timeElapsed / workoutData.totalTime) * 100);
 	    mainDisplay.progress.text(progressPercent + "%");
 
 	    // Save value to tracker
