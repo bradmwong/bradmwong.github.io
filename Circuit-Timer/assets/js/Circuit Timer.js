@@ -288,10 +288,10 @@ function globalTime() {
 	total += totalSeconds("setSetting") * totalRounds("roundSetting") * roundData.exerciseQtyActive;
 	// Add total rest time
 	total += totalSeconds("restSetting") * totalRounds("roundSetting") * roundData.exerciseQtyActive;
-	// Subtract a rest if there is no prep time
-	if (totalSeconds("prepareSetting") <= 0) {
-		total -= totalSeconds("restSetting");
-	}
+	// Subtract a rest for the first rest
+	// if (totalSeconds("prepareSetting") <= 0) {
+	total -= totalSeconds("restSetting");
+	// }
 
 	// Separate minutes and seconds
     hours = parseInt(total / (3600), 10);
@@ -507,18 +507,20 @@ function defineWorkout() {
 				var ignoreAll = setTime <= 0 || roundData.ignoredList[subIndex] ? true : false;
 
 				// Define Rest Intervals
-				index++;
-				workoutData.exercise[index] = "REST";
-				workoutData.duration[index] = restTime;
-				restTime > 0 ? isIgnored = false : isIgnored = true;
-				// Check for prep time
-				if (firstIndex) {
-					// Check if prep time is ignored
-					isIgnored = workoutData.ignored[index - 1] ? true : false;
-					firstIndex = false;
+				if (index !== 0) {
+					index++;
+					workoutData.exercise[index] = "REST";
+					workoutData.duration[index] = restTime;
+					restTime > 0 ? isIgnored = false : isIgnored = true;
+					// Check for prep time
+					if (firstIndex) {
+						// Check if prep time is ignored
+						isIgnored = workoutData.ignored[index - 1] ? true : false;
+						firstIndex = false;
+					}
+					isIgnored = ignoreAll ? true : isIgnored;
+					workoutData.ignored[index] = isIgnored;				
 				}
-				isIgnored = ignoreAll ? true : isIgnored;
-				workoutData.ignored[index] = isIgnored;
 
 				// Define Exercise Intervals
 				index++;
@@ -778,6 +780,8 @@ function speak(dialogue) {
 			dialogue = dialogue.toLowerCase();
 		}
 		voiceMessage.text = dialogue;
+
+		// Play text to voice
 		speechSynthesis.speak(voiceMessage);
 	}
 }
