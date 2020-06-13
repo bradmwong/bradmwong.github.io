@@ -287,11 +287,11 @@ function globalTime() {
 	// Add total set time
 	total += totalSeconds("setSetting") * totalRounds("roundSetting") * roundData.exerciseQtyActive;
 	// Add total rest time
-	total += totalSeconds("restSetting") * totalRounds("roundSetting") * roundData.exerciseQtyActive;
-	// Subtract a rest for the first rest
-	// if (totalSeconds("prepareSetting") <= 0) {
-	total -= totalSeconds("restSetting");
-	// }
+	if (roundData.exerciseQtyActive > 0 && totalSeconds("setSetting") > 0 && totalRounds("roundSetting") > 0) {
+		total += totalSeconds("restSetting") * totalRounds("roundSetting") * roundData.exerciseQtyActive;
+		// Subtract a rest for the first rest
+		total -= totalSeconds("restSetting");
+	}
 
 	// Separate minutes and seconds
     hours = parseInt(total / (3600), 10);
@@ -538,8 +538,8 @@ function defineWorkout() {
 		workoutData.maxIndex = 0;
 	}
 
-	// console.log(workoutData.exercise);
-	// console.log(workoutData.duration);
+	console.log(workoutData.exercise);
+	console.log(workoutData.duration);
 	// console.log(workoutData.ignored);
 }
 
