@@ -1,0 +1,133 @@
+body {
+	background-color: rgba(203, 235, 241, 0.966);
+}
+
+main {
+	height: 100%;
+}
+
+.row {
+	margin-left: 0 !important;
+	margin-right: 0 !important;
+}
+
+.numberText {
+	font-size: 108px;
+}
+
+.vertical {
+	width: 200px;
+	float: right;
+}
+
+.answerButton {
+	width: 140px;
+}
+
+/*‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾*\
+|            TOP BAR                ︳
+\*________________________________*/
+
+#top-bar {
+	max-width: 100%;
+}
+
+#timerContainer {
+	width: 132px;
+	height: 48px;
+	background-color: #fff;
+	color: #007bff;
+}
+
+#scoreCounter {
+	background-color: #fff;
+	color: #007bff;
+}
+
+#scoreMax {
+	background-color: rgba(0, 123, 255, 0.85);
+	color: #fff;
+}
+
+#scoreCurrent {
+	background-color: #fff;
+	color: #007bff;
+}
+
+/*‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾*\
+|            MAIN BAR               ︳
+\*________________________________*/
+
+#defaultTitle {
+	text-decoration: underline;
+}
+
+#middle-bar {
+	max-width: 100%;
+}
+
+.wordText div span {
+	font-size: 42px;
+}
+
+#startButton {
+	height: 126px;
+	width: 380px;
+	font-size: 64px;
+}
+
+hr {
+	border: none;
+	color: #212529;
+	background-color: #212529;
+	height: 10px;
+	width: 100%;
+}
+
+#percentText span {
+	font-size: 72px;
+}
+
+/*‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾*\
+|           BOTTOM BAR              ︳
+\*________________________________*/
+
+#bottom-bar {
+	max-width: 100%;
+	margin-bottom: 56px;
+}
+
+#skipButton {
+	height: 62px;
+}
+
+/*‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾*\
+|          CANVAS OVERLAY           ︳
+\*________________________________*/
+
+.bs-canvas-overlay {
+	opacity: 0.85;
+	z-index: 1100;
+}
+
+.bs-canvas {
+	top: 0;
+	z-index: 1110;
+	overflow-x: hidden;
+	overflow-y: auto;
+	width: 330px;
+	transition: margin .4s ease-out;
+	-webkit-transition: margin .4s ease-out;
+	-moz-transition: margin .4s ease-out;
+	-ms-transition: margin .4s ease-out;
+}
+
+.bs-canvas-left {
+	left: 0;
+	margin-left: -330px;
+}
+
+.bs-canvas-right {
+	right: 0;
+	margin-right: -330px;
+}
