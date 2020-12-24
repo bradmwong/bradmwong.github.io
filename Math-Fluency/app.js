@@ -1,7 +1,7 @@
 let settings = {
     maxNum: 20,
     totalQuestions: 15,
-    totalTime: 60,
+    totalTime: 10,
     isVertical: true,
     isHorizontal: true
 }
@@ -53,6 +53,7 @@ function updateSettings() {
     settings.isVertical = $('#verticalInput').is(':checked');
     settings.isHorizontal = $('#horizontalInput').is(':checked');
 
+    timeReset();
     resetGame();
     setupGame();
 }
@@ -219,6 +220,7 @@ jQuery(document).ready(function ($) {
 {/* <input type="button" value="Reset" onclick="timeReset()"> */ }
 
 var t, count;
+var blink;
 
 function timeDisplay() {
     // displays time in span
@@ -255,7 +257,7 @@ function timeupAlert() {
     let i = 0;
 
     $('#timer').html("Time's Up");
-    setInterval(function () {
+    blink = setInterval(function () {
 
         if (i % 2 === 0) {
             $('#timerContainer').css('background-color', '#ffbaba');
@@ -268,6 +270,7 @@ function timeupAlert() {
 
 function timerDefault() {
     $('#timerContainer').css('background-color', '#fff');
+    clearInterval(blink);
 }
 
 /*‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾*\
