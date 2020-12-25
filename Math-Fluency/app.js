@@ -1,7 +1,7 @@
 let settings = {
     maxNum: 20,
     totalQuestions: 15,
-    totalTime: 10,
+    totalTime: 60,
     isVertical: true,
     isHorizontal: true
 }
