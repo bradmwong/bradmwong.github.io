@@ -50,6 +50,7 @@ main {
 }
 
 #scoreCurrent {
+	min-width: 100px;
 	background-color: #fff;
 	color: #007bff;
 }
