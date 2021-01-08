@@ -77,6 +77,10 @@ main {
 	font-size: 64px;
 }
 
+.num_v {
+	max-height: 144px;
+}
+
 hr {
 	border: none;
 	color: #212529;

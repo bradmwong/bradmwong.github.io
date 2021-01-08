@@ -189,7 +189,7 @@ function generateNumbers(maxAns) {
 |              CANVAS               ︳
 \*________________________________*/
 
-// Docs: https://fellowtuts.com/bootstrap/off-canvas-sidebar-menu-wordpress/
+// Ref: https://fellowtuts.com/bootstrap/off-canvas-sidebar-menu-wordpress/
 
 jQuery(document).ready(function ($) {
     $(document).on('click', '.pull-bs-canvas-right, .pull-bs-canvas-left', function () {
@@ -213,7 +213,7 @@ jQuery(document).ready(function ($) {
 |              TIMER                ︳
 \*________________________________*/
 
-// Docs: http://jsfiddle.net/XcvaE/4/
+// Ref: http://jsfiddle.net/XcvaE/4/
 
 {/* <input type="button" value="Start" onclick="timeStart()"> */ }
 {/* <input type="button" value="Stop" onclick="timePause()"> */ }
@@ -277,7 +277,7 @@ function timerDefault() {
 |           CANVAS FORM             ︳
 \*________________________________*/
 
-// Docs: https://jsfiddle.net/vyspiansky/ph4f3s9x/
+// Ref: https://jsfiddle.net/vyspiansky/ph4f3s9x/
 
 (function () {
     function addValidation(checkboxes) {
