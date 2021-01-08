@@ -27,7 +27,7 @@ function setupGame() {
     $('#verticalQuestion').hide();
     $('#horizontalQuestion').hide();
     $('#scoreBoard').hide();
-    $('#gameButtons').hide();
+    $('#gameButtonContainer').hide();
     
     $('#defaultSettings').show();
     $('#startContainer').show();
@@ -66,7 +66,7 @@ function updateSettings() {
 $('#startButton').click(function () {
     $('#defaultSettings').hide();
     $('#startContainer').hide();
-    $('#gameButtons').show();
+    $('#gameButtonContainer').show();
     $('#scoreBoard').hide();
 
     timeReset();
@@ -118,7 +118,7 @@ isComplete = () => {
 showScore = () => {
     $("#verticalQuestion").hide();
     $("#horizontalQuestion").hide();
-    $('#gameButtons').hide();
+    $('#gameButtonContainer').hide();
 
     $('#scoreRight').text(game.correct);
     $('#scoreWrong').text(game.wrong);

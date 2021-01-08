@@ -22,22 +22,16 @@
 <body class="d-flex flex-column vh-100" onload="timeReset()"">
 
     <!-- Navbar -->
-    <nav class=" navbar navbar-expand-lg navbar-dark bg-primary">
-    <a class="navbar-brand" href="">Math-Fluency</a>
-    <!-- Collapsing button -->
-    <!-- <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button> -->
-    <!-- Pull-out content button -->
-    <a class="pull-bs-canvas-right order-xl-last btn btn-outline-light float-right" href="">
-        <i class="fas fa-cog fa-lg"></i>
-    </a>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <!-- Navbar collapsible content -->
-    </div>
-    </nav>
+    <nav class="navbar navbar-expand-xl navbar-dark bg-primary">
+        <a class="navbar-brand" href="">Math-Fluency</a>
 
+        <a class="pull-bs-canvas-right ml-3 order-xl-last btn btn-outline-light" href="">
+            <i class="fas fa-cog fa-lg"></i>
+        </a>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <!-- Navbar collapsible content -->
+        </div>
+    </nav>
 
     <div id="top-bar" class="row">
 
@@ -119,7 +113,7 @@
     </main>
 
     <div id="bottom-bar" class="container py-4">
-        <div id="startContainer" class="col-6 offset-3">
+        <div id="startContainer">
             <div class=" d-flex justify-content-center align-items-end">
                 <button id="startButton" type="button" class="answerButton btn btn-primary mx-2">
                     Start
@@ -127,8 +121,7 @@
             </div>
         </div>
 
-
-        <div id="gameButtons" class="col-6 offset-3">
+        <div id="gameButtonContainer">
             <div class="d-flex justify-content-center align-items-end">
                 <button id="correctButton" type="button" class="answerButton btn btn-success mx-2">
                     <i class="fas fa-check fa-7x"></i>
