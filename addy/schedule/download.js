@@ -88,10 +88,17 @@ function createScheduleWorksheet(workbook, section, shifts, monthInput, yearInpu
             shiftBlock[1][dayOfWeek] = `${day} ${date.toLocaleDateString('en-US', { weekday: 'long' })}`;
         }
 
-        // If friday OR last day of month -> Push section and reset array
-        if (dayOfWeek === 5 || day === numberOfDays) {
+        // If friday -> Push section and reset array
+        if (dayOfWeek === 5) {
             worksheet.addRows(shiftBlock);
             shiftBlock[1] = ['SHIFT:'];
+            
+        // If last day of month AND day aligns with Monday - Friday -> Push section and reset array
+        } else if (day === numberOfDays) {
+            if (dayOfWeek >= 1 && dayOfWeek <= 5) {
+                worksheet.addRows(shiftBlock);
+                shiftBlock[1] = ['SHIFT:'];
+            }
         }
 
     }
