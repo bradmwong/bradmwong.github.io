@@ -1,0 +1,13 @@
+body {
+    height: 100vh;
+    background-image: url("https://res.cloudinary.com/addypillar/image/upload/v1666399779/Addy%27s%20Schedule/WallpaperDog-10766_dfqd4v.jpg");
+    background-size: cover;
+    background-position: center;
+}
+
+.center-screen {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
