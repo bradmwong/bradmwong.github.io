@@ -2,15 +2,14 @@
 <html lang="en">
 
 <head>
-
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 	<title>Schedule your Addy!</title>
 
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
 		integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 	<link rel="stylesheet" href="stylesheet.css">
-
 </head>
 
 <body class="d-flex flex-column vh-100">
@@ -25,13 +24,44 @@
 						<h5 class="card-title mb-3">Schedule your Addys</h5>
 						<form>
 							<div class="input-group my-2">
-								<select class="form-select form-select-lg mb-3" name="month" id="month"></select>
-								<select class="form-select form-select-lg mb-3" name="year" id="year"></select>
+								<select class="form-select form-select-lg mb-3" name="month" id="month">
+									<script>
+										(function () {
+											const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+											const currentMonth = new Date().getMonth();
+											let monthSelect = document.querySelector('#month');
+											for (let i = 0; i < months.length; i++) {
+												let option = document.createElement('option');
+												option.text = months[i];
+												if (i === currentMonth) {
+													option.selected = 'selected';
+												}
+												monthSelect.add(option);
+											}
+										}());
+									</script>
+								</select>
+								<select class="form-select form-select-lg mb-3" name="year" id="year">
+									<script>
+										(function () {
+											const year = new Date().getFullYear();
+											let yearSelect = document.querySelector('#year');
+											for (let i = -1; i <= 1; i++) {
+												let option = document.createElement('option');
+												option.text = year + i;
+												if (i === 0) {
+													option.selected = 'selected';
+												}
+												yearSelect.add(option);
+											}
+										}());
+									</script>
+								</select>
 							</div>
-
 							<div class="d-grid gap-2">
-								<button id="download" class="btn btn-success btn-lg" type="button">Download
-									Schedule</button>
+								<button id="download" class="btn btn-success btn-lg" type="button">
+									Download Schedule
+								</button>
 							</div>
 						</form>
 					</div>
@@ -40,47 +70,15 @@
 		</div>
 	</div>
 
-	<script>
-		(function () {
-			const year = new Date().getFullYear();
-			let yearSelect = document.querySelector('#year');
-			for (let i = -1; i <= 1; i++) {
-				let option = document.createElement('option');
-				option.text = year + i;
-				if (i === 0) {
-					option.selected = 'selected';
-				}
-				yearSelect.add(option);
-			}
-		}());
-	</script>
-
-	<script>
-		(function () {
-			const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
-			const month = new Date().getMonth();
-			let monthSelect = document.querySelector('#month');
-			for (let i = 0; i < months.length; i++) {
-				let option = document.createElement('option');
-				option.text = months[i];
-				if (i === month) {
-					option.selected = 'selected';
-				}
-				monthSelect.add(option);
-			}
-		}());
-	</script>
-
-	<!-- exceljs CDN -->
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/exceljs/4.3.0/exceljs.min.js"
 		integrity="sha512-UnrKxsCMN9hFk7M56t4I4ckB4N/2HHi0w/7+B/1JsXIX3DmyBcsGpT3/BsuZMZf+6mAr0vP81syWtfynHJ69JA=="
 		crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-	<!-- FileSaver.js CDN -->
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"
 		integrity="sha512-Qlv6VSKh1gDKGoJbnyA5RMXYcvnpIqhO++MhIM2fStMcGT9i2T//tSwYFlcyoRRDcDZ+TYHpH8azBBCyhpSeqw=="
 		crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-        <!-- JS download logic -->
+
 	<script src="download.js"></script>
+
 
 </body>
 

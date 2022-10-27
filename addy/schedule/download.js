@@ -1,33 +1,40 @@
-document.querySelector("#download").onclick = () => {
+document.querySelector("#download").onclick = async () => {
 
     // Get user inputs
     const monthInput = document.querySelector('#month').value;
     const yearInput = document.querySelector('#year').value;
 
+    // Fetch holiday data from 'https://canada-holidays.ca/api'
+    const statHolidayDataBritishColumbia = await fetch(`https://canada-holidays.ca/api/v1/provinces/BC?year=${yearInput}&optional=false`)
+        .then((response) => response.json())
+        .then((response) => response.province.holidays);
+
     // Create workbook
     const workbook = new ExcelJS.Workbook();
-
     workbook.creator = 'Adeline Yiyi Chunk';
     workbook.lastModifiedBy = 'Adeline Yiyi Chunk';
     workbook.created = new Date();
     workbook.modified = new Date();
     workbook.lastPrinted = new Date();
 
-    createScheduleWorksheet(
+    // Add toddler program worksheet
+    addScheduleWorksheet(
         workbook,
         'TODS',
         ['7:30 - 3:30', '8:15 - 4:15', '9:15 - 5:15', '10:00 - 6:00'],
         monthInput,
-        yearInput
+        yearInput,
+        statHolidayDataBritishColumbia
     )
 
-    createScheduleWorksheet(
+    // Add 3/5 program worksheet
+    addScheduleWorksheet(
         workbook,
         '3 to 5s',
         ['7:30 - 3:30', '8:30 - 4:30', '9:00 - 5:00', '10:00 - 6:00'],
         monthInput,
-        yearInput
-
+        yearInput,
+        statHolidayDataBritishColumbia
     )
 
     // Download Workbook
@@ -38,7 +45,7 @@ document.querySelector("#download").onclick = () => {
 
 }
 
-function createScheduleWorksheet(workbook, section, shifts, monthInput, yearInput) {
+function addScheduleWorksheet(workbook, section, shifts, monthInput, yearInput, holidays) {
 
     // Create worksheet template
     const worksheet = workbook.addWorksheet(section, { views: [{ showGridLines: false }] });
@@ -69,15 +76,30 @@ function createScheduleWorksheet(workbook, section, shifts, monthInput, yearInpu
     worksheet.addRows(headerBlock);
 
     // Create shift section content
-    let shiftBlock = [
-        [],
-        ['SHIFT:'],
-        [shifts[0]],
-        [shifts[1]],
-        [shifts[2]],
-        [shifts[3]],
-        ['Vacation:']
-    ];
+    let shiftBlock = (function () {
+        let tempArray = [];
+        tempArray.push(['']);
+        tempArray.push(['SHIFT:']);
+        for (let i = 0; i < shifts.length; i++) {
+            tempArray.push([shifts[i]]);
+        }
+        tempArray.push(['Vacation:']);
+        return tempArray;
+    })();
+    let iShiftBlockHeader = (function () {
+        let tempArray = [];
+        for (let i = 0; i < shiftBlock.length; i++) {
+            tempArray.push(shiftBlock[i][0]);
+        }
+        return tempArray.indexOf('SHIFT:')
+    })();
+    let iVacationHeader = (function () {
+        let tempArray = [];
+        for (let i = 0; i < shiftBlock.length; i++) {
+            tempArray.push(shiftBlock[i][0]);
+        }
+        return tempArray.indexOf('Vacation:')
+    })();
     for (let day = 1; day <= numberOfDays; day++) {
 
         let date = new Date(year, month, day);
@@ -85,22 +107,47 @@ function createScheduleWorksheet(workbook, section, shifts, monthInput, yearInpu
 
         // Add day if it aligns with Monday - Friday
         if (dayOfWeek >= 1 && dayOfWeek <= 5) {
-            shiftBlock[1][dayOfWeek] = `${day} ${date.toLocaleDateString('en-US', { weekday: 'long' })}`;
+            shiftBlock[iShiftBlockHeader][dayOfWeek] = `${day} ${date.toLocaleDateString('en-US', { weekday: 'long' })}`;
+            // Check if day is a stat holiday
+            let holidayName = getHoliday(date);
+            if (holidayName) {
+                shiftBlock[iVacationHeader][dayOfWeek] = holidayName;
+            }
+            // Check if birthdayAddys
+            let bdate = getDateUTC(new Date(`${year}-12-30`));
+            if (date.getTime() === bdate.getTime()) {
+                shiftBlock[iVacationHeader][dayOfWeek] = 'Birthday Addys!';
+            }
         }
 
         // If friday -> Push section and reset array
         if (dayOfWeek === 5) {
             worksheet.addRows(shiftBlock);
-            shiftBlock[1] = ['SHIFT:'];
-            
-        // If last day of month AND day aligns with Monday - Friday -> Push section and reset array
+            shiftBlock[iShiftBlockHeader] = ['SHIFT:'];
+            shiftBlock[iVacationHeader] = ['Vacation:'];
+
+            // If last day of month AND day aligns with Monday - Friday -> Push section and reset array
         } else if (day === numberOfDays) {
             if (dayOfWeek >= 1 && dayOfWeek <= 5) {
                 worksheet.addRows(shiftBlock);
-                shiftBlock[1] = ['SHIFT:'];
+                shiftBlock[iShiftBlockHeader] = ['SHIFT:'];
+                shiftBlock[iVacationHeader] = ['Vacation:'];
             }
         }
 
+    }
+    function getHoliday(date) {
+        for (let j = 0; j < holidays.length; j++) {
+            let holidayDate = new Date(holidays[j].observedDate);
+            holidayDate = getDateUTC(holidayDate);
+            if (date.getTime() === holidayDate.getTime()) {
+                return holidays[j].nameEn;
+            }
+        }
+        return false;
+    }
+    function getDateUTC(date) {
+        return new Date(date.getUTCFullYear(), date.getUTCMonth(), date.getUTCDate());
     }
 
     // FORMAT WORKSHEET
@@ -117,12 +164,12 @@ function createScheduleWorksheet(workbook, section, shifts, monthInput, yearInpu
     // https://answers.microsoft.com/en-us/msoffice/forum/all/excel-changing-the-column-width-automatically/1c2cc86d-9978-47ac-b6c5-f5afc1ea4a64
     const msBugOffsetAmt = 0.71;
     worksheet.columns = [
-        { width: 13 + msBugOffsetAmt },
-        { width: 14.5 + msBugOffsetAmt },
-        { width: 14.5 + msBugOffsetAmt },
-        { width: 14.5 + msBugOffsetAmt },
-        { width: 14.5 + msBugOffsetAmt },
-        { width: 14.5 + msBugOffsetAmt }
+        { width: 12.5 + msBugOffsetAmt },
+        { width: 14.7 + msBugOffsetAmt },
+        { width: 14.7 + msBugOffsetAmt },
+        { width: 14.7 + msBugOffsetAmt },
+        { width: 14.7 + msBugOffsetAmt },
+        { width: 14.7 + msBugOffsetAmt }
     ]
 
     // Header boundaries
@@ -152,7 +199,7 @@ function createScheduleWorksheet(workbook, section, shifts, monthInput, yearInpu
     firstRow = 3;
     lastRow = worksheet.getColumn(1)['_worksheet']['_rows'].length;
 
-    // Format shift font
+    // Format shift font/alignment
     for (let i = firstRow; i <= lastRow; i++) {
         for (let j = firstColumn; j <= lastColumn; j++) {
 
@@ -170,6 +217,11 @@ function createScheduleWorksheet(workbook, section, shifts, monthInput, yearInpu
                     worksheet.getCell(i, j).font = {
                         ...worksheet.getCell(i, j).font,
                         bold: true
+                    }
+                    worksheet.getCell(i, j).alignment = {
+                        ...worksheet.getCell(i, j).alignment,
+                        vertical: 'top',
+                        wrapText: true
                     }
                 }
             }
