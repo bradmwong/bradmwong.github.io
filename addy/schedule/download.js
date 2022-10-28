@@ -220,7 +220,7 @@ function addScheduleWorksheet(workbook, section, shifts, monthInput, yearInput, 
                     }
                     worksheet.getCell(i, j).alignment = {
                         ...worksheet.getCell(i, j).alignment,
-                        vertical: 'top',
+                        vertical: 'middle',
                         wrapText: true
                     }
                 }
