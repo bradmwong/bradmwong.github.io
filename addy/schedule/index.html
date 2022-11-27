@@ -29,9 +29,9 @@
 										(function () {
 											const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
 											const currentMonth = new Date().getMonth();
-											let monthSelect = document.querySelector('#month');
+											const monthSelect = document.querySelector('#month');
 											for (let i = 0; i < months.length; i++) {
-												let option = document.createElement('option');
+												const option = document.createElement('option');
 												option.text = months[i];
 												if (i === currentMonth) {
 													option.selected = 'selected';
@@ -45,9 +45,9 @@
 									<script>
 										(function () {
 											const year = new Date().getFullYear();
-											let yearSelect = document.querySelector('#year');
+											const yearSelect = document.querySelector('#year');
 											for (let i = -1; i <= 1; i++) {
-												let option = document.createElement('option');
+												const option = document.createElement('option');
 												option.text = year + i;
 												if (i === 0) {
 													option.selected = 'selected';
