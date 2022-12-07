@@ -150,11 +150,50 @@
                                 <h1>Where</h1>
                             </div>
                             <div>
-                                <p>Fitzgerald's House</p>
-                                <p>833 Granville St</p>
-                                <p>VAN, BC V5M 2C9 <a
-                                        href="https://www.google.com/maps/place/Jollibee/@49.2811346,-123.1228183,17z/data=!3m1!4b1!4m5!3m4!1s0x548671c22e3c8acd:0x36ece58a6332843!8m2!3d49.2811346!4d-123.1206296">View
-                                        Map</a></p>
+                                <p>Studio 96</p>
+                                <p>10909 96 Street</p>
+                                <p>Edmonton, AB T5H 2K4
+                                    <!-- <a href="https://www.google.com/maps/place/Studio96/@53.556226,-113.4875669,15z/data=!4m5!3m4!1s0x0:0xd41fb9ff475ce1f4!8m2!3d53.556226!4d-113.4875669" target="blank">View Map</a> -->
+                                </p>
+                                <div class="mapouter">
+                                    <script>
+                                        let mapWidth = 350;
+                                        let mapHeight = 250;
+                                        if (window.matchMedia("(max-width: 900px)").matches) {
+                                            mapWidth = 300;
+                                            mapHeight = 200;
+                                        } else {
+                                            mapWidth = 350;
+                                            mapHeight = 250;
+                                        }
+                                        document.write(`
+                                            <div class="gmap_canvas">
+                                                <iframe width="${mapWidth}" height="${mapHeight}" id="gmap_canvas"
+                                                    src="https://maps.google.com/maps?q=T5H%202K4&t=&z=13&ie=UTF8&iwloc=&output=embed"
+                                                    frameborder="0" scrolling="no" marginheight="0"
+                                                    marginwidth="0">
+                                                </iframe>
+                                                <br>
+                                                <style>
+                                                    .mapouter {
+                                                        position: relative;
+                                                        text-align: right;
+                                                        height: ${mapHeight}px;
+                                                        width: ${mapWidth}px;
+                                                    }
+                                                </style>
+                                                <style>
+                                                    .gmap_canvas {
+                                                        overflow: hidden;
+                                                        background: none !important;
+                                                        height: ${mapHeight}px;
+                                                        width: ${mapWidth}px;
+                                                    }
+                                                </style>
+                                            </div>
+                                        `);
+                                    </script>
+                                </div>
                             </div>
                         </div>
                     </div>
