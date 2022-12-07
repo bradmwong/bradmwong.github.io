@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -22,12 +21,10 @@
 
 <body>
 
-    <!-- Selection menu -->
-    <div class="fixed-top">
-        <!--Navbar-->
+    <!-- Selection Menu: PC -->
+    <div class="fixed-top d-none d-md-block">
         <nav class="navbar navbar-expand-sm navbar-light">
-            <!--Navbar list items-->
-            <div id="navbarNav" class="collapse navbar-collapse">
+            <div>
                 <ul id="menu" class="nav flex-column">
                     <li class="nav-item">
                         <a class="nav-link" href="#home">Home</a>
@@ -46,33 +43,40 @@
                     </li>
                 </ul>
             </div>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
         </nav>
     </div>
 
-    <!-- Signature block -->
-    <nav id="signature" class="navbar navbar-expand-lg navbar-dark bg-dark fixed-bottom d-none">
-        <!--Navbar list items-->
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav">
+    <!-- Selection Menu: Mobile/Tablet -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top d-sm-block d-md-none bg-transparent">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="#"> </a> <!-- placeholder -->
+                    <a class="nav-link" href="#home">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#story">Our Story</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#details">Details</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#rsvp">RSVP</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#contact">Contact Us</a>
                 </li>
             </ul>
         </div>
-        <!--Navbar brand-->
-        <a class="navbar-brand" href="#home">&copy 2020 Designed by Brad and Fitz</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
     </nav>
 
     <!-- Home -->
     <section id="home" class="container-fluid px-0">
         <div class="row align-items-center">
-            <div id="weddingTitle"  class="col-12 text-center">
+            <div id="weddingTitle" class="col-12 text-center">
                 <div class="headerFont text-center">
                     <h1 class="display-4"><span>Monica</span><span class="px-2"> & </span><span>Fitzgerald</span></h1>
                 </div>
@@ -93,21 +97,13 @@
                     </div>
                     <div id="storyContent2" class="contentFont text-center my-5">
                         <p>Fitzgerald ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                        consequater.</p>
+                            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                            consequater.</p>
                     </div>
                 </div>
             </div>
         </div>
-<!--         <div class="col-12 d-none d-sm-block px-0">
-            <div class="row justify-content-center">
-                <div class="col-12 px-0">
-                    <div id="photoAlbum" class="image mb-0 pb-0"></div>
-                </div>
-            </div>
-        </div> -->
-
         <div class="col-12 d-none d-sm-block px-0">
             <div class="row justify-content-center">
                 <div class="col-12 px-0">
@@ -125,7 +121,8 @@
             <!-- Details title -->
             <div class="headerFont headerStyle col-12 col-md-6 order-1">
                 <div class="row justify-content-center">
-                    <div id="detailTitle" class="detailContent2 detailHeader col-10 col-md-6 text-left mt-5 ml-5 pl-2 py-5">
+                    <div id="detailTitle"
+                        class="detailContent2 detailHeader col-10 col-md-6 text-left mt-5 ml-5 pl-2 py-5">
                         <div>
                             <h1>The</h1>
                             <h1>Wedding</h1>
@@ -155,20 +152,15 @@
                             <div>
                                 <p>Fitzgerald's House</p>
                                 <p>833 Granville St</p>
-                                <p>VAN, BC V5M 2C9  <a href="https://www.google.com/maps/place/Jollibee/@49.2811346,-123.1228183,17z/data=!3m1!4b1!4m5!3m4!1s0x548671c22e3c8acd:0x36ece58a6332843!8m2!3d49.2811346!4d-123.1206296">View Map</a></p>
+                                <p>VAN, BC V5M 2C9 <a
+                                        href="https://www.google.com/maps/place/Jollibee/@49.2811346,-123.1228183,17z/data=!3m1!4b1!4m5!3m4!1s0x548671c22e3c8acd:0x36ece58a6332843!8m2!3d49.2811346!4d-123.1206296">View
+                                        Map</a></p>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-<!--         <div class="col-12 px-0">
-            <div class="row justify-content-center">
-                <div class="col-12 px-0">
-                    <div class="image genericPic2 mb-0 pb-0"></div>
-                </div>
-            </div>
-        </div> -->
     </section>
 
     <!-- RSVP -->
@@ -221,12 +213,20 @@
             <div class="row justify-content-center">
                 <div id="contactContent" class="col-10 col-lg-8 mt-2 mb-4">
                     <div class="contentFont text-center mb-5">
-                        <a id="emailContact" href="fitz9000@gmail.com?Subject=Hello%20there" target="_top">Contact Us: fitz9000@gmail.com</a>
+                        <a id="emailContact" href="fitz9000@gmail.com?Subject=Hello%20there" target="_top">Contact Us:
+                            fitz9000@gmail.com</a>
                     </div>
                 </div>
             </div>
         </div>
     </section>
+
+    <!-- Signature block -->
+    <nav id="signature" class="navbar navbar-expand-lg navbar-dark bg-dark fixed-bottom d-none">
+        <a class="navbar-brand" href="#home">&copy
+            <script>document.write(new Date().getFullYear());</script> Designed by Brad and Fitz
+        </a>
+    </nav>
 
 </body>
 
