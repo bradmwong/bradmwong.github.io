@@ -7,7 +7,13 @@ document.querySelector("#download").onclick = async () => {
     // Fetch holiday data from 'https://canada-holidays.ca/api'
     const statHolidayDataBritishColumbia = await fetch(`https://canada-holidays.ca/api/v1/provinces/BC?year=${yearInput}&optional=false`)
         .then((response) => response.json())
-        .then((response) => response.province.holidays);
+        .then((response) => response.province.holidays)
+        .catch((e) => alert(`ERROR: ${e}`))
+
+    // Fetch birthday data from local json file
+    const staffData = await fetch('./staff.json')
+        .then((response) => response.json())
+        .catch((e) => alert(`ERROR: ${e}`))
 
     // Create workbook
     const workbook = new ExcelJS.Workbook();
@@ -24,7 +30,8 @@ document.querySelector("#download").onclick = async () => {
         ['7:30 - 3:30', '8:15 - 4:15', '9:15 - 5:15', '10:00 - 6:00'],
         monthInput,
         yearInput,
-        statHolidayDataBritishColumbia
+        statHolidayDataBritishColumbia,
+        staffData
     )
 
     // Add 3/5 program worksheet
@@ -34,7 +41,8 @@ document.querySelector("#download").onclick = async () => {
         ['7:30 - 3:30', '8:30 - 4:30', '9:00 - 5:00', '10:00 - 6:00'],
         monthInput,
         yearInput,
-        statHolidayDataBritishColumbia
+        statHolidayDataBritishColumbia,
+        staffData
     )
 
     // Download Workbook
@@ -45,7 +53,7 @@ document.querySelector("#download").onclick = async () => {
 
 }
 
-function addScheduleWorksheet(workbook, section, shifts, monthInput, yearInput, holidays) {
+function addScheduleWorksheet(workbook, section, shifts, monthInput, yearInput, holidays, staffData) {
 
     // Create worksheet template
     const worksheet = workbook.addWorksheet(section, { views: [{ showGridLines: false }] });
@@ -114,10 +122,10 @@ function addScheduleWorksheet(workbook, section, shifts, monthInput, yearInput, 
                 shiftBlock[iVacationHeader][dayOfWeek] = holidayName;
             }
             // Check if birthdayAddys
-            let bdate = getDateUTC(new Date(`${year}-12-30`));
-            if (date.getTime() === bdate.getTime()) {
-                shiftBlock[iVacationHeader][dayOfWeek] = 'Birthday Addys!';
-            }
+            // let bdate = getDateUTC(new Date(`${year}-12-30`));
+            // if (date.getTime() === bdate.getTime()) {
+            //     shiftBlock[iVacationHeader][dayOfWeek] = 'Birthday Addys!';
+            // }
         }
 
         // If friday -> Push section and reset array
@@ -150,13 +158,30 @@ function addScheduleWorksheet(workbook, section, shifts, monthInput, yearInput, 
         return new Date(date.getUTCFullYear(), date.getUTCMonth(), date.getUTCDate());
     }
 
-    // FORMAT WORKSHEET
+
+    // Add Birthdays
+    let birthdayRowLength = 0;
+    let hasBirthdayHeader = false;
+    for (let i = 0; i < staffData.staff.length; i++) {
+        const staff = staffData.staff[i];
+        if (staff.birthday_month === monthInput) {
+            if (!hasBirthdayHeader) {
+                let newRow = worksheet.addRows([{}, { shiftData: "Birthdays:" }]);
+                birthdayRowLength += 2;
+
+                hasBirthdayHeader = true;
+            }
+            worksheet.addRows([{ shiftData: `${staff.birthday_month} ${staff.birthday_day} - ${staff.name}` }]);
+            birthdayRowLength++;
+        }
+    }
+
+
+    // ========================== FORMAT GLOBAL WORKSHEET ATTRIBUTES ==========================
 
     // Worksheet boundaries
     const firstColumn = 1;
     const lastColumn = 6;
-    let firstRow = 0;
-    let lastRow = 0;
 
     // Format Column widths
     // Constant offset amount required to get correct column width on download
@@ -172,12 +197,12 @@ function addScheduleWorksheet(workbook, section, shifts, monthInput, yearInput, 
         { width: 14.7 + msBugOffsetAmt }
     ]
 
-    // Header boundaries
-    firstRow = 1;
-    lastRow = 1;
+    // ========================== FORMAT HEADER SECTION ==========================
+    const headerFirstRow = 1;
+    const headerLastRow = 1;
 
     // Format header font
-    for (let i = firstRow; i <= lastRow; i++) {
+    for (let i = headerFirstRow; i <= headerLastRow; i++) {
         for (let j = firstColumn; j <= lastColumn; j++) {
 
             worksheet.getCell(i, j).font = {
@@ -192,15 +217,16 @@ function addScheduleWorksheet(workbook, section, shifts, monthInput, yearInput, 
     }
 
     // Format header alignment
-    worksheet.getCell(firstRow, firstColumn).alignment = { wrapText: false, vertical: 'middle', horizontal: 'left' };
-    worksheet.getCell(firstRow, lastColumn).alignment = { wrapText: false, vertical: 'middle', horizontal: 'right' };
+    worksheet.getCell(headerFirstRow, firstColumn).alignment = { wrapText: false, vertical: 'middle', horizontal: 'left' };
+    worksheet.getCell(headerFirstRow, lastColumn).alignment = { wrapText: false, vertical: 'middle', horizontal: 'right' };
 
-    // Shift boundaries
-    firstRow = 3;
-    lastRow = worksheet.getColumn(1)['_worksheet']['_rows'].length;
+
+    // ========================== FORMAT SCHEDULE SECTION ==========================
+    const shiftFirstRow = headerLastRow + 2;
+    const shiftLastRow = worksheet.getColumn(1)['_worksheet']['_rows'].length - birthdayRowLength;
 
     // Format shift font/alignment
-    for (let i = firstRow; i <= lastRow; i++) {
+    for (let i = shiftFirstRow; i <= shiftLastRow; i++) {
         for (let j = firstColumn; j <= lastColumn; j++) {
 
             let firstCell = worksheet.getCell(i, firstColumn).value;
@@ -230,7 +256,7 @@ function addScheduleWorksheet(workbook, section, shifts, monthInput, yearInput, 
     }
 
     // Add grid lines to shift section
-    for (let i = firstRow; i <= lastRow; i++) {
+    for (let i = shiftFirstRow; i <= shiftLastRow; i++) {
 
         if (worksheet.getCell(i, 1).value) {
 
@@ -248,7 +274,7 @@ function addScheduleWorksheet(workbook, section, shifts, monthInput, yearInput, 
     }
 
     // Add borders to shift section
-    for (let i = firstRow; i <= lastRow; i++) {
+    for (let i = shiftFirstRow; i <= shiftLastRow; i++) {
 
         const leftBorderCell = worksheet.getCell(i, firstColumn);
         const rightBorderCell = worksheet.getCell(i, lastColumn);
@@ -278,7 +304,7 @@ function addScheduleWorksheet(workbook, section, shifts, monthInput, yearInput, 
     }
 
     // Add background colors to shift section
-    for (let i = firstRow; i <= lastRow; i++) {
+    for (let i = shiftFirstRow; i <= shiftLastRow; i++) {
 
         let firstCell = worksheet.getCell(i, 1).value;
         if (firstCell === 'SHIFT:' || firstCell === 'Vacation:') {
@@ -295,4 +321,41 @@ function addScheduleWorksheet(workbook, section, shifts, monthInput, yearInput, 
         }
 
     }
+
+    // ========================== FORMAT BIRTHDAY SECTION ==========================
+    if (birthdayRowLength) {
+
+        const birthdayFirstRow = shiftLastRow + 2;
+        const birthdayLastRow = birthdayFirstRow + birthdayRowLength;
+
+        // Format Birthday Section top row of content
+        for (let j = firstColumn; j <= lastColumn; j++) {
+
+            worksheet.getCell(birthdayFirstRow, j).font = {
+                name: 'Calibri',
+                color: { argb: 'FF000000' },
+                size: 12,
+                italic: false,
+                bold: true
+            }
+
+        }
+
+        // Format Birthday Section date content
+        for (let i = birthdayFirstRow + 1; i <= birthdayLastRow; i++) {
+            for (let j = firstColumn; j <= lastColumn; j++) {
+
+                worksheet.getCell(i, j).font = {
+                    name: 'Calibri',
+                    color: { argb: 'FF000000' },
+                    size: 12,
+                    italic: false,
+                    bold: false
+                }
+
+            }
+        }
+
+    }
+
 }
