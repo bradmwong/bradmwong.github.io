@@ -1,0 +1,44 @@
+{
+    "staff" : [
+        {
+            "name": "Tiffany",
+            "birthday_month": "February",
+            "birthday_day": 21
+        },
+        {
+            "name": "Wendy",
+            "birthday_month": "March",
+            "birthday_day": 6
+        },
+        {
+            "name": "Irene",
+            "birthday_month": "June",
+            "birthday_day": 15
+        },
+        {
+            "name": "Kumi",
+            "birthday_month": "August",
+            "birthday_day": 17
+        },
+        {
+            "name": "Arlene",
+            "birthday_month": "September",
+            "birthday_day": 19
+        },
+        {
+            "name": "Sydney",
+            "birthday_month": "December",
+            "birthday_day": 4
+        },
+        {
+            "name": "Silvia",
+            "birthday_month": "December",
+            "birthday_day": 10
+        },
+        {
+            "name": "Adeline",
+            "birthday_month": "December",
+            "birthday_day": 30
+        }
+    ]
+}
