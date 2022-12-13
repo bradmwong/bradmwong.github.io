@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Portfolio Template</title>
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+        integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- Swiper JS  -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css" />
+    <!-- Google fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500;700&display=swap" rel="stylesheet">
+    <!-- Custom Stylesheet -->
+    <link rel="stylesheet" href="stylesheet.css">
+
+</head>
+
+<body>
+    <nav>
+        <div class="container nav__container">
+            <a href="index.html">
+                <!-- <img src="./images/logo.png" class="nav__logo"> -->
+                <div class="nav__logo">
+                    <span>ADDY</span><span>PILLAR</span>
+                </div>
+            </a>
+            <ul class="nav__links">
+                <li><a href="#">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#gallery">Gallery</a></li>
+                <li><a href="#exhibitions">Exhibitions</a></li>
+            </ul>
+            <ul class="nav__socials">
+                <li><a href="https://www.instagram.com/addypillar/" target="_blank"><i
+                            class="fa-brands fa-square-instagram"></i></i></a></li>
+                <li><a href="https://twitter.com/PoohBearWisdom" target="_blank"><i
+                            class="fa-brands fa-twitter"></i></a></li>
+                <li><a href="https://www.youtube.com/@135addy" target="_blank"><i class="fa-brands fa-youtube"></i></a>
+                </li>
+            </ul>
+            <button class="nav__toggle-btn" id="nav__toggle-open"><i class="fa-solid fa-bars"></i></button>
+            <button class="nav__toggle-btn" id="nav__toggle-close"><i class="fa-solid fa-xmark"></i></i></button>
+        </div>
+    </nav>
+
+
+
+    <header>
+        <div class="container header__container">
+            <div class="header__left">
+                <div class="header__image-bg"></div>
+                <div class="header__image-lg">
+                    <img src="./images/header.jpg" alt="Header Image">
+                </div>
+                <div class="header__image-sm">
+                    <img src="./images/header.jpg" alt="Header Image">
+                </div>
+            </div>
+            <div class="header__right">
+                <div class="header__head">
+                    <div class="empty header__empty"></div>
+                    <a href="" class="header__tag">#Taking Addy pics of Addy things</a>
+                </div>
+                <h1>See the Beauty of the World through Addy Vision</h1>
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ratione modi nihil quae magni rerum
+                    eligendi ad, quas doloribus laboriosam sed distinctio fugiat est, voluptas dolore, laudantium
+                    consectetur illo odio. Magni?
+                </p>
+                <a href="mailto:addypillar@outlook.com" class="header__btn-md">Let's Talk!</a>
+            </div>
+        </div>
+    </header>
+    <div class="header__frames">
+        <div class="header__frame">
+            <img src="./images/frame1.jpg" alt="">
+        </div>
+        <div class="header__frame">
+            <img src="./images/frame2.jpg" alt="">
+        </div>
+    </div>
+    <a href="mailto:addypillar@outlook.com" class="contact__btn header__btn">
+        <i class="fa-solid fa-arrow-up"></i>
+        <p>CONTACT - SEND ME AN EMAIL</p>
+    </a>
+
+
+
+    <section id="about">
+        <div class="container about__container">
+            <h2 class="about__title">About<br>Addypillar</h2>
+            <a href="mailto:addypillar@outlook.com" class="contact__btn about__btn">
+                <i class="fa-solid fa-arrow-up"></i>
+                <p>CONTACT - SEND ME AN EMAIL</p>
+            </a>
+            <div class="about__left">
+                <div class="about__image">
+                    <div class="about__image-bg"></div>
+                    <div class="about__image-lg">
+                        <img src="./images/about.jpg" alt="About Addypillar">
+                    </div>
+                    <div class="about__image-sm">
+                        <img src="./images/about.jpg" alt="About Addypillar">
+                    </div>
+                </div>
+            </div>
+            <div class="about__right">
+                <div class="empty about_empty"></div>
+                <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati enim nihil, eos deleniti natus
+                    odit
+                    facilis non cum, tenetur inventore eius aliquam quis dignissimos quaerat a quidem, id rem eveniet.
+                </p>
+                <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati enim nihil, eos deleniti natus
+                    odit
+                    facilis non cum, tenetur inventore eius aliquam quis dignissimos quaerat a quidem, id rem eveniet.
+                </p>
+                <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati enim nihil, eos deleniti natus
+                    odit
+                    facilis non cum, tenetur inventore eius aliquam quis dignissimos quaerat a quidem, id rem eveniet.
+                </p>
+            </div>
+        </div>
+    </section>
+
+
+
+    <section id="gallery">
+        <div class="container gallery__container swiper mySwiper">
+            <div class="gallery__head">
+                <h2 class="gallery__title">My Gallery</h2>
+                <div class="empty gallery__empty"></div>
+            </div>
+            <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis perferendis excepturi sequi dicta sint
+                accusamus, fugiat, et tempore exercitationem repellendus delectus, ipsum ut aliquid ipsam? Quam
+                architecto accusantium consectetur quidem.
+            </p>
+            <div class="swiper-wrapper">
+                <article class="swiper-slide">
+                    <img src="./images/gallery1.jpg" alt="">
+                </article>
+                <article class="swiper-slide">
+                    <img src="./images/gallery2.jpg" alt="">
+                </article>
+                <article class="swiper-slide">
+                    <img src="./images/gallery3.jpg" alt="">
+                </article>
+                <article class="swiper-slide">
+                    <img src="./images/gallery4.jpg" alt="">
+                </article>
+                <article class="swiper-slide">
+                    <img src="./images/gallery5.jpg" alt="">
+                </article>
+                <article class="swiper-slide">
+                    <img src="./images/gallery6.jpg" alt="">
+                </article>
+                <article class="swiper-slide">
+                    <img src="./images/gallery7.jpg" alt="">
+                </article>
+                <article class="swiper-slide">
+                    <img src="./images/gallery8.jpg" alt="">
+                </article>
+                <article class="swiper-slide">
+                    <img src="./images/gallery9.jpg" alt="">
+                </article>
+                <article class="swiper-slide">
+                    <img src="./images/gallery10.jpg" alt="">
+                </article>
+                <article class="swiper-slide">
+                    <img src="./images/gallery11.jpg" alt="">
+                </article>
+            </div>
+            <div class="swiper-pagination"></div>
+        </div>
+    </section>
+
+
+
+    <section id="exhibitions">
+        <div class="container exhibitions__container">
+            <h2 class="exhibitions__title">Exhibitions</h2>
+            <div class="empty exhibitions__empty"></div>
+            <div class="exhibitions__head">
+                <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium assumenda beatae minus facilis
+                    temporibus, qui quaerat aut eveniet ea reiciendis saepe cum eaque vel aperiam distinctio tenetur
+                    oditet. Reprehenderit?
+                </p>
+                <a href="mailto:addypillar@outlook.com" class="contact__btn exhibitions__btn">
+                    <i class="fa-solid fa-arrow-up"></i>
+                    <p>CONTACT - SEND ME AN EMAIL</p>
+                </a>
+            </div>
+            <div class="exhibitions__gallery">
+                <article><img src="./images/ev.jpg" alt=""></article>
+                <article><img src="./images/e1.jpg" alt=""></article>
+                <article><img src="./images/e2.jpg" alt=""></article>
+                <article><img src="./images/eh.jpg" alt=""></article>
+                <article><img src="./images/e3.jpg" alt=""></article>
+                <article><img src="./images/e4.jpg" alt=""></article>
+                <article><img src="./images/e5.jpg" alt=""></article>
+            </div>
+        </div>
+    </section>
+
+
+
+    <footer>
+        <div class="container footer__container">
+            <div class="footer__head">
+                <h2 class="footer__title">addypillar@outlook.com</h2>
+                <a href="mailto:addypillar@outlook.com" class="footer__btn">
+                    <i class="fa-solid fa-arrow-up"></i>
+                </a>
+            </div>
+            <ul class="footer__links">
+                <li><a href="#">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#gallery">Gallery</a></li>
+                <li><a href="#exhibitions">Exhibitions</a></li>
+            </ul>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+    <script src="./app.js"></script>
+
+</body>
+
+</html>
