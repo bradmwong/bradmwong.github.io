@@ -1,11 +1,6 @@
 {
     "staff" : [
         {
-            "name": "Tiffany",
-            "birthday_month": "February",
-            "birthday_day": 21
-        },
-        {
             "name": "Wendy",
             "birthday_month": "March",
             "birthday_day": 6
@@ -19,11 +14,6 @@
             "name": "Kumi",
             "birthday_month": "August",
             "birthday_day": 17
-        },
-        {
-            "name": "Arlene",
-            "birthday_month": "September",
-            "birthday_day": 19
         },
         {
             "name": "Sydney",
