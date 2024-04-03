@@ -1,6 +1,5 @@
-
 {
-    "questions": [   
+    "questions": [
         {
             "lesson_id": "L01",
             "question_id": "B-1-1-1",
@@ -15,7 +14,7 @@
         {
             "lesson_id": "L01",
             "question_id": "B-1-1-2",
-            "question": "Authority to make \"Standards for the Operation of Radio Stations in the Amateur Radio Service\"is derived from:",
+            "question": "Authority to make \"Standards for the Operation of Radio Stations in the Amateur Radio Service\" is derived from:",
             "answers": [
                 {"option": "the Radiocommunication Regulations", "is_correct": false},
                 {"option": "the Standards for the Operation of Radio Stations in the Amateur Radio Service", "is_correct": false},
@@ -37,7 +36,7 @@
         {
             "lesson_id": "L01",
             "question_id": "B-1-1-4",
-            "question": "The \"amateur radio service\"is defined in:",
+            "question": "The \"amateur radio service\" is defined in:",
             "answers": [
                 {"option": "the Standards for the Operation of Radio Stations in the Amateur Radio Service", "is_correct": false},
                 {"option": "the FCC's Part 97 rules", "is_correct": false},
@@ -136,11 +135,11 @@
         {
             "lesson_id": "L01",
             "question_id": "B-1-3-2",
-            "question": "If an amateur pretends there is an emergency and transmits the word \"MAYDAY,\"what is this called?",
+            "question": "If an amateur pretends there is an emergency and transmits the word \"MAYDAY,\" what is this called?",
             "answers": [
                 {"option": "A traditional greeting in May", "is_correct": false},
                 {"option": "An emergency test transmission", "is_correct": false},
-                {"option": "Nothing special: \"MAYDAY\"has no meaning in an emergency", "is_correct": false},
+                {"option": "Nothing special: \"MAYDAY\" has no meaning in an emergency", "is_correct": false},
                 {"option": "False or deceptive signals", "is_correct": true}
             ]
         },
@@ -598,7 +597,7 @@
         {
             "lesson_id": "L02",
             "question_id": "B-4-6-11",
-            "question": "Given that red=2, violet=7 and yellow=4, what is the nominal value of a resistor whose colour code reads \"red\", \"violet\"and \"yellow\"?",
+            "question": "Given that red=2, violet=7 and yellow=4, what is the nominal value of a resistor whose colour code reads \"red\", \"violet\" and \"yellow\"?",
             "answers": [
                 {"option": "270 kilohms", "is_correct": true},
                 {"option": "274 ohms", "is_correct": false},
@@ -741,7 +740,7 @@
         {
             "lesson_id": "L02",
             "question_id": "B-5-2-7",
-            "question": "The letter \"R\"is the symbol for:",
+            "question": "The letter \"R\" is the symbol for:",
             "answers": [
                 {"option": "reactance", "is_correct": false},
                 {"option": "resistance", "is_correct": true},
@@ -2175,7 +2174,7 @@
             "answers": [
                 {"option": "When you need to hide the meaning of a message for secrecy", "is_correct": false},
                 {"option": "Never", "is_correct": true},
-                {"option": "When operating a beacon transmitter in a \"fox hunt\"exercise", "is_correct": false},
+                {"option": "When operating a beacon transmitter in a \"fox hunt\" exercise", "is_correct": false},
                 {"option": "When playing a harmless \"practical joke\"", "is_correct": false}
             ]
         },
@@ -2218,7 +2217,7 @@
             "question": "What are the restrictions on the use of abbreviations or procedural signals in the amateur service?",
             "answers": [
                 {"option": "They are not permitted because they obscure the meaning of a message to government monitoring stations", "is_correct": false},
-                {"option": "Only \"10 codes\"are permitted", "is_correct": false},
+                {"option": "Only \"10 codes\" are permitted", "is_correct": false},
                 {"option": "They may be used if the signals or codes are not secret", "is_correct": true},
                 {"option": "There are no restrictions", "is_correct": false}
             ]
@@ -2886,7 +2885,7 @@
         {
             "lesson_id": "L06a",
             "question_id": "B-5-8-6",
-            "question": "The unit \"decibel\"is used to indicate:",
+            "question": "The unit \"decibel\" is used to indicate:",
             "answers": [
                 {"option": "certain radio waves", "is_correct": false},
                 {"option": "a single side band signal", "is_correct": false},
@@ -3106,7 +3105,7 @@
         {
             "lesson_id": "L06b",
             "question_id": "B-6-2-4",
-            "question": "What does the term \"balun\"mean?",
+            "question": "What does the term \"balun\" mean?",
             "answers": [
                 {"option": "Balanced antenna network", "is_correct": false},
                 {"option": "Balanced to unbalanced", "is_correct": true},
@@ -3700,7 +3699,7 @@
         {
             "lesson_id": "L07",
             "question_id": "B-4-1-9",
-            "question": "A device labelled \"Gain = 10 dB\"is likely to be an:",
+            "question": "A device labelled \"Gain = 10 dB\" is likely to be an:",
             "answers": [
                 {"option": "attenuator", "is_correct": false},
                 {"option": "oscillator", "is_correct": false},
@@ -4448,7 +4447,7 @@
         {
             "lesson_id": "L08",
             "question_id": "B-6-8-10",
-            "question": "One solution to multiband operation with a shortened radiator is the \"trap dipole\"or trap vertical. These \"traps\"are actually:",
+            "question": "One solution to multiband operation with a shortened radiator is the \"trap dipole\" or trap vertical. These \"traps\" are actually:",
             "answers": [
                 {"option": "large wire-wound resistors", "is_correct": false},
                 {"option": "coils wrapped around a ferrite rod", "is_correct": false},
@@ -4569,7 +4568,7 @@
         {
             "lesson_id": "L08",
             "question_id": "B-6-9-10",
-            "question": "The gain of an antenna, especially on VHF and above, is quoted in dBi. The \"i\"in this expression stands for:",
+            "question": "The gain of an antenna, especially on VHF and above, is quoted in dBi. The \"i\" in this expression stands for:",
             "answers": [
                 {"option": "isotropic", "is_correct": true},
                 {"option": "ideal", "is_correct": false},
@@ -4789,7 +4788,7 @@
         {
             "lesson_id": "L08",
             "question_id": "B-6-11-8",
-            "question": "What does \"antenna front-to-back ratio\"mean in reference to a Yagi antenna?",
+            "question": "What does \"antenna front-to-back ratio\" mean in reference to a Yagi antenna?",
             "answers": [
                 {"option": "The number of directors versus the number of reflectors", "is_correct": false},
                 {"option": "The power radiated in the major radiation lobe compared to the power radiated in exactly the opposite direction", "is_correct": true},
@@ -5020,7 +5019,7 @@
         {
             "lesson_id": "L08",
             "question_id": "B-6-13-9",
-            "question": "What does the term \"antenna front-to-back ratio\"mean in reference to a delta loop antenna?",
+            "question": "What does the term \"antenna front-to-back ratio\" mean in reference to a delta loop antenna?",
             "answers": [
                 {"option": "The power radiated in the major radiation lobe compared to the power radiated 90 degrees away from that direction", "is_correct": false},
                 {"option": "The number of directors versus the number of reflectors", "is_correct": false},
@@ -5031,7 +5030,7 @@
         {
             "lesson_id": "L08",
             "question_id": "B-6-13-10",
-            "question": "The cubical \"quad\"or \"quad\"antenna consists of two or more square loops of wire. The driven element has an approximate overall length of:",
+            "question": "The cubical \"quad\" or \"quad\" antenna consists of two or more square loops of wire. The driven element has an approximate overall length of:",
             "answers": [
                 {"option": "one wavelength", "is_correct": true},
                 {"option": "three-quarters of a wavelength", "is_correct": false},
@@ -5244,7 +5243,7 @@
             "answers": [
                 {"option": "Use a key-operated on/off switch in the main power line", "is_correct": true},
                 {"option": "Use a carrier-operated relay in the main power line", "is_correct": false},
-                {"option": "Put a \"Danger - High Voltage\"sign in the station", "is_correct": false},
+                {"option": "Put a \"Danger - High Voltage\" sign in the station", "is_correct": false},
                 {"option": "Put fuses in the main power line", "is_correct": false}
             ]
         },
@@ -5255,7 +5254,7 @@
             "answers": [
                 {"option": "Tune the radio to an unused frequency when you are done using it", "is_correct": false},
                 {"option": "Turn the radio off when you are not using it", "is_correct": false},
-                {"option": "Put a \"Do not touch\"sign on the radio", "is_correct": false},
+                {"option": "Put a \"Do not touch\" sign on the radio", "is_correct": false},
                 {"option": "Disconnect the microphone when you are not using it", "is_correct": true}
             ]
         },
@@ -5418,7 +5417,7 @@
             "question_id": "B-3-19-6",
             "question": "Where should the green wire in a three-wire AC line cord be connected in a power supply?",
             "answers": [
-                {"option": "To the \"hot\"side of the power switch", "is_correct": false},
+                {"option": "To the \"hot\" side of the power switch", "is_correct": false},
                 {"option": "To the fuse", "is_correct": false},
                 {"option": "To the chassis", "is_correct": true},
                 {"option": "To the white wire", "is_correct": false}
@@ -6692,7 +6691,7 @@
         {
             "lesson_id": "L11",
             "question_id": "B-7-4-3",
-            "question": "Two or more parts of the radio wave follow different paths during propagation and this may result in phase differences at the receiver. This \"change\"at the receiver is called:",
+            "question": "Two or more parts of the radio wave follow different paths during propagation and this may result in phase differences at the receiver. This \"change\" at the receiver is called:",
             "answers": [
                 {"option": "absorption", "is_correct": false},
                 {"option": "skip", "is_correct": false},
@@ -8067,7 +8066,7 @@
         {
             "lesson_id": "L13",
             "question_id": "B-8-4-8",
-            "question": "One possible cause of TV interference by harmonics from an SSB transmitter is from \"flat topping\"- driving the power amplifier into non-linear operation. The most appropriate remedy for this is:",
+            "question": "One possible cause of TV interference by harmonics from an SSB transmitter is from \"flat topping\" - driving the power amplifier into non-linear operation. The most appropriate remedy for this is:",
             "answers": [
                 {"option": "use another antenna", "is_correct": false},
                 {"option": "reduce oscillator output", "is_correct": false},
@@ -8529,7 +8528,7 @@
         {
             "lesson_id": "L14b",
             "question_id": "B-3-15-1",
-            "question": "What does \"connected\"mean in an AX.25 packet-radio link?",
+            "question": "What does \"connected\" mean in an AX.25 packet-radio link?",
             "answers": [
                 {"option": "A telephone link is working between two stations", "is_correct": false},
                 {"option": "A message has reached an amateur station for local delivery", "is_correct": false},
@@ -8540,7 +8539,7 @@
         {
             "lesson_id": "L14b",
             "question_id": "B-3-15-2",
-            "question": "What does \"monitoring\"mean on a packet-radio frequency?",
+            "question": "What does \"monitoring\" mean on a packet-radio frequency?",
             "answers": [
                 {"option": "A member of the Amateur Auxiliary is copying all messages", "is_correct": false},
                 {"option": "A receiving station is displaying all messages sent to it, and replying that the messages are being received correctly", "is_correct": false},
@@ -8562,7 +8561,7 @@
         {
             "lesson_id": "L14b",
             "question_id": "B-3-15-4",
-            "question": "What does \"network\"mean in packet radio?",
+            "question": "What does \"network\" mean in packet radio?",
             "answers": [
                 {"option": "A way of connecting packet-radio stations so data can be sent over long distances", "is_correct": true},
                 {"option": "A way of connecting terminal-node controllers by telephone so data can be sent over long distances", "is_correct": false},
@@ -8753,7 +8752,7 @@
             "answers": [
                 {"option": "obtain a Canadian amateur certificate before operating in Canada", "is_correct": true},
                 {"option": "add to his call sign the Canadian call sign prefix for the geographic location of the station", "is_correct": false},
-                {"option": "qualify his identification when operating phone by adding to the call sign the word \"mobile\"or \"portable\"or when operating Morse code by adding a slash \"/\"", "is_correct": false},
+                {"option": "qualify his identification when operating phone by adding to the call sign the word \"mobile\" or \"portable\" or when operating Morse code by adding a slash \"/\"", "is_correct": false},
                 {"option": "identify with the call sign assigned by the FCC", "is_correct": false}
             ]
         },
@@ -9665,8 +9664,8 @@
             "question": "How do you call another station on a repeater if you know the station's call sign?",
             "answers": [
                 {"option": "Say the station's call sign, then identify your own station", "is_correct": true},
-                {"option": "Say \"break, break 79,\"then say the station's call sign", "is_correct": false},
-                {"option": "Say \"CQ\"three times, then say the station's call sign", "is_correct": false},
+                {"option": "Say \"break, break 79,\" then say the station's call sign", "is_correct": false},
+                {"option": "Say \"CQ\" three times, then say the station's call sign", "is_correct": false},
                 {"option": "Wait for the station to call \"CQ\", then answer it", "is_correct": false}
             ]
         },
@@ -9700,7 +9699,7 @@
                 {"option": "Turn on an amplifier and override whoever is talking", "is_correct": false},
                 {"option": "Say your call sign during a break between transmissions", "is_correct": true},
                 {"option": "Wait for the end of a transmission and start calling the desired party", "is_correct": false},
-                {"option": "Shout, \"break, break!\"to show that you're eager to join the conversation", "is_correct": false}
+                {"option": "Shout, \"break, break!\" to show that you're eager to join the conversation", "is_correct": false}
             ]
         },
         {
@@ -9849,12 +9848,12 @@
         {
             "lesson_id": "L16",
             "question_id": "B-2-3-1",
-            "question": "What is the correct way to call \"CQ\"when using voice?",
+            "question": "What is the correct way to call \"CQ\" when using voice?",
             "answers": [
-                {"option": "Say \"CQ\"at least ten times, followed by \"this is,\"followed by your call sign spoken once", "is_correct": false},
-                {"option": "Say \"CQ\"three times, followed by \"this is,\"followed by your call sign spoken three times", "is_correct": true},
-                {"option": "Say \"CQ\"once, followed by \"this is,\"followed by your call sign spoken three times", "is_correct": false},
-                {"option": "Say \"CQ\"at least five times, followed by \"this is,\"followed by your call sign spoken once", "is_correct": false}
+                {"option": "Say \"CQ\" at least ten times, followed by \"this is,\" followed by your call sign spoken once", "is_correct": false},
+                {"option": "Say \"CQ\" three times, followed by \"this is,\" followed by your call sign spoken three times", "is_correct": true},
+                {"option": "Say \"CQ\" once, followed by \"this is,\" followed by your call sign spoken three times", "is_correct": false},
+                {"option": "Say \"CQ\" at least five times, followed by \"this is,\" followed by your call sign spoken once", "is_correct": false}
             ]
         },
         {
@@ -9862,10 +9861,10 @@
             "question_id": "B-2-3-2",
             "question": "How should you answer a voice CQ call?",
             "answers": [
-                {"option": "Say the other station's call sign at least ten times, followed by \"this is,\"then your call sign at least twice", "is_correct": false},
-                {"option": "Say the other station's call sign once, followed by \"this is,\"then your call sign given phonetically", "is_correct": true},
-                {"option": "Say the other station's call sign at least five times phonetically, followed by \"this is,\"then your call sign twice", "is_correct": false},
-                {"option": "Say the other station's call sign at least three times, followed by \"this is,\"and your call sign at least five times phonetically", "is_correct": false}
+                {"option": "Say the other station's call sign at least ten times, followed by \"this is,\" then your call sign at least twice", "is_correct": false},
+                {"option": "Say the other station's call sign once, followed by \"this is,\" then your call sign given phonetically", "is_correct": true},
+                {"option": "Say the other station's call sign at least five times phonetically, followed by \"this is,\" then your call sign twice", "is_correct": false},
+                {"option": "Say the other station's call sign at least three times, followed by \"this is,\" and your call sign at least five times phonetically", "is_correct": false}
             ]
         },
         {
@@ -9959,7 +9958,7 @@
         {
             "lesson_id": "L16",
             "question_id": "B-2-3-11",
-            "question": "What is the best method to tell if a band is \"open\"for communication with a particular distant location?",
+            "question": "What is the best method to tell if a band is \"open\" for communication with a particular distant location?",
             "answers": [
                 {"option": "Listen for signals from that area from an amateur beacon station or a foreign broadcast or television station on a nearby frequency", "is_correct": true},
                 {"option": "Ask others on your local 2 metre FM repeater", "is_correct": false},
@@ -10091,18 +10090,18 @@
         {
             "lesson_id": "L16",
             "question_id": "B-2-5-1",
-            "question": "What is the correct way to call \"CQ\"when using Morse code?",
+            "question": "What is the correct way to call \"CQ\" when using Morse code?",
             "answers": [
-                {"option": "Send the letters \"CQ\"ten times, followed by \"DE\", followed by your call sign sent once", "is_correct": false},
-                {"option": "Send the letters \"CQ\"over and over", "is_correct": false},
-                {"option": "Send the letters \"CQ\"three times, followed by \"DE\", followed by your call sign sent three times", "is_correct": true},
-                {"option": "Send the letters \"CQ\"three times, followed by \"DE\", followed by your call sign sent once", "is_correct": false}
+                {"option": "Send the letters \"CQ\" ten times, followed by \"DE\", followed by your call sign sent once", "is_correct": false},
+                {"option": "Send the letters \"CQ\" over and over", "is_correct": false},
+                {"option": "Send the letters \"CQ\" three times, followed by \"DE\", followed by your call sign sent three times", "is_correct": true},
+                {"option": "Send the letters \"CQ\" three times, followed by \"DE\", followed by your call sign sent once", "is_correct": false}
             ]
         },
         {
             "lesson_id": "L16",
             "question_id": "B-2-5-2",
-            "question": "How should you answer a routine Morse code \"CQ\"call?",
+            "question": "How should you answer a routine Morse code \"CQ\" call?",
             "answers": [
                 {"option": "Send your call sign followed by your name, station location and a signal report", "is_correct": false},
                 {"option": "Send the other station's call sign twice, followed by \"DE\", followed by your call sign twice", "is_correct": true},
@@ -10113,7 +10112,7 @@
         {
             "lesson_id": "L16",
             "question_id": "B-2-5-3",
-            "question": "At what speed should a Morse code \"CQ\"call be transmitted?",
+            "question": "At what speed should a Morse code \"CQ\" call be transmitted?",
             "answers": [
                 {"option": "At any speed which you can reliably receive", "is_correct": true},
                 {"option": "At any speed below 5 w.p.m.", "is_correct": false},
@@ -10129,7 +10128,7 @@
                 {"option": "Calling any station", "is_correct": true},
                 {"option": "Call on the quarter hour", "is_correct": false},
                 {"option": "An antenna is being tested", "is_correct": false},
-                {"option": "Only the station \"CQ\"should answer", "is_correct": false}
+                {"option": "Only the station \"CQ\" should answer", "is_correct": false}
             ]
         },
         {
@@ -10212,7 +10211,7 @@
         {
             "lesson_id": "L16",
             "question_id": "B-2-6-1",
-            "question": "What are \"RST\"signal reports?",
+            "question": "What are \"RST\" signal reports?",
             "answers": [
                 {"option": "A short way to describe signal reception", "is_correct": true},
                 {"option": "A short way to describe transmitter power", "is_correct": false},
@@ -10223,7 +10222,7 @@
         {
             "lesson_id": "L16",
             "question_id": "B-2-6-2",
-            "question": "What does \"RST\"mean in a signal report?",
+            "question": "What does \"RST\" mean in a signal report?",
             "answers": [
                 {"option": "Readability, signal speed, tempo", "is_correct": false},
                 {"option": "Readability, signal strength, tone", "is_correct": true},
@@ -10300,7 +10299,7 @@
         {
             "lesson_id": "L16",
             "question_id": "B-2-6-9",
-            "question": "What does \"RST 579\"mean in a Morse code contact?",
+            "question": "What does \"RST 579\" mean in a Morse code contact?",
             "answers": [
                 {"option": "Your signal is perfectly readable, weak strength, and with perfect tone", "is_correct": false},
                 {"option": "Your signal is fairly readable, fair strength, and with perfect tone", "is_correct": false},
@@ -10311,7 +10310,7 @@
         {
             "lesson_id": "L16",
             "question_id": "B-2-6-10",
-            "question": "What does \"RST 459\"mean in a Morse code contact?",
+            "question": "What does \"RST 459\" mean in a Morse code contact?",
             "answers": [
                 {"option": "Your signal is very readable, very strong, and with perfect tone", "is_correct": false},
                 {"option": "Your signal is barely readable, very weak, and with perfect tone", "is_correct": false},
@@ -10338,7 +10337,7 @@
                 {"option": "Radio station location is:", "is_correct": false},
                 {"option": "Send more slowly", "is_correct": true},
                 {"option": "Interference from static", "is_correct": false},
-                {"option": "Send \"RST\"report", "is_correct": false}
+                {"option": "Send \"RST\" report", "is_correct": false}
             ]
         },
         {
@@ -10399,7 +10398,7 @@
         {
             "lesson_id": "L16",
             "question_id": "B-2-7-7",
-            "question": "The signal \"QRM\"signifies:",
+            "question": "The signal \"QRM\" signifies:",
             "answers": [
                 {"option": "I am being interfered with", "is_correct": true},
                 {"option": "I am troubled by static", "is_correct": false},
@@ -10410,7 +10409,7 @@
         {
             "lesson_id": "L16",
             "question_id": "B-2-7-8",
-            "question": "The signal \"QRN\"means:",
+            "question": "The signal \"QRN\" means:",
             "answers": [
                 {"option": "I am being interfered with", "is_correct": false},
                 {"option": "I am troubled by static", "is_correct": true},
@@ -10421,7 +10420,7 @@
         {
             "lesson_id": "L16",
             "question_id": "B-2-7-9",
-            "question": "The \"Q signal\"indicating that you want the other station to send slower is:",
+            "question": "The \"Q signal\" indicating that you want the other station to send slower is:",
             "answers": [
                 {"option": "QRN", "is_correct": false},
                 {"option": "QRS", "is_correct": true},
@@ -10443,7 +10442,7 @@
         {
             "lesson_id": "L16",
             "question_id": "B-2-7-11",
-            "question": "The \"Q signal\"which signifies \"I will call you again\"is:",
+            "question": "The \"Q signal\" which signifies \"I will call you again\" is:",
             "answers": [
                 {"option": "QRZ", "is_correct": false},
                 {"option": "QRS", "is_correct": false},
@@ -10454,7 +10453,7 @@
         {
             "lesson_id": "L16",
             "question_id": "B-2-8-1",
-            "question": "When may you use your amateur station to transmit an \"SOS\"or \"MAYDAY\"?",
+            "question": "When may you use your amateur station to transmit an \"SOS\" or \"MAYDAY\"?",
             "answers": [
                 {"option": "Only in case of a severe weather watch", "is_correct": false},
                 {"option": "In a life-threatening distress situation", "is_correct": true},
@@ -10478,10 +10477,10 @@
             "question_id": "B-2-8-3",
             "question": "What is the proper distress call to use when operating phone?",
             "answers": [
-                {"option": "Say \"EMERGENCY\"several times", "is_correct": false},
-                {"option": "Say \"HELP\"several times", "is_correct": false},
-                {"option": "Say \"MAYDAY\"several times", "is_correct": true},
-                {"option": "Say \"SOS\"several times", "is_correct": false}
+                {"option": "Say \"EMERGENCY\" several times", "is_correct": false},
+                {"option": "Say \"HELP\" several times", "is_correct": false},
+                {"option": "Say \"MAYDAY\" several times", "is_correct": true},
+                {"option": "Say \"SOS\" several times", "is_correct": false}
             ]
         },
         {
@@ -10501,9 +10500,9 @@
             "question": "What is the proper way to interrupt a repeater conversation to signal a distress call?",
             "answers": [
                 {"option": "Break-in immediately following the transmission of the active party and state your situation and call sign", "is_correct": true},
-                {"option": "Say \"EMERGENCY\"three times", "is_correct": false},
-                {"option": "Say \"SOS,\"then your call sign", "is_correct": false},
-                {"option": "Say \"HELP\"as many times as it takes to get someone to answer", "is_correct": false}
+                {"option": "Say \"EMERGENCY\" three times", "is_correct": false},
+                {"option": "Say \"SOS,\" then your call sign", "is_correct": false},
+                {"option": "Say \"HELP\" as many times as it takes to get someone to answer", "is_correct": false}
             ]
         },
         {
@@ -10641,7 +10640,7 @@
         {
             "lesson_id": "L16",
             "question_id": "B-2-9-7",
-            "question": "Which statement about recording all contacts and unanswered \"CQ calls\"in a station logbook or computer log is not correct?",
+            "question": "Which statement about recording all contacts and unanswered \"CQ calls\" in a station logbook or computer log is not correct?",
             "answers": [
                 {"option": "A well-kept log preserves your fondest amateur radio memories for years", "is_correct": false},
                 {"option": "A log is important for handling neighbour interference complaints", "is_correct": false},
@@ -10695,4 +10694,3 @@
         }
     ]
 }
-
