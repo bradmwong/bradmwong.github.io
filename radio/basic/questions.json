@@ -1,5 +1,6 @@
+
 {
-    "questions": [       
+    "questions": [   
         {
             "lesson_id": "L01",
             "question_id": "B-1-1-1",
@@ -14,7 +15,7 @@
         {
             "lesson_id": "L01",
             "question_id": "B-1-1-2",
-            "question": "Authority to make \"Standards for the Operation of Radio Stations in the Amateur Radio Service\" is derived from:",
+            "question": "Authority to make \"Standards for the Operation of Radio Stations in the Amateur Radio Service\"is derived from:",
             "answers": [
                 {"option": "the Radiocommunication Regulations", "is_correct": false},
                 {"option": "the Standards for the Operation of Radio Stations in the Amateur Radio Service", "is_correct": false},
@@ -36,7 +37,7 @@
         {
             "lesson_id": "L01",
             "question_id": "B-1-1-4",
-            "question": "The \"amateur radio service\" is defined in:",
+            "question": "The \"amateur radio service\"is defined in:",
             "answers": [
                 {"option": "the Standards for the Operation of Radio Stations in the Amateur Radio Service", "is_correct": false},
                 {"option": "the FCC's Part 97 rules", "is_correct": false},
@@ -135,11 +136,11 @@
         {
             "lesson_id": "L01",
             "question_id": "B-1-3-2",
-            "question": "If an amateur pretends there is an emergency and transmits the word \"MAYDAY,\" what is this called?",
+            "question": "If an amateur pretends there is an emergency and transmits the word \"MAYDAY,\"what is this called?",
             "answers": [
                 {"option": "A traditional greeting in May", "is_correct": false},
                 {"option": "An emergency test transmission", "is_correct": false},
-                {"option": "Nothing special: \"MAYDAY\" has no meaning in an emergency", "is_correct": false},
+                {"option": "Nothing special: \"MAYDAY\"has no meaning in an emergency", "is_correct": false},
                 {"option": "False or deceptive signals", "is_correct": true}
             ]
         },
@@ -214,10 +215,10 @@
             "question_id": "B-1-4-3",
             "question": "Holders of which one of the following certificates may be issued an Amateur Radio Operator Certificate?",
             "answers": [
-                {"option": "Canadian Radiocommunication Operator General Certificate Maritime ", "is_correct": true},
-                {"option": "Canadian Restricted Operator Certificate - Maritime ", "is_correct": false},
-                {"option": "Canadian Restricted Operator's Certificate - Maritime Commercial ", "is_correct": false},
-                {"option": "Canadian Restricted Operator Certificate - Aeronautical ", "is_correct": false}
+                {"option": "Canadian Radiocommunication Operator General Certificate Maritime (RGMC)", "is_correct": true},
+                {"option": "Canadian Restricted Operator Certificate - Maritime (ROC-M)", "is_correct": false},
+                {"option": "Canadian Restricted Operator's Certificate - Maritime Commercial (ROC-MC)", "is_correct": false},
+                {"option": "Canadian Restricted Operator Certificate - Aeronautical (ROC-A)", "is_correct": false}
             ]
         },
         {
@@ -399,7 +400,7 @@
         {
             "lesson_id": "L02",
             "question_id": "B-3-16-4",
-            "question": "Which of the following is a source of electromotive force",
+            "question": "Which of the following is a source of electromotive force (EMF)?",
             "answers": [
                 {"option": "carbon resistor", "is_correct": false},
                 {"option": "lithium-ion battery", "is_correct": true},
@@ -553,7 +554,7 @@
         {
             "lesson_id": "L02",
             "question_id": "B-4-6-7",
-            "question": "You need a current limiting resistor for a light-emitting diode",
+            "question": "You need a current limiting resistor for a light-emitting diode (LED). The actual resistance is not critical at all. Out of the list below, which resistor tolerance would you select?",
             "answers": [
                 {"option": "10%", "is_correct": false},
                 {"option": "20%", "is_correct": true},
@@ -597,7 +598,7 @@
         {
             "lesson_id": "L02",
             "question_id": "B-4-6-11",
-            "question": "Given that red=2, violet=7 and yellow=4, what is the nominal value of a resistor whose colour code reads \"red\", \"violet\" and \"yellow\"?",
+            "question": "Given that red=2, violet=7 and yellow=4, what is the nominal value of a resistor whose colour code reads \"red\", \"violet\"and \"yellow\"?",
             "answers": [
                 {"option": "270 kilohms", "is_correct": true},
                 {"option": "274 ohms", "is_correct": false},
@@ -740,7 +741,7 @@
         {
             "lesson_id": "L02",
             "question_id": "B-5-2-7",
-            "question": "The letter \"R\" is the symbol for:",
+            "question": "The letter \"R\"is the symbol for:",
             "answers": [
                 {"option": "reactance", "is_correct": false},
                 {"option": "resistance", "is_correct": true},
@@ -850,7 +851,7 @@
         {
             "lesson_id": "L02",
             "question_id": "B-5-7-8",
-            "question": "What does 60 hertz",
+            "question": "What does 60 hertz (Hz) mean?",
             "answers": [
                 {"option": "60 cycles per second", "is_correct": true},
                 {"option": "6000 metres per second", "is_correct": false},
@@ -1952,7 +1953,7 @@
             "question_id": "B-5-12-3",
             "question": "Resonance is an electrical property used to describe:",
             "answers": [
-                {"option": "the results of tuning a varicap ", "is_correct": false},
+                {"option": "the results of tuning a varicap (varactor)", "is_correct": false},
                 {"option": "the frequency characteristic of a coil and capacitor circuit", "is_correct": true},
                 {"option": "an inductor", "is_correct": false},
                 {"option": "a set of parallel inductors", "is_correct": false}
@@ -2174,7 +2175,7 @@
             "answers": [
                 {"option": "When you need to hide the meaning of a message for secrecy", "is_correct": false},
                 {"option": "Never", "is_correct": true},
-                {"option": "When operating a beacon transmitter in a \"fox hunt\" exercise", "is_correct": false},
+                {"option": "When operating a beacon transmitter in a \"fox hunt\"exercise", "is_correct": false},
                 {"option": "When playing a harmless \"practical joke\"", "is_correct": false}
             ]
         },
@@ -2217,7 +2218,7 @@
             "question": "What are the restrictions on the use of abbreviations or procedural signals in the amateur service?",
             "answers": [
                 {"option": "They are not permitted because they obscure the meaning of a message to government monitoring stations", "is_correct": false},
-                {"option": "Only \"10 codes\" are permitted", "is_correct": false},
+                {"option": "Only \"10 codes\"are permitted", "is_correct": false},
                 {"option": "They may be used if the signals or codes are not secret", "is_correct": true},
                 {"option": "There are no restrictions", "is_correct": false}
             ]
@@ -2544,7 +2545,7 @@
         {
             "lesson_id": "L05",
             "question_id": "B-1-10-11",
-            "question": "The amateur radio service is authorized to share a portion of what Industrial Scientific Medical",
+            "question": "The amateur radio service is authorized to share a portion of what Industrial Scientific Medical (ISM) band that is heavily used by licence exempt devices?",
             "answers": [
                 {"option": "2300 to 2450 MHz", "is_correct": true},
                 {"option": "430 to 450 MHz", "is_correct": false},
@@ -2885,7 +2886,7 @@
         {
             "lesson_id": "L06a",
             "question_id": "B-5-8-6",
-            "question": "The unit \"decibel\" is used to indicate:",
+            "question": "The unit \"decibel\"is used to indicate:",
             "answers": [
                 {"option": "certain radio waves", "is_correct": false},
                 {"option": "a single side band signal", "is_correct": false},
@@ -3105,7 +3106,7 @@
         {
             "lesson_id": "L06b",
             "question_id": "B-6-2-4",
-            "question": "What does the term \"balun\" mean?",
+            "question": "What does the term \"balun\"mean?",
             "answers": [
                 {"option": "Balanced antenna network", "is_correct": false},
                 {"option": "Balanced to unbalanced", "is_correct": true},
@@ -3259,7 +3260,7 @@
         {
             "lesson_id": "L06b",
             "question_id": "B-6-3-7",
-            "question": "If you install a 6 metre Yagi on a tower 60 metres",
+            "question": "If you install a 6 metre Yagi on a tower 60 metres (200 ft) from your transmitter, which of the following transmission lines provides the least loss?",
             "answers": [
                 {"option": "RG-59", "is_correct": false},
                 {"option": "RG-58", "is_correct": false},
@@ -3336,7 +3337,7 @@
         {
             "lesson_id": "L06b",
             "question_id": "B-6-4-3",
-            "question": "If your transmitter and antenna are 15 metres",
+            "question": "If your transmitter and antenna are 15 metres (50 ft) apart, but are connected by 60 metres (200 ft) of RG-58 coaxial cable, what should be done to reduce transmission line loss?",
             "answers": [
                 {"option": "Roll the excess cable into a coil which is as small as possible", "is_correct": false},
                 {"option": "Shorten the excess cable so the transmission line is an even number of wavelengths long", "is_correct": false},
@@ -3402,7 +3403,7 @@
         {
             "lesson_id": "L06b",
             "question_id": "B-6-4-9",
-            "question": "If the length of coaxial transmission line is increased from 20 metres",
+            "question": "If the length of coaxial transmission line is increased from 20 metres (66 ft) to 40 metres (132 ft), how would this affect the line loss?",
             "answers": [
                 {"option": "It would be increased by 10%", "is_correct": false},
                 {"option": "It would be reduced to 50%", "is_correct": false},
@@ -3600,7 +3601,7 @@
         {
             "lesson_id": "L06b",
             "question_id": "B-6-6-11",
-            "question": "If the centre impedance of a folded dipole is approximately 300 ohms, and you are using RG8U",
+            "question": "If the centre impedance of a folded dipole is approximately 300 ohms, and you are using RG8U (50 ohms) coaxial lines, what is the ratio required to have the line and the antenna matched?",
             "answers": [
                 {"option": "6:1", "is_correct": true},
                 {"option": "2:1", "is_correct": false},
@@ -3699,7 +3700,7 @@
         {
             "lesson_id": "L07",
             "question_id": "B-4-1-9",
-            "question": "A device labelled \"Gain = 10 dB\" is likely to be an:",
+            "question": "A device labelled \"Gain = 10 dB\"is likely to be an:",
             "answers": [
                 {"option": "attenuator", "is_correct": false},
                 {"option": "oscillator", "is_correct": false},
@@ -3963,7 +3964,7 @@
         {
             "lesson_id": "L07",
             "question_id": "B-4-4-1",
-            "question": "The two basic types of field effect transistors",
+            "question": "The two basic types of field effect transistors (FET) are:",
             "answers": [
                 {"option": "NPN and PNP", "is_correct": false},
                 {"option": "germanium and silicon", "is_correct": false},
@@ -4119,7 +4120,7 @@
             "question_id": "B-4-5-4",
             "question": "In a vacuum tube, the electrode that is operated with the highest positive potential is the _________.",
             "answers": [
-                {"option": "filament ", "is_correct": false},
+                {"option": "filament (heater)", "is_correct": false},
                 {"option": "cathode", "is_correct": false},
                 {"option": "grid", "is_correct": false},
                 {"option": "plate", "is_correct": true}
@@ -4131,7 +4132,7 @@
             "question": "In a vacuum tube, the electrode that is usually a cylinder of wire mesh is the _______.",
             "answers": [
                 {"option": "grid", "is_correct": true},
-                {"option": "filament ", "is_correct": false},
+                {"option": "filament (heater)", "is_correct": false},
                 {"option": "cathode", "is_correct": false},
                 {"option": "plate", "is_correct": false}
             ]
@@ -4141,7 +4142,7 @@
             "question_id": "B-4-5-6",
             "question": "In a vacuum tube, the element that is furthest away from the plate is the __________.",
             "answers": [
-                {"option": "filament ", "is_correct": true},
+                {"option": "filament (heater)", "is_correct": true},
                 {"option": "grid", "is_correct": false},
                 {"option": "emitter", "is_correct": false},
                 {"option": "cathode", "is_correct": false}
@@ -4372,10 +4373,10 @@
             "question_id": "B-6-8-3",
             "question": "The wavelength for a frequency of 25 MHz is:",
             "answers": [
-                {"option": "4 metres ", "is_correct": false},
-                {"option": "32 metres ", "is_correct": false},
-                {"option": "12 metres ", "is_correct": true},
-                {"option": "15 metres ", "is_correct": false}
+                {"option": "4 metres (13.1 ft)", "is_correct": false},
+                {"option": "32 metres (105 ft)", "is_correct": false},
+                {"option": "12 metres (39.4 ft)", "is_correct": true},
+                {"option": "15 metres (49.2 ft)", "is_correct": false}
             ]
         },
         {
@@ -4447,7 +4448,7 @@
         {
             "lesson_id": "L08",
             "question_id": "B-6-8-10",
-            "question": "One solution to multiband operation with a shortened radiator is the \"trap dipole\" or trap vertical. These \"traps\" are actually:",
+            "question": "One solution to multiband operation with a shortened radiator is the \"trap dipole\"or trap vertical. These \"traps\"are actually:",
             "answers": [
                 {"option": "large wire-wound resistors", "is_correct": false},
                 {"option": "coils wrapped around a ferrite rod", "is_correct": false},
@@ -4460,10 +4461,10 @@
             "question_id": "B-6-8-11",
             "question": "The wavelength corresponding to a frequency of 2 MHz is:",
             "answers": [
-                {"option": "150 m ", "is_correct": true},
-                {"option": "360 m ", "is_correct": false},
-                {"option": "1500 m ", "is_correct": false},
-                {"option": "30 m ", "is_correct": false}
+                {"option": "150 m (492 ft)", "is_correct": true},
+                {"option": "360 m (1181 ft)", "is_correct": false},
+                {"option": "1500 m (4921 ft)", "is_correct": false},
+                {"option": "30 m (98 ft)", "is_correct": false}
             ]
         },
         {
@@ -4568,7 +4569,7 @@
         {
             "lesson_id": "L08",
             "question_id": "B-6-9-10",
-            "question": "The gain of an antenna, especially on VHF and above, is quoted in dBi. The \"i\" in this expression stands for:",
+            "question": "The gain of an antenna, especially on VHF and above, is quoted in dBi. The \"i\"in this expression stands for:",
             "answers": [
                 {"option": "isotropic", "is_correct": true},
                 {"option": "ideal", "is_correct": false},
@@ -4590,12 +4591,12 @@
         {
             "lesson_id": "L08",
             "question_id": "B-6-10-1",
-            "question": "How do you calculate the length in metres",
+            "question": "How do you calculate the length in metres (feet) of a quarter-wavelength vertical antenna?",
             "answers": [
-                {"option": "Divide 150 ", "is_correct": false},
-                {"option": "Divide 71.5 ", "is_correct": true},
-                {"option": "Divide 468 ", "is_correct": false},
-                {"option": "Divide 300 ", "is_correct": false}
+                {"option": "Divide 150 (491) by the antenna's operating frequency in MHz", "is_correct": false},
+                {"option": "Divide 71.5 (234) by the antenna's operating frequency in MHz", "is_correct": true},
+                {"option": "Divide 468 (1532) by the antenna's operating frequency in MHz", "is_correct": false},
+                {"option": "Divide 300 (982) by the antenna's operating frequency in MHz", "is_correct": false}
             ]
         },
         {
@@ -4603,10 +4604,10 @@
             "question_id": "B-6-10-2",
             "question": "If you made a quarter-wavelength vertical antenna for 21.125 MHz, how long would it be?",
             "answers": [
-                {"option": "6.76 metres ", "is_correct": false},
-                {"option": "3.36 metres ", "is_correct": true},
-                {"option": "3.6 metres ", "is_correct": false},
-                {"option": "7.2 metres ", "is_correct": false}
+                {"option": "6.76 metres (22.2 ft)", "is_correct": false},
+                {"option": "3.36 metres (11.0 ft)", "is_correct": true},
+                {"option": "3.6 metres (11.8 ft)", "is_correct": false},
+                {"option": "7.2 metres (23.6 ft)", "is_correct": false}
             ]
         },
         {
@@ -4614,10 +4615,10 @@
             "question_id": "B-6-10-3",
             "question": "If you made a half-wavelength vertical antenna for 223 MHz, how long would it be?",
             "answers": [
-                {"option": "64 cm ", "is_correct": true},
-                {"option": "128 cm ", "is_correct": false},
-                {"option": "105 cm ", "is_correct": false},
-                {"option": "134.6 cm ", "is_correct": false}
+                {"option": "64 cm (25.2 in)", "is_correct": true},
+                {"option": "128 cm (50.4 in)", "is_correct": false},
+                {"option": "105 cm (41.3 in)", "is_correct": false},
+                {"option": "134.6 cm (53 in)", "is_correct": false}
             ]
         },
         {
@@ -4724,10 +4725,10 @@
             "question_id": "B-6-11-2",
             "question": "Approximately how long is the driven element of a Yagi antenna for 14.0 MHz?",
             "answers": [
-                {"option": "5.21 metres ", "is_correct": false},
-                {"option": "10.67 metres ", "is_correct": false},
-                {"option": "20.12 metres ", "is_correct": false},
-                {"option": "10.21 metres ", "is_correct": true}
+                {"option": "5.21 metres (17 feet)", "is_correct": false},
+                {"option": "10.67 metres (35 feet)", "is_correct": false},
+                {"option": "20.12 metres (66 feet)", "is_correct": false},
+                {"option": "10.21 metres (33.5 feet)", "is_correct": true}
             ]
         },
         {
@@ -4735,10 +4736,10 @@
             "question_id": "B-6-11-3",
             "question": "Approximately how long is the director element of a Yagi antenna for 21.1 MHz?",
             "answers": [
-                {"option": "5.18 metres ", "is_correct": false},
-                {"option": "3.2 metres ", "is_correct": false},
-                {"option": "12.8 metres ", "is_correct": false},
-                {"option": "6.4 metres ", "is_correct": true}
+                {"option": "5.18 metres (17 feet)", "is_correct": false},
+                {"option": "3.2 metres (10.5 feet)", "is_correct": false},
+                {"option": "12.8 metres (42 feet)", "is_correct": false},
+                {"option": "6.4 metres (21 feet)", "is_correct": true}
             ]
         },
         {
@@ -4746,10 +4747,10 @@
             "question_id": "B-6-11-4",
             "question": "Approximately how long is the reflector element of a Yagi antenna for 28.1 MHz?",
             "answers": [
-                {"option": "2.66 metres ", "is_correct": false},
-                {"option": "5.33 metres ", "is_correct": true},
-                {"option": "4.88 metres ", "is_correct": false},
-                {"option": "10.67 metres ", "is_correct": false}
+                {"option": "2.66 metres (8.75 feet)", "is_correct": false},
+                {"option": "5.33 metres (17.5 feet)", "is_correct": true},
+                {"option": "4.88 metres (16 feet)", "is_correct": false},
+                {"option": "10.67 metres (35 feet)", "is_correct": false}
             ]
         },
         {
@@ -4788,7 +4789,7 @@
         {
             "lesson_id": "L08",
             "question_id": "B-6-11-8",
-            "question": "What does \"antenna front-to-back ratio\" mean in reference to a Yagi antenna?",
+            "question": "What does \"antenna front-to-back ratio\"mean in reference to a Yagi antenna?",
             "answers": [
                 {"option": "The number of directors versus the number of reflectors", "is_correct": false},
                 {"option": "The power radiated in the major radiation lobe compared to the power radiated in exactly the opposite direction", "is_correct": true},
@@ -4802,7 +4803,7 @@
             "question": "What is a good way to get maximum performance from a Yagi antenna?",
             "answers": [
                 {"option": "Use a reactance bridge to measure the antenna performance from each direction around the antenna", "is_correct": false},
-                {"option": "Avoid using towers higher than 9 metres ", "is_correct": false},
+                {"option": "Avoid using towers higher than 9 metres (30 feet) above the ground", "is_correct": false},
                 {"option": "Optimize the lengths and spacing of the elements", "is_correct": true},
                 {"option": "Use RG-58 transmission line", "is_correct": false}
             ]
@@ -4834,10 +4835,10 @@
             "question_id": "B-6-12-1",
             "question": "If you made a half-wavelength dipole antenna for 28.150 MHz, how long would it be?",
             "answers": [
-                {"option": "10.5 metres ", "is_correct": false},
-                {"option": "28.55 metres ", "is_correct": false},
-                {"option": "10.16 metres ", "is_correct": false},
-                {"option": "5.08 metres ", "is_correct": true}
+                {"option": "10.5 metres (34.37 ft)", "is_correct": false},
+                {"option": "28.55 metres (93.45 ft)", "is_correct": false},
+                {"option": "10.16 metres (33.26 ft)", "is_correct": false},
+                {"option": "5.08 metres (16.62 ft)", "is_correct": true}
             ]
         },
         {
@@ -4856,7 +4857,7 @@
             "question_id": "B-6-12-3",
             "question": "What is the low angle radiation pattern of an ideal half-wavelength dipole HF antenna in free space installed parallel to the Earth?",
             "answers": [
-                {"option": "It is a circle ", "is_correct": false},
+                {"option": "It is a circle (equal radiation in all directions)", "is_correct": false},
                 {"option": "It is two smaller lobes on one side of the antenna, and one larger lobe on the other side", "is_correct": false},
                 {"option": "It is a figure-eight, off both ends of the antenna", "is_correct": false},
                 {"option": "It is a figure-eight, perpendicular to the antenna", "is_correct": true}
@@ -4922,10 +4923,10 @@
             "question_id": "B-6-12-9",
             "question": "If you were to cut a half wave dipole for 3.75 MHz, what would be its approximate length?",
             "answers": [
-                {"option": "32 meters ", "is_correct": false},
-                {"option": "45 meters ", "is_correct": false},
-                {"option": "75 meters ", "is_correct": false},
-                {"option": "38 meters ", "is_correct": true}
+                {"option": "32 meters (105 ft)", "is_correct": false},
+                {"option": "45 meters (145 ft)", "is_correct": false},
+                {"option": "75 meters (245 ft)", "is_correct": false},
+                {"option": "38 meters (125 ft)", "is_correct": true}
             ]
         },
         {
@@ -4955,10 +4956,10 @@
             "question_id": "B-6-13-3",
             "question": "Approximately how long is each side of a cubical quad antenna driven element for 21.4 MHz?",
             "answers": [
-                {"option": "3.54 metres ", "is_correct": true},
-                {"option": "0.36 metres ", "is_correct": false},
-                {"option": "14.33 metres ", "is_correct": false},
-                {"option": "143 metres ", "is_correct": false}
+                {"option": "3.54 metres (11.7 feet)", "is_correct": true},
+                {"option": "0.36 metres (1.17 feet)", "is_correct": false},
+                {"option": "14.33 metres (47 feet)", "is_correct": false},
+                {"option": "143 metres (469 feet)", "is_correct": false}
             ]
         },
         {
@@ -4966,10 +4967,10 @@
             "question_id": "B-6-13-4",
             "question": "Approximately how long is each side of a cubical quad antenna driven element for 14.3 MHz?",
             "answers": [
-                {"option": "5.36 metres ", "is_correct": true},
-                {"option": "21.43 metres ", "is_correct": false},
-                {"option": "53.34 metres ", "is_correct": false},
-                {"option": "7.13 metres ", "is_correct": false}
+                {"option": "5.36 metres (17.6 feet)", "is_correct": true},
+                {"option": "21.43 metres (70.3 feet)", "is_correct": false},
+                {"option": "53.34 metres (175 feet)", "is_correct": false},
+                {"option": "7.13 metres (23.4 feet)", "is_correct": false}
             ]
         },
         {
@@ -4977,10 +4978,10 @@
             "question_id": "B-6-13-5",
             "question": "Approximately how long is each leg of a symmetrical delta loop antenna driven element for 28.7 MHz?",
             "answers": [
-                {"option": "10.67 metres ", "is_correct": false},
-                {"option": "3.5 metres ", "is_correct": true},
-                {"option": "2.67 metres ", "is_correct": false},
-                {"option": "7.13 metres ", "is_correct": false}
+                {"option": "10.67 metres (35 feet)", "is_correct": false},
+                {"option": "3.5 metres (11.5 feet)", "is_correct": true},
+                {"option": "2.67 metres (8.75 feet)", "is_correct": false},
+                {"option": "7.13 metres (23.4 feet)", "is_correct": false}
             ]
         },
         {
@@ -5019,7 +5020,7 @@
         {
             "lesson_id": "L08",
             "question_id": "B-6-13-9",
-            "question": "What does the term \"antenna front-to-back ratio\" mean in reference to a delta loop antenna?",
+            "question": "What does the term \"antenna front-to-back ratio\"mean in reference to a delta loop antenna?",
             "answers": [
                 {"option": "The power radiated in the major radiation lobe compared to the power radiated 90 degrees away from that direction", "is_correct": false},
                 {"option": "The number of directors versus the number of reflectors", "is_correct": false},
@@ -5030,7 +5031,7 @@
         {
             "lesson_id": "L08",
             "question_id": "B-6-13-10",
-            "question": "The cubical \"quad\" or \"quad\" antenna consists of two or more square loops of wire. The driven element has an approximate overall length of:",
+            "question": "The cubical \"quad\"or \"quad\"antenna consists of two or more square loops of wire. The driven element has an approximate overall length of:",
             "answers": [
                 {"option": "one wavelength", "is_correct": true},
                 {"option": "three-quarters of a wavelength", "is_correct": false},
@@ -5206,12 +5207,12 @@
         {
             "lesson_id": "L09a",
             "question_id": "B-3-17-9",
-            "question": "Your mobile HF transceiver draws 22 amperes on transmit. The manufacturer suggests limiting voltage drop to 0.5 volt and the vehicle battery is 3 metres",
+            "question": "Your mobile HF transceiver draws 22 amperes on transmit. The manufacturer suggests limiting voltage drop to 0.5 volt and the vehicle battery is 3 metres (10 feet) away. Given the losses below at that current, which minimum wire gauge must you use?",
             "answers": [
-                {"option": "Number 12, 0.11 V per metre ", "is_correct": false},
-                {"option": "Number 8, 0.05 V per metre ", "is_correct": false},
-                {"option": "Number 10, 0.07 V per metre ", "is_correct": true},
-                {"option": "Number 14, 0.19 V per metre ", "is_correct": false}
+                {"option": "Number 12, 0.11 V per metre (0.03 V per foot)", "is_correct": false},
+                {"option": "Number 8, 0.05 V per metre (0.01 V per foot)", "is_correct": false},
+                {"option": "Number 10, 0.07 V per metre (0.02 V per foot)", "is_correct": true},
+                {"option": "Number 14, 0.19 V per metre (0.06 V per foot)", "is_correct": false}
             ]
         },
         {
@@ -5243,7 +5244,7 @@
             "answers": [
                 {"option": "Use a key-operated on/off switch in the main power line", "is_correct": true},
                 {"option": "Use a carrier-operated relay in the main power line", "is_correct": false},
-                {"option": "Put a \"Danger - High Voltage\" sign in the station", "is_correct": false},
+                {"option": "Put a \"Danger - High Voltage\"sign in the station", "is_correct": false},
                 {"option": "Put fuses in the main power line", "is_correct": false}
             ]
         },
@@ -5254,7 +5255,7 @@
             "answers": [
                 {"option": "Tune the radio to an unused frequency when you are done using it", "is_correct": false},
                 {"option": "Turn the radio off when you are not using it", "is_correct": false},
-                {"option": "Put a \"Do not touch\" sign on the radio", "is_correct": false},
+                {"option": "Put a \"Do not touch\"sign on the radio", "is_correct": false},
                 {"option": "Disconnect the microphone when you are not using it", "is_correct": true}
             ]
         },
@@ -5406,10 +5407,10 @@
             "question_id": "B-3-19-5",
             "question": "If you ground your station equipment to a ground rod driven into the earth, what is the shortest length the rod should be?",
             "answers": [
-                {"option": "2.5 metres ", "is_correct": false},
-                {"option": "3 metres ", "is_correct": false},
+                {"option": "2.5 metres (8 ft)", "is_correct": false},
+                {"option": "3 metres (10 ft)", "is_correct": false},
                 {"option": "The station ground system must conform to applicable electrical code requirements", "is_correct": true},
-                {"option": "1.2 metre ", "is_correct": false}
+                {"option": "1.2 metre (4 ft)", "is_correct": false}
             ]
         },
         {
@@ -5417,7 +5418,7 @@
             "question_id": "B-3-19-6",
             "question": "Where should the green wire in a three-wire AC line cord be connected in a power supply?",
             "answers": [
-                {"option": "To the \"hot\" side of the power switch", "is_correct": false},
+                {"option": "To the \"hot\"side of the power switch", "is_correct": false},
                 {"option": "To the fuse", "is_correct": false},
                 {"option": "To the chassis", "is_correct": true},
                 {"option": "To the white wire", "is_correct": false}
@@ -5426,7 +5427,7 @@
         {
             "lesson_id": "L09b",
             "question_id": "B-3-19-7",
-            "question": "If your third-floor amateur station has a ground wire running 10 metres",
+            "question": "If your third-floor amateur station has a ground wire running 10 metres (33 feet) down to a ground rod, why might you get an RF burn if you touch the front panel of your HF transceiver?",
             "answers": [
                 {"option": "Because of a bad antenna connection, allowing the RF energy to take an easier path out of the transceiver through you", "is_correct": false},
                 {"option": "Because the transceiver's heat-sensing circuit is not working to start the cooling fan", "is_correct": false},
@@ -5440,7 +5441,7 @@
             "question": "What is one good way to avoid stray RF energy in your amateur station?",
             "answers": [
                 {"option": "Make a couple of loops in the ground wire where it connects to your station", "is_correct": false},
-                {"option": "Drive the ground rod at least 4m ", "is_correct": false},
+                {"option": "Drive the ground rod at least 4m (14 feet) into the ground", "is_correct": false},
                 {"option": "Use a beryllium ground wire for best conductivity", "is_correct": false},
                 {"option": "Keep the station's ground wire as short as possible", "is_correct": true}
             ]
@@ -6009,7 +6010,7 @@
         {
             "lesson_id": "L10",
             "question_id": "B-3-11-5",
-            "question": "In what emission type does the instantaneous amplitude",
+            "question": "In what emission type does the instantaneous amplitude (envelope) of the RF signal vary in accordance with the modulating audio?",
             "answers": [
                 {"option": "Amplitude modulation", "is_correct": true},
                 {"option": "Frequency modulation", "is_correct": false},
@@ -6196,7 +6197,7 @@
         {
             "lesson_id": "L10",
             "question_id": "B-3-12-11",
-            "question": "The automatic level control",
+            "question": "The automatic level control (ALC) in a SSB transmitter:",
             "answers": [
                 {"option": "increases the occupied bandwidth", "is_correct": false},
                 {"option": "reduces the system noise", "is_correct": false},
@@ -6295,7 +6296,7 @@
         {
             "lesson_id": "L10",
             "question_id": "B-3-13-9",
-            "question": "Why isn't frequency modulated",
+            "question": "Why isn't frequency modulated (FM) phone used below 28.0 MHz?",
             "answers": [
                 {"option": "The bandwidth would exceed limits in the Regulations", "is_correct": true},
                 {"option": "The transmitter efficiency for this mode is low", "is_correct": false},
@@ -6416,7 +6417,7 @@
         {
             "lesson_id": "L11",
             "question_id": "B-7-1-10",
-            "question": "Reception of high frequency",
+            "question": "Reception of high frequency (HF) radio waves beyond 4000 km is generally made possible by:",
             "answers": [
                 {"option": "surface wave", "is_correct": false},
                 {"option": "ionospheric wave", "is_correct": true},
@@ -6561,10 +6562,10 @@
             "question_id": "B-7-3-2",
             "question": "What is the maximum distance along the Earth's surface that is normally covered in one hop using the F2 region?",
             "answers": [
-                {"option": "300 km ", "is_correct": false},
-                {"option": "4000 km ", "is_correct": true},
+                {"option": "300 km (190 miles)", "is_correct": false},
+                {"option": "4000 km (2500 miles)", "is_correct": true},
                 {"option": "None; the F2 region does not support radio-wave propagation", "is_correct": false},
-                {"option": "2000 km ", "is_correct": false}
+                {"option": "2000 km (1250 miles)", "is_correct": false}
             ]
         },
         {
@@ -6572,9 +6573,9 @@
             "question_id": "B-7-3-3",
             "question": "What is the maximum distance along the Earth's surface that is normally covered in one hop using the E region?",
             "answers": [
-                {"option": "2000 km ", "is_correct": true},
-                {"option": "300 km ", "is_correct": false},
-                {"option": "4000 km ", "is_correct": false},
+                {"option": "2000 km (1250 miles)", "is_correct": true},
+                {"option": "300 km (190 miles)", "is_correct": false},
+                {"option": "4000 km (2500 miles)", "is_correct": false},
                 {"option": "None; the E region does not support radio-wave propagation", "is_correct": false}
             ]
         },
@@ -6658,7 +6659,7 @@
         {
             "lesson_id": "L11",
             "question_id": "B-7-3-11",
-            "question": "If the height of the reflecting layer of the ionosphere increases, the skip distance of a high frequency",
+            "question": "If the height of the reflecting layer of the ionosphere increases, the skip distance of a high frequency (HF) transmission:",
             "answers": [
                 {"option": "stays the same", "is_correct": false},
                 {"option": "varies regularly", "is_correct": false},
@@ -6691,7 +6692,7 @@
         {
             "lesson_id": "L11",
             "question_id": "B-7-4-3",
-            "question": "Two or more parts of the radio wave follow different paths during propagation and this may result in phase differences at the receiver. This \"change\" at the receiver is called:",
+            "question": "Two or more parts of the radio wave follow different paths during propagation and this may result in phase differences at the receiver. This \"change\"at the receiver is called:",
             "answers": [
                 {"option": "absorption", "is_correct": false},
                 {"option": "skip", "is_correct": false},
@@ -6770,7 +6771,7 @@
             "question_id": "B-7-4-10",
             "question": "Polarization change often takes place on radio waves that are propagated over long distances. Which of these does not cause polarization change?",
             "answers": [
-                {"option": "Passage through magnetic fields ", "is_correct": false},
+                {"option": "Passage through magnetic fields (Faraday rotation)", "is_correct": false},
                 {"option": "Refractions", "is_correct": false},
                 {"option": "Parabolic interaction", "is_correct": true},
                 {"option": "Reflections", "is_correct": false}
@@ -6955,7 +6956,7 @@
         {
             "lesson_id": "L11",
             "question_id": "B-7-6-5",
-            "question": "What is one way to determine if the maximum usable frequency",
+            "question": "What is one way to determine if the maximum usable frequency (MUF) is high enough to support 28 MHz propagation between your station and western Europe?",
             "answers": [
                 {"option": "Listen for WWVH time signals on 20 MHz", "is_correct": false},
                 {"option": "Listen for signals from 10-metre beacon stations", "is_correct": true},
@@ -6966,7 +6967,7 @@
         {
             "lesson_id": "L11",
             "question_id": "B-7-6-6",
-            "question": "What usually happens to radio waves with frequencies below the maximum usable frequency",
+            "question": "What usually happens to radio waves with frequencies below the maximum usable frequency (MUF) when they are sent into the ionosphere?",
             "answers": [
                 {"option": "They pass through the ionosphere", "is_correct": false},
                 {"option": "They are bent back to the Earth", "is_correct": true},
@@ -7010,7 +7011,7 @@
         {
             "lesson_id": "L11",
             "question_id": "B-7-6-10",
-            "question": "The optimum working frequency provides the best long range HF communication. Compared with the maximum usable frequency",
+            "question": "The optimum working frequency provides the best long range HF communication. Compared with the maximum usable frequency (MUF), it is usually:",
             "answers": [
                 {"option": "double the MUF", "is_correct": false},
                 {"option": "half the MUF", "is_correct": false},
@@ -7133,20 +7134,20 @@
             "question_id": "B-7-7-10",
             "question": "Excluding enhanced propagation modes, what is the approximate range of normal VHF tropospheric propagation?",
             "answers": [
-                {"option": "1600 km ", "is_correct": false},
-                {"option": "800 km ", "is_correct": true},
-                {"option": "2400 km ", "is_correct": false},
-                {"option": "3200 km ", "is_correct": false}
+                {"option": "1600 km (1000 miles)", "is_correct": false},
+                {"option": "800 km (500 miles)", "is_correct": true},
+                {"option": "2400 km (1500 miles)", "is_correct": false},
+                {"option": "3200 km (2000 miles)", "is_correct": false}
             ]
         },
         {
             "lesson_id": "L11",
             "question_id": "B-7-7-11",
-            "question": "What effect is responsible for propagating a VHF signal over 800 km",
+            "question": "What effect is responsible for propagating a VHF signal over 800 km (500 miles)?",
             "answers": [
                 {"option": "Faraday rotation", "is_correct": false},
                 {"option": "D-region absorption", "is_correct": false},
-                {"option": "Moon bounce ", "is_correct": false},
+                {"option": "Moon bounce (EME) Earth - Moon - Earth", "is_correct": false},
                 {"option": "Tropospheric ducting", "is_correct": true}
             ]
         },
@@ -7538,7 +7539,7 @@
         {
             "lesson_id": "L12",
             "question_id": "B-3-10-5",
-            "question": "A receiver designed for SSB reception must have a BFO",
+            "question": "A receiver designed for SSB reception must have a BFO (beat frequency oscillator) because:",
             "answers": [
                 {"option": "it beats with the received carrier to produce the other sideband", "is_correct": false},
                 {"option": "it reduces the passband of the IF stages", "is_correct": false},
@@ -7725,7 +7726,7 @@
         {
             "lesson_id": "L13",
             "question_id": "B-8-1-10",
-            "question": "A television receiver suffers interference on channel 5",
+            "question": "A television receiver suffers interference on channel 5 (76 - 82 MHz) only when you transmit on 14 MHz. From your home you see the tower of a commercial FM station known to broadcast on 92.5 MHz. Which of these solutions would you try first?",
             "answers": [
                 {"option": "Insert a low pass filter at the antenna connector of the HF transmitter", "is_correct": false},
                 {"option": "Insert a high pass filter at the antenna connector of the HF transmitter", "is_correct": false},
@@ -7912,7 +7913,7 @@
         {
             "lesson_id": "L13",
             "question_id": "B-8-3-5",
-            "question": "In Morse code transmission, local RF interference",
+            "question": "In Morse code transmission, local RF interference (key-clicks) is produced by:",
             "answers": [
                 {"option": "the power amplifier, and is caused by high frequency parasitic oscillations", "is_correct": false},
                 {"option": "poor waveshaping caused by a poor voltage regulator", "is_correct": false},
@@ -7934,7 +7935,7 @@
         {
             "lesson_id": "L13",
             "question_id": "B-8-3-7",
-            "question": "In a Morse code transmission, broad bandwidth RF interference",
+            "question": "In a Morse code transmission, broad bandwidth RF interference (key-clicks) heard at a distance is produced by:",
             "answers": [
                 {"option": "poor shaping of the waveform", "is_correct": true},
                 {"option": "shift in frequency when keying the transmitter", "is_correct": false},
@@ -8003,7 +8004,7 @@
             "question": "What is meant by harmonic radiation?",
             "answers": [
                 {"option": "Signals which cause skip propagation to occur", "is_correct": false},
-                {"option": "Unwanted signals at frequencies which are multiples of the fundamental ", "is_correct": true},
+                {"option": "Unwanted signals at frequencies which are multiples of the fundamental (chosen) frequency", "is_correct": true},
                 {"option": "Unwanted signals that are combined with a 60-Hz hum", "is_correct": false},
                 {"option": "Unwanted signals caused by sympathetic vibrations from a nearby transmitter", "is_correct": false}
             ]
@@ -8055,7 +8056,7 @@
         {
             "lesson_id": "L13",
             "question_id": "B-8-4-7",
-            "question": "Your amateur radio transmitter appears to be creating interference to the television on channel 3",
+            "question": "Your amateur radio transmitter appears to be creating interference to the television on channel 3 (60-66 MHz) when you are transmitting on the 15 metre band. Other channels are not affected. The most likely cause is:",
             "answers": [
                 {"option": "a bad ground at the transmitter", "is_correct": false},
                 {"option": "front-end overload of the TV", "is_correct": false},
@@ -8066,7 +8067,7 @@
         {
             "lesson_id": "L13",
             "question_id": "B-8-4-8",
-            "question": "One possible cause of TV interference by harmonics from an SSB transmitter is from \"flat topping\" - driving the power amplifier into non-linear operation. The most appropriate remedy for this is:",
+            "question": "One possible cause of TV interference by harmonics from an SSB transmitter is from \"flat topping\"- driving the power amplifier into non-linear operation. The most appropriate remedy for this is:",
             "answers": [
                 {"option": "use another antenna", "is_correct": false},
                 {"option": "reduce oscillator output", "is_correct": false},
@@ -8088,7 +8089,7 @@
         {
             "lesson_id": "L13",
             "question_id": "B-8-4-10",
-            "question": "An interfering signal from a transmitter is found to have a frequency of 57 MHz",
+            "question": "An interfering signal from a transmitter is found to have a frequency of 57 MHz (TV Channel 2 is 54 - 60 MHz). This signal could be the:",
             "answers": [
                 {"option": "second harmonic of a 10 metre transmission", "is_correct": true},
                 {"option": "crystal oscillator operating on its fundamental", "is_correct": false},
@@ -8154,7 +8155,7 @@
         {
             "lesson_id": "L13",
             "question_id": "B-8-5-5",
-            "question": "In order to reduce the harmonic output of a high frequency",
+            "question": "In order to reduce the harmonic output of a high frequency (HF) transmitter, which of the following filters should be installed at the transmitter?",
             "answers": [
                 {"option": "Rejection", "is_correct": false},
                 {"option": "Low pass", "is_correct": true},
@@ -8455,7 +8456,7 @@
             "answers": [
                 {"option": "It will decrease the peak power output", "is_correct": false},
                 {"option": "It will decrease the average power output", "is_correct": false},
-                {"option": "It will add nothing to the output Peak Envelope Power ", "is_correct": true},
+                {"option": "It will add nothing to the output Peak Envelope Power (PEP)", "is_correct": true},
                 {"option": "It will increase the output PEP", "is_correct": false}
             ]
         },
@@ -8528,7 +8529,7 @@
         {
             "lesson_id": "L14b",
             "question_id": "B-3-15-1",
-            "question": "What does \"connected\" mean in an AX.25 packet-radio link?",
+            "question": "What does \"connected\"mean in an AX.25 packet-radio link?",
             "answers": [
                 {"option": "A telephone link is working between two stations", "is_correct": false},
                 {"option": "A message has reached an amateur station for local delivery", "is_correct": false},
@@ -8539,7 +8540,7 @@
         {
             "lesson_id": "L14b",
             "question_id": "B-3-15-2",
-            "question": "What does \"monitoring\" mean on a packet-radio frequency?",
+            "question": "What does \"monitoring\"mean on a packet-radio frequency?",
             "answers": [
                 {"option": "A member of the Amateur Auxiliary is copying all messages", "is_correct": false},
                 {"option": "A receiving station is displaying all messages sent to it, and replying that the messages are being received correctly", "is_correct": false},
@@ -8561,7 +8562,7 @@
         {
             "lesson_id": "L14b",
             "question_id": "B-3-15-4",
-            "question": "What does \"network\" mean in packet radio?",
+            "question": "What does \"network\"mean in packet radio?",
             "answers": [
                 {"option": "A way of connecting packet-radio stations so data can be sent over long distances", "is_correct": true},
                 {"option": "A way of connecting terminal-node controllers by telephone so data can be sent over long distances", "is_correct": false},
@@ -8594,7 +8595,7 @@
         {
             "lesson_id": "L14b",
             "question_id": "B-3-15-7",
-            "question": "When selecting a RTTY transmitting frequency, what minimum frequency separation from a contact in progress should you allow",
+            "question": "When selecting a RTTY transmitting frequency, what minimum frequency separation from a contact in progress should you allow (center to center) to minimize interference?",
             "answers": [
                 {"option": "60 Hz", "is_correct": false},
                 {"option": "250 to 500 Hz", "is_correct": true},
@@ -8618,7 +8619,7 @@
             "question_id": "B-3-15-9",
             "question": "Which of the following terms does not apply to packet radio?",
             "answers": [
-                {"option": "Automatic Packet Reporting System ", "is_correct": false},
+                {"option": "Automatic Packet Reporting System (APRS)", "is_correct": false},
                 {"option": "AX.25", "is_correct": false},
                 {"option": "Baudot", "is_correct": true},
                 {"option": "ASCII", "is_correct": false}
@@ -8627,7 +8628,7 @@
         {
             "lesson_id": "L14b",
             "question_id": "B-3-15-10",
-            "question": "When using AMTOR transmissions, there are two modes that may be utilized. Mode A uses Automatic Repeat Request",
+            "question": "When using AMTOR transmissions, there are two modes that may be utilized. Mode A uses Automatic Repeat Request (ARQ) protocol and is normally used:",
             "answers": [
                 {"option": "for communications after contact has been established", "is_correct": true},
                 {"option": "at all times. Mode B is for test purposes only", "is_correct": false},
@@ -8730,7 +8731,7 @@
             "answers": [
                 {"option": "messages addressed to points within Canada", "is_correct": false},
                 {"option": "all messages received from Canadian stations", "is_correct": false},
-                {"option": "messages originated from Canadian Forces Affiliate Radio Service ", "is_correct": true},
+                {"option": "messages originated from Canadian Forces Affiliate Radio Service (CFARS)", "is_correct": true},
                 {"option": "messages that are handled within a local network", "is_correct": false}
             ]
         },
@@ -8742,7 +8743,7 @@
                 {"option": "all messages originated by Canadian amateur stations", "is_correct": false},
                 {"option": "messages addressed to points within Canada from the United States", "is_correct": false},
                 {"option": "messages that are handled within local networks during a simulated emergency exercise", "is_correct": false},
-                {"option": "messages that originate from the United States Military Auxiliary Radio System ", "is_correct": true}
+                {"option": "messages that originate from the United States Military Auxiliary Radio System (MARS)", "is_correct": true}
             ]
         },
         {
@@ -8752,7 +8753,7 @@
             "answers": [
                 {"option": "obtain a Canadian amateur certificate before operating in Canada", "is_correct": true},
                 {"option": "add to his call sign the Canadian call sign prefix for the geographic location of the station", "is_correct": false},
-                {"option": "qualify his identification when operating phone by adding to the call sign the word\"mobile\" or \"portable\" or when operating Morse code by adding a slash \"/\"", "is_correct": false},
+                {"option": "qualify his identification when operating phone by adding to the call sign the word \"mobile\"or \"portable\"or when operating Morse code by adding a slash \"/\"", "is_correct": false},
                 {"option": "identify with the call sign assigned by the FCC", "is_correct": false}
             ]
         },
@@ -8763,8 +8764,8 @@
             "answers": [
                 {"option": "communicate with a similar station of a country which has not notified ITU that it objects to such communications", "is_correct": false},
                 {"option": "pass third-party traffic with all duly licensed amateur stations in any country which is a member of the ITU", "is_correct": true},
-                {"option": "pass messages originating from or destined to the United States Military Auxiliary Radio System ", "is_correct": false},
-                {"option": "pass messages originating from or destined to the Canadian Forces Affiliate Radio Service ", "is_correct": false}
+                {"option": "pass messages originating from or destined to the United States Military Auxiliary Radio System (MARS)", "is_correct": false},
+                {"option": "pass messages originating from or destined to the Canadian Forces Affiliate Radio Service (CFARS)", "is_correct": false}
             ]
         },
         {
@@ -8981,8 +8982,8 @@
             "question_id": "B-1-16-9",
             "question": "Which of the following answers is not correct? Based on the bandwidth required, the following modes may be transmitted on these frequencies:",
             "answers": [
-                {"option": "fast-scan television ", "is_correct": false},
-                {"option": "fast-scan television ", "is_correct": true},
+                {"option": "fast-scan television (ATV) on 440 MHz", "is_correct": false},
+                {"option": "fast-scan television (ATV) on 145 MHz", "is_correct": true},
                 {"option": "AMTOR on 14.08 MHz", "is_correct": false},
                 {"option": "300 bps packet on 10.145 MHz", "is_correct": false}
             ]
@@ -8992,10 +8993,10 @@
             "question_id": "B-1-16-10",
             "question": "Which of the following answers is not correct? Based on the bandwidth required, the following modes may be transmitted on these frequencies:",
             "answers": [
-                {"option": "single-sideband ", "is_correct": false},
-                {"option": "fast-scan television ", "is_correct": true},
-                {"option": "slow-scan television ", "is_correct": false},
-                {"option": "frequency modulation ", "is_correct": false}
+                {"option": "single-sideband (SSB) on 3.76 MHz", "is_correct": false},
+                {"option": "fast-scan television (ATV) on 14.23 MHz", "is_correct": true},
+                {"option": "slow-scan television (SSTV) on 14.23 MHz", "is_correct": false},
+                {"option": "frequency modulation (FM) on 29.6 MHz", "is_correct": false}
             ]
         },
         {
@@ -9003,10 +9004,10 @@
             "question_id": "B-1-16-11",
             "question": "Which of the following answers is not correct? Based on the bandwidth required, the following modes may be transmitted on these frequencies:",
             "answers": [
-                {"option": "frequency modulation ", "is_correct": false},
-                {"option": "Morse radiotelegraphy ", "is_correct": false},
+                {"option": "frequency modulation (FM) on 29.6 MHz", "is_correct": false},
+                {"option": "Morse radiotelegraphy (CW) on 10.11 MHz", "is_correct": false},
                 {"option": "300 bps packet on 10.148 MHz", "is_correct": false},
-                {"option": "single-sideband ", "is_correct": true}
+                {"option": "single-sideband (SSB) on 10.12 MHz", "is_correct": true}
             ]
         },
         {
@@ -9309,7 +9310,7 @@
         {
             "lesson_id": "L15",
             "question_id": "B-1-21-3",
-            "question": "A Canadian radio amateur, operating his station 7 kilometres",
+            "question": "A Canadian radio amateur, operating his station 7 kilometres (4 miles) offshore from the coast of Florida, is subject to which frequency band limits?",
             "answers": [
                 {"option": "Those applicable to Canadian radio amateurs", "is_correct": false},
                 {"option": "ITU Region 1", "is_correct": false},
@@ -9512,7 +9513,7 @@
                 {"option": "Permissible exposure levels of RF fields increases as frequency is increased from 300 MHz to 1.5 GHz", "is_correct": false},
                 {"option": "Permissible exposure levels of RF fields increases as frequency is decreased from 10 MHz to 1 MHz", "is_correct": false},
                 {"option": "Permissible exposure levels of RF fields decreases as frequency is decreased below 10 MHz", "is_correct": true},
-                {"option": "Maximum exposure levels of RF fields to the general population, in the frequency range 10 to 300 MHz, is 28 V/m RMS ", "is_correct": false}
+                {"option": "Maximum exposure levels of RF fields to the general population, in the frequency range 10 to 300 MHz, is 28 V/m RMS (E-field)", "is_correct": false}
             ]
         },
         {
@@ -9553,7 +9554,7 @@
             "question_id": "B-1-24-10",
             "question": "Which of these statements about Safety Code 6 is false?",
             "answers": [
-                {"option": "Safety Code 6 sets limits for allowable rates at which RF energy is absorbed in the body ", "is_correct": false},
+                {"option": "Safety Code 6 sets limits for allowable rates at which RF energy is absorbed in the body (Specific Absorption Rate)", "is_correct": false},
                 {"option": "Safety Code 6 sets limits in terms of power levels fed into antennas", "is_correct": true},
                 {"option": "Safety Code 6 sets limits for contact currents that could be drawn from ungrounded or poorly grounded objects", "is_correct": false},
                 {"option": "Safety Code 6 sets limits for induced currents, electrical field strength and magnetic field strength from electromagnetic radiation", "is_correct": false}
@@ -9664,8 +9665,8 @@
             "question": "How do you call another station on a repeater if you know the station's call sign?",
             "answers": [
                 {"option": "Say the station's call sign, then identify your own station", "is_correct": true},
-                {"option": "Say \"break, break 79,\" then say the station's call sign", "is_correct": false},
-                {"option": "Say \"CQ\" three times, then say the station's call sign", "is_correct": false},
+                {"option": "Say \"break, break 79,\"then say the station's call sign", "is_correct": false},
+                {"option": "Say \"CQ\"three times, then say the station's call sign", "is_correct": false},
                 {"option": "Wait for the station to call \"CQ\", then answer it", "is_correct": false}
             ]
         },
@@ -9699,7 +9700,7 @@
                 {"option": "Turn on an amplifier and override whoever is talking", "is_correct": false},
                 {"option": "Say your call sign during a break between transmissions", "is_correct": true},
                 {"option": "Wait for the end of a transmission and start calling the desired party", "is_correct": false},
-                {"option": "Shout, \"break, break!\" to show that you're eager to join the conversation", "is_correct": false}
+                {"option": "Shout, \"break, break!\"to show that you're eager to join the conversation", "is_correct": false}
             ]
         },
         {
@@ -9848,12 +9849,12 @@
         {
             "lesson_id": "L16",
             "question_id": "B-2-3-1",
-            "question": "What is the correct way to call \"CQ\" when using voice?",
+            "question": "What is the correct way to call \"CQ\"when using voice?",
             "answers": [
-                {"option": "Say \"CQ\" at least ten times, followed by \"this is,\" followed by your call sign spoken once", "is_correct": false},
-                {"option": "Say \"CQ\" three times, followed by \"this is,\" followed by your call sign spoken three times", "is_correct": true},
-                {"option": "Say \"CQ\" once, followed by \"this is,\" followed by your call sign spoken three times", "is_correct": false},
-                {"option": "Say \"CQ\" at least five times, followed by \"this is,\" followed by your call sign spoken once", "is_correct": false}
+                {"option": "Say \"CQ\"at least ten times, followed by \"this is,\"followed by your call sign spoken once", "is_correct": false},
+                {"option": "Say \"CQ\"three times, followed by \"this is,\"followed by your call sign spoken three times", "is_correct": true},
+                {"option": "Say \"CQ\"once, followed by \"this is,\"followed by your call sign spoken three times", "is_correct": false},
+                {"option": "Say \"CQ\"at least five times, followed by \"this is,\"followed by your call sign spoken once", "is_correct": false}
             ]
         },
         {
@@ -9861,10 +9862,10 @@
             "question_id": "B-2-3-2",
             "question": "How should you answer a voice CQ call?",
             "answers": [
-                {"option": "Say the other station's call sign at least ten times, followed by \"this is,\" then your call sign at least twice", "is_correct": false},
-                {"option": "Say the other station's call sign once, followed by \"this is,\" then your call sign given phonetically", "is_correct": true},
-                {"option": "Say the other station's call sign at least five times phonetically, followed by \"this is,\" then your call sign twice", "is_correct": false},
-                {"option": "Say the other station's call sign at least three times, followed by \"this is,\" and your call sign at least five times phonetically", "is_correct": false}
+                {"option": "Say the other station's call sign at least ten times, followed by \"this is,\"then your call sign at least twice", "is_correct": false},
+                {"option": "Say the other station's call sign once, followed by \"this is,\"then your call sign given phonetically", "is_correct": true},
+                {"option": "Say the other station's call sign at least five times phonetically, followed by \"this is,\"then your call sign twice", "is_correct": false},
+                {"option": "Say the other station's call sign at least three times, followed by \"this is,\"and your call sign at least five times phonetically", "is_correct": false}
             ]
         },
         {
@@ -9958,7 +9959,7 @@
         {
             "lesson_id": "L16",
             "question_id": "B-2-3-11",
-            "question": "What is the best method to tell if a band is\"open\" for communication with a particular distant location?",
+            "question": "What is the best method to tell if a band is \"open\"for communication with a particular distant location?",
             "answers": [
                 {"option": "Listen for signals from that area from an amateur beacon station or a foreign broadcast or television station on a nearby frequency", "is_correct": true},
                 {"option": "Ask others on your local 2 metre FM repeater", "is_correct": false},
@@ -10057,7 +10058,7 @@
         {
             "lesson_id": "L16",
             "question_id": "B-2-4-9",
-            "question": "When selecting a single-sideband phone transmitting frequency, what minimum frequency separation from a contact in progress should you allow",
+            "question": "When selecting a single-sideband phone transmitting frequency, what minimum frequency separation from a contact in progress should you allow (between suppressed carriers) to minimize interference?",
             "answers": [
                 {"option": "Approximately 10 kHz", "is_correct": false},
                 {"option": "Approximately 3 kHz", "is_correct": true},
@@ -10090,18 +10091,18 @@
         {
             "lesson_id": "L16",
             "question_id": "B-2-5-1",
-            "question": "What is the correct way to call \"CQ\" when using Morse code?",
+            "question": "What is the correct way to call \"CQ\"when using Morse code?",
             "answers": [
-                {"option": "Send the letters \"CQ\" ten times, followed by \"DE\", followed by your call sign sent once", "is_correct": false},
-                {"option": "Send the letters \"CQ\" over and over", "is_correct": false},
-                {"option": "Send the letters \"CQ\" three times, followed by \"DE\", followed by your call sign sent three times", "is_correct": true},
-                {"option": "Send the letters \"CQ\" three times, followed by \"DE\", followed by your call sign sent once", "is_correct": false}
+                {"option": "Send the letters \"CQ\"ten times, followed by \"DE\", followed by your call sign sent once", "is_correct": false},
+                {"option": "Send the letters \"CQ\"over and over", "is_correct": false},
+                {"option": "Send the letters \"CQ\"three times, followed by \"DE\", followed by your call sign sent three times", "is_correct": true},
+                {"option": "Send the letters \"CQ\"three times, followed by \"DE\", followed by your call sign sent once", "is_correct": false}
             ]
         },
         {
             "lesson_id": "L16",
             "question_id": "B-2-5-2",
-            "question": "How should you answer a routine Morse code \"CQ\" call?",
+            "question": "How should you answer a routine Morse code \"CQ\"call?",
             "answers": [
                 {"option": "Send your call sign followed by your name, station location and a signal report", "is_correct": false},
                 {"option": "Send the other station's call sign twice, followed by \"DE\", followed by your call sign twice", "is_correct": true},
@@ -10112,7 +10113,7 @@
         {
             "lesson_id": "L16",
             "question_id": "B-2-5-3",
-            "question": "At what speed should a Morse code \"CQ\" call be transmitted?",
+            "question": "At what speed should a Morse code \"CQ\"call be transmitted?",
             "answers": [
                 {"option": "At any speed which you can reliably receive", "is_correct": true},
                 {"option": "At any speed below 5 w.p.m.", "is_correct": false},
@@ -10128,7 +10129,7 @@
                 {"option": "Calling any station", "is_correct": true},
                 {"option": "Call on the quarter hour", "is_correct": false},
                 {"option": "An antenna is being tested", "is_correct": false},
-                {"option": "Only the station \"CQ\" should answer", "is_correct": false}
+                {"option": "Only the station \"CQ\"should answer", "is_correct": false}
             ]
         },
         {
@@ -10178,7 +10179,7 @@
         {
             "lesson_id": "L16",
             "question_id": "B-2-5-9",
-            "question": "Which of the following describes full break-in telegraphy",
+            "question": "Which of the following describes full break-in telegraphy (QSK)?",
             "answers": [
                 {"option": "An operator must activate a manual send/receive switch before and after every transmission", "is_correct": false},
                 {"option": "Breaking stations send the Morse code prosign \"BK\"", "is_correct": false},
@@ -10211,7 +10212,7 @@
         {
             "lesson_id": "L16",
             "question_id": "B-2-6-1",
-            "question": "What are \"RST\" signal reports?",
+            "question": "What are \"RST\"signal reports?",
             "answers": [
                 {"option": "A short way to describe signal reception", "is_correct": true},
                 {"option": "A short way to describe transmitter power", "is_correct": false},
@@ -10222,7 +10223,7 @@
         {
             "lesson_id": "L16",
             "question_id": "B-2-6-2",
-            "question": "What does\"RST\" mean in a signal report?",
+            "question": "What does \"RST\"mean in a signal report?",
             "answers": [
                 {"option": "Readability, signal speed, tempo", "is_correct": false},
                 {"option": "Readability, signal strength, tone", "is_correct": true},
@@ -10299,7 +10300,7 @@
         {
             "lesson_id": "L16",
             "question_id": "B-2-6-9",
-            "question": "What does \"RST 579\" mean in a Morse code contact?",
+            "question": "What does \"RST 579\"mean in a Morse code contact?",
             "answers": [
                 {"option": "Your signal is perfectly readable, weak strength, and with perfect tone", "is_correct": false},
                 {"option": "Your signal is fairly readable, fair strength, and with perfect tone", "is_correct": false},
@@ -10310,7 +10311,7 @@
         {
             "lesson_id": "L16",
             "question_id": "B-2-6-10",
-            "question": "What does \"RST 459\" mean in a Morse code contact?",
+            "question": "What does \"RST 459\"mean in a Morse code contact?",
             "answers": [
                 {"option": "Your signal is very readable, very strong, and with perfect tone", "is_correct": false},
                 {"option": "Your signal is barely readable, very weak, and with perfect tone", "is_correct": false},
@@ -10321,7 +10322,7 @@
         {
             "lesson_id": "L16",
             "question_id": "B-2-6-11",
-            "question": "What is the meaning of \"Your signal report is 1 \"?",
+            "question": "What is the meaning of \"Your signal report is 1 1\"?",
             "answers": [
                 {"option": "Your signal is first class in readability and first class in strength", "is_correct": false},
                 {"option": "Your signal is very readable and very strong", "is_correct": false},
@@ -10337,7 +10338,7 @@
                 {"option": "Radio station location is:", "is_correct": false},
                 {"option": "Send more slowly", "is_correct": true},
                 {"option": "Interference from static", "is_correct": false},
-                {"option": "Send \"RST\" report", "is_correct": false}
+                {"option": "Send \"RST\"report", "is_correct": false}
             ]
         },
         {
@@ -10398,7 +10399,7 @@
         {
             "lesson_id": "L16",
             "question_id": "B-2-7-7",
-            "question": "The signal \"QRM\" signifies:",
+            "question": "The signal \"QRM\"signifies:",
             "answers": [
                 {"option": "I am being interfered with", "is_correct": true},
                 {"option": "I am troubled by static", "is_correct": false},
@@ -10409,7 +10410,7 @@
         {
             "lesson_id": "L16",
             "question_id": "B-2-7-8",
-            "question": "The signal \"QRN\" means:",
+            "question": "The signal \"QRN\"means:",
             "answers": [
                 {"option": "I am being interfered with", "is_correct": false},
                 {"option": "I am troubled by static", "is_correct": true},
@@ -10420,7 +10421,7 @@
         {
             "lesson_id": "L16",
             "question_id": "B-2-7-9",
-            "question": "The \"Q signal\" indicating that you want the other station to send slower is:",
+            "question": "The \"Q signal\"indicating that you want the other station to send slower is:",
             "answers": [
                 {"option": "QRN", "is_correct": false},
                 {"option": "QRS", "is_correct": true},
@@ -10442,7 +10443,7 @@
         {
             "lesson_id": "L16",
             "question_id": "B-2-7-11",
-            "question": "The \"Q signal\" which signifies \"I will call you again\" is:",
+            "question": "The \"Q signal\"which signifies \"I will call you again\"is:",
             "answers": [
                 {"option": "QRZ", "is_correct": false},
                 {"option": "QRS", "is_correct": false},
@@ -10453,12 +10454,12 @@
         {
             "lesson_id": "L16",
             "question_id": "B-2-8-1",
-            "question": "When may you use your amateur station to transmit an \"SOS\" or \"MAYDAY\"?",
+            "question": "When may you use your amateur station to transmit an \"SOS\"or \"MAYDAY\"?",
             "answers": [
                 {"option": "Only in case of a severe weather watch", "is_correct": false},
                 {"option": "In a life-threatening distress situation", "is_correct": true},
                 {"option": "Never", "is_correct": false},
-                {"option": "Only at specific times ", "is_correct": false}
+                {"option": "Only at specific times (at 15 and 30 minutes after the hour)", "is_correct": false}
             ]
         },
         {
@@ -10477,10 +10478,10 @@
             "question_id": "B-2-8-3",
             "question": "What is the proper distress call to use when operating phone?",
             "answers": [
-                {"option": "Say \"EMERGENCY\" several times", "is_correct": false},
-                {"option": "Say \"HELP\" several times", "is_correct": false},
-                {"option": "Say \"MAYDAY\" several times", "is_correct": true},
-                {"option": "Say \"SOS\" several times", "is_correct": false}
+                {"option": "Say \"EMERGENCY\"several times", "is_correct": false},
+                {"option": "Say \"HELP\"several times", "is_correct": false},
+                {"option": "Say \"MAYDAY\"several times", "is_correct": true},
+                {"option": "Say \"SOS\"several times", "is_correct": false}
             ]
         },
         {
@@ -10500,9 +10501,9 @@
             "question": "What is the proper way to interrupt a repeater conversation to signal a distress call?",
             "answers": [
                 {"option": "Break-in immediately following the transmission of the active party and state your situation and call sign", "is_correct": true},
-                {"option": "Say \"EMERGENCY\" three times", "is_correct": false},
-                {"option": "Say \"SOS,\" then your call sign", "is_correct": false},
-                {"option": "Say \"HELP\" as many times as it takes to get someone to answer", "is_correct": false}
+                {"option": "Say \"EMERGENCY\"three times", "is_correct": false},
+                {"option": "Say \"SOS,\"then your call sign", "is_correct": false},
+                {"option": "Say \"HELP\"as many times as it takes to get someone to answer", "is_correct": false}
             ]
         },
         {
@@ -10634,13 +10635,13 @@
                 {"option": "Point your antenna toward Newington, Connecticut", "is_correct": false},
                 {"option": "Point your antenna to the north", "is_correct": false},
                 {"option": "Point your antenna to the south", "is_correct": false},
-                {"option": "Point your beam 180 degrees away from that bearing and listen for the stations arriving on the \"long-\"", "is_correct": true}
+                {"option": "Point your beam 180 degrees away from that bearing and listen for the stations arriving on the \"long-path\"", "is_correct": true}
             ]
         },
         {
             "lesson_id": "L16",
             "question_id": "B-2-9-7",
-            "question": "Which statement about recording all contacts and unanswered \"CQ calls\" in a station logbook or computer log is not correct?",
+            "question": "Which statement about recording all contacts and unanswered \"CQ calls\"in a station logbook or computer log is not correct?",
             "answers": [
                 {"option": "A well-kept log preserves your fondest amateur radio memories for years", "is_correct": false},
                 {"option": "A log is important for handling neighbour interference complaints", "is_correct": false},
@@ -10662,7 +10663,7 @@
         {
             "lesson_id": "L16",
             "question_id": "B-2-9-9",
-            "question": "Station logs and confirmation",
+            "question": "Station logs and confirmation (QSL) cards are always kept in UTC (Universal Time Coordinated). Where is that time based?",
             "answers": [
                 {"option": "Greenwich, England", "is_correct": true},
                 {"option": "Geneva, Switzerland", "is_correct": false},
@@ -10677,7 +10678,7 @@
             "answers": [
                 {"option": "Unlisted Telephone Call", "is_correct": false},
                 {"option": "Unlimited Time Capsule", "is_correct": false},
-                {"option": "Universal Time Coordinated ", "is_correct": true},
+                {"option": "Universal Time Coordinated (formerly Greenwich Mean Time - GMT)", "is_correct": true},
                 {"option": "Universal Time Constant", "is_correct": false}
             ]
         },
@@ -10694,3 +10695,4 @@
         }
     ]
 }
+
