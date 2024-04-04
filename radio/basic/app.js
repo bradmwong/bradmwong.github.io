@@ -1,5 +1,16 @@
 let QUESTION_LIST = [];
 
+document.querySelector('#toggleButton').onclick = async () => {
+
+    const checkboxContainer = document.querySelector('#questionOptions');
+    const checkboxes = checkboxContainer.querySelectorAll('input[type="checkbox"]');
+
+    checkboxes.forEach(function(checkbox) {
+        checkbox.checked = !checkbox.checked;
+    });
+
+}
+
 document.querySelector('#questionButton').onclick = async () => {
 
     const lessonIds = ["L01", "L02", "L03a", "L03b", "L04", "L05", "L06a", "L06b", "L07", "L08", "L09a", "L09b", "L10", "L11", "L12", "L13", "L14a", "L14b", "L15", "L16"]
@@ -18,16 +29,16 @@ document.querySelector('#questionButton').onclick = async () => {
         .catch((e) => alert(`ERROR: ${e}`))
     QUESTION_LIST = questionsObj.questions.filter(obj => activeLessons.includes(obj.lesson_id));
     
-    const questionOptions = document.querySelector('#questionOptions')
-    questionOptions.classList.add('d-none')
-    nextQuestionContainer.classList.remove('d-none')
+    const questionOptions = document.querySelector('#questionOptions');
+    questionOptions.classList.add('d-none');
+    nextQuestionContainer.classList.remove('d-none');
 
     // Create a question
     createQuestions(QUESTION_LIST)
 }
 
 document.querySelector('#nextQuestionButton').onclick = () => {
-    createQuestions(QUESTION_LIST)
+    createQuestions(QUESTION_LIST);
 }
 
 function createQuestions(questions) {
